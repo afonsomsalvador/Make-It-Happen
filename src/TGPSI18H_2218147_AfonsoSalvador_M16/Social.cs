@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace TGPSI18H_2218147_AfonsoSalvador_M16
 {
-    public partial class Map_Page : Form
+    public partial class Social : Form
     {
-        public Map_Page()
+        public Social()
         {
             InitializeComponent();
-            SidePanel.Height = button1.Height;
-            SidePanel.Top = button1.Top;
-
+            SidePanel.Height = button4.Height;
+            SidePanel.Top = button4.Top;
+            button4.ForeColor = Color.Wheat;
         }
-  
+
         private void Button3_Click(object sender, EventArgs e)
         {
             SidePanel.Height = button3.Height;
@@ -38,7 +38,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             button4.ForeColor = Color.White;
             button2.ForeColor = Color.White;
             button3.ForeColor = Color.White;
-            this.Show();
+            
         }
 
         private void Button2_Click(object sender, EventArgs e)
@@ -61,43 +61,28 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             button3.ForeColor = Color.White;
         }
 
-        private void PictureBox3_Click(object sender, EventArgs e)
+        private void Btnuploadimage_Click(object sender, EventArgs e)
         {
-            Application.Exit();
-        }
+            String imageLocation = "";
 
-        private void Map_Page_Load(object sender, EventArgs e)
-        {
-            LiveCharts.WinForms.GeoMap geomap = new LiveCharts.WinForms.GeoMap();
-            Dictionary<string, double> d = new Dictionary<string, double>();
-            geomap.HeatMap = d;
-            geomap.Source = $"{Application.StartupPath}\\World.xml";
-            this.Controls.Add(geomap);
-            geomap.Dock = DockStyle.Fill;
-            geomap.LandClick += GeoMap1_LandClick;
-            geomap.Hoverable = true;
-            geomap.BringToFront();
-        }
-
-
-        private void GeoMap1_LandClick(object arg1, LiveCharts.Maps.MapData arg2)
-        {
-            
-            Console.WriteLine(arg2.Id);
-           
-            if (arg2.Id == ("PT"))
+            try
             {
-                this.Hide();
-                Form1 f1 = new Form1();   
-                f1.ShowDialog();
+                OpenFileDialog dialog = new OpenFileDialog();
+                dialog.Filter = "jpg files(*.jpg)|*.jpg| PNG files(*.png)|*.png| All files(*.*)|*.*";
+
+                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    imageLocation = dialog.FileName;
+
+                    bunifuImageButton1.ImageLocation = imageLocation;
+                }
             }
-           
+            catch (Exception)
+            {
+                MessageBox.Show("Ocorreu um erro !!","Erro", MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
         }
 
-        private void Panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+     
     }
-
 }

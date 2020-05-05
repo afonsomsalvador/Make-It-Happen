@@ -15,6 +15,28 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         public Form1()
         {
             InitializeComponent();
+            txtPassword.PasswordChar = '•';
+        }
+        private bool dragging = false;
+        private Point startPoint = new Point(0, 0);
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            dragging = true;
+            startPoint = new Point(e.X, e.Y);
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (dragging)
+            {
+                Point p = PointToScreen(e.Location);
+                Location = new Point(p.X - this.startPoint.X, p.Y - this.startPoint.Y);
+            }
+        }
+
+        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            dragging = false;
         }
 
         private void Label1_Click(object sender, EventArgs e)
@@ -42,6 +64,11 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         private void TextBox2_TextChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void TextBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
