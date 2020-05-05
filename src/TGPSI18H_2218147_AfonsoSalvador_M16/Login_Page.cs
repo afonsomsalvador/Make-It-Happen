@@ -29,15 +29,19 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            Form1 f1 = new Form1();
-            Map_Page f2 = new Map_Page();
-            f1.Close();
-            f2.Show();
+            this.Hide();
+            Map_Page mp = new Map_Page();
+            mp.ShowDialog();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void TextBox2_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

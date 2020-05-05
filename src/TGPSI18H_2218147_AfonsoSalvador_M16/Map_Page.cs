@@ -71,7 +71,9 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
            
             if (arg2.Id == ("PT"))
             {
-                
+                this.Hide();
+                Form1 f1 = new Form1();   
+                f1.ShowDialog();
             }
         }
 
