@@ -51,5 +51,29 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         {
 
         }
+
+        private void Btnuploadimage_Click(object sender, EventArgs e)
+        {
+            
+                String imageLocation = "";
+
+                try
+                {
+                    OpenFileDialog dialog = new OpenFileDialog();
+                    dialog.Filter = "jpg files(*.jpg)|*.jpg| PNG files(*.png)|*.png| All files(*.*)|*.*";
+
+                    if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    {
+                        imageLocation = dialog.FileName;
+
+                        bunifuImageButton1.ImageLocation = imageLocation;
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Ocorreu um erro !!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            
+        }
     }
 }
