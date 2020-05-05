@@ -28,6 +28,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             button1.ForeColor = Color.White;
             button2.ForeColor = Color.White;
             button4.ForeColor = Color.White;
+     
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -38,11 +39,13 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             button4.ForeColor = Color.White;
             button2.ForeColor = Color.White;
             button3.ForeColor = Color.White;
-            this.Show();
+            Map_Page mp = new Map_Page();
+            mp.ShowDialog();
         }
 
         private void Button2_Click(object sender, EventArgs e)
         {
+
             SidePanel.Height = button2.Height;
             SidePanel.Top = button2.Top;
             button2.ForeColor = Color.Wheat;
