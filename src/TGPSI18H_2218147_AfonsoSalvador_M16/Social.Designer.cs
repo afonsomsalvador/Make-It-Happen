@@ -144,10 +144,10 @@
             this.guna2Panel1.Controls.Add(this.button5);
             this.guna2Panel1.Controls.Add(this.btnuploadimage);
             this.guna2Panel1.Controls.Add(this.bunifuImageButton1);
-            this.guna2Panel1.Location = new System.Drawing.Point(868, 0);
+            this.guna2Panel1.Location = new System.Drawing.Point(871, 0);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
-            this.guna2Panel1.Size = new System.Drawing.Size(409, 678);
+            this.guna2Panel1.Size = new System.Drawing.Size(406, 678);
             this.guna2Panel1.TabIndex = 5;
             // 
             // button5

@@ -34,11 +34,13 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.txtPassword);
             this.panel1.Controls.Add(this.textBox1);
@@ -73,6 +75,7 @@
             this.txtPassword.Size = new System.Drawing.Size(263, 33);
             this.txtPassword.TabIndex = 9;
             this.txtPassword.UseSystemPasswordChar = true;
+            this.txtPassword.TextChanged += new System.EventHandler(this.TxtPassword_TextChanged);
             // 
             // textBox1
             // 
@@ -106,6 +109,18 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Username";
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(513, 521);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(283, 16);
+            this.label13.TabIndex = 30;
+            this.label13.Text = "Ainda não tens conta criada. Regista te agora.";
+            this.label13.Click += new System.EventHandler(this.Label13_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -131,6 +146,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label13;
     }
 }
 
