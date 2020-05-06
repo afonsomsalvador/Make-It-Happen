@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-
+using System.IO;
 namespace TGPSI18H_2218147_AfonsoSalvador_M16
 {
     public partial class Register_Page : Form
@@ -21,21 +21,23 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         private void Button1_Click(object sender, EventArgs e)
         {
             
+                conn.Open();
             MySqlCommand cmd = conn.CreateCommand();
-            if(txt_password.Text == txt_conpass.Text)
+            cmd.CommandType = CommandType.Text;
+
+            if (txt_password.Text == txt_conpass.Text)
             {
-                cmd.CommandType = CommandType.Text;
-                cmd.Parameters.Add("@user", MySqlDbType.VarChar).Value = txt_user.Text;
-                cmd.Parameters.Add("@Password", MySqlDbType.VarChar).Value = txt_password.Text;
-                cmd.Parameters.Add("@nome", MySqlDbType.VarChar).Value = txt_nome.Text;
-                cmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = txt_email.Text;
-                cmd.Parameters.Add("@foto", MySqlDbType.LongBlob).Value = txt_user.Text;
+                cmd.Parameters.Add("@user", MySqlDbType.VarChar, 20).Value = txt_user.Text;
+                cmd.Parameters.Add("@Password", MySqlDbType.VarChar, 8).Value = txt_password.Text;
+                cmd.Parameters.Add("@nome", MySqlDbType.VarChar, 80).Value = txt_nome.Text;
+                cmd.Parameters.Add("@email", MySqlDbType.VarChar, 45).Value = txt_email.Text;
+                
             }
             else 
             {
                 
             }
-            conn.Open();
+            
             if (cmd.ExecuteNonQuery() == 1)
             {
                 MessageBox.Show("Conta criada!!");
@@ -51,7 +53,10 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 
         private void Btnuploadimage_Click(object sender, EventArgs e)
         {
-
+            MemoryStream ms = new MemoryStream();
+            bunifuImageButton1.Image.Save(ms,bunifuImageButton1.Image.RawFormat);
+            byte[] img = ms.ToArray();
+            String insertQuery = "INSERT INTO foto";
             String imageLocation = "";
 
             try
@@ -80,6 +85,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 
         private void BunifuImageButton1_Click(object sender, EventArgs e)
         {
+           
 
         }
 
