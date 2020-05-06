@@ -23,6 +23,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             
                 conn.Open();
             MySqlCommand cmd = conn.CreateCommand();
+
             cmd.CommandType = CommandType.Text;
 
             if (txt_password.Text == txt_conpass.Text)
@@ -31,17 +32,17 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                 cmd.Parameters.Add("@Password", MySqlDbType.VarChar, 8).Value = txt_password.Text;
                 cmd.Parameters.Add("@nome", MySqlDbType.VarChar, 80).Value = txt_nome.Text;
                 cmd.Parameters.Add("@email", MySqlDbType.VarChar, 45).Value = txt_email.Text;
-                
+                if (cmd.ExecuteNonQuery() == 1)
+                {
+                    MessageBox.Show("Conta criada!!");
+                }
             }
             else 
             {
                 
             }
             
-            if (cmd.ExecuteNonQuery() == 1)
-            {
-                MessageBox.Show("Conta criada!!");
-            }
+         
             conn.Close();
         }
         private void Register_Page_Load(object sender, EventArgs e)
