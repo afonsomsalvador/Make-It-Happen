@@ -130,6 +130,7 @@
             // 
             // txt_email
             // 
+            this.txt_email.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txt_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.txt_email.Location = new System.Drawing.Point(441, 214);
             this.txt_email.Multiline = true;
@@ -188,6 +189,7 @@
             this.cmb_nacionalidade.Name = "cmb_nacionalidade";
             this.cmb_nacionalidade.Size = new System.Drawing.Size(263, 28);
             this.cmb_nacionalidade.TabIndex = 20;
+            this.cmb_nacionalidade.SelectedIndexChanged += new System.EventHandler(this.Cmb_nacionalidade_SelectedIndexChanged);
             // 
             // btnuploadimage
             // 
@@ -335,6 +337,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Register_Page";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Register_Page";

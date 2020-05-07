@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Configuration;
 using System.IO;
 namespace TGPSI18H_2218147_AfonsoSalvador_M16
 {
@@ -22,6 +23,8 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         private void Button1_Click(object sender, EventArgs e)
         {
             string sql=("INSERT INTO login(user, Password, nome, email) VALUES(@param1, @param2, @param3, @param4)");
+            string cmb = ("SELECT nome FROM pais");
+
             using (MySqlCommand cmd= new MySqlCommand(sql,conn))
             {
                 if (txt_password.Text == txt_conpass.Text)
@@ -35,10 +38,15 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                     conn.Close();
                 }
             }
-               
-        
+           
+            MySqlCommand CMD = new MySqlCommand(cmb, conn);
+
+            MySqlDataAdapter da = new MySqlDataAdapter(CMD);
+            conn.Open();
+            cmb_nacionalidade.DataSource = da;
+            cmb_nacionalidade.DisplayMember = "nome";
+            conn.Close();
         }
-      
         private void Register_Page_Load(object sender, EventArgs e)
         {
 
@@ -86,6 +94,11 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             this.Hide();
             Form1 MP = new Form1();
             MP.ShowDialog();
+        }
+
+        private void Cmb_nacionalidade_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

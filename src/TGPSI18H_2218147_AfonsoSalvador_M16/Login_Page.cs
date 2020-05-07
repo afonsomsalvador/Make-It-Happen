@@ -68,5 +68,10 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             Register_Page RP = new Register_Page();
             RP.ShowDialog();
         }
+
+        private void Button1_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,6 +52,18 @@
             this.panel1.Size = new System.Drawing.Size(1218, 629);
             this.panel1.TabIndex = 0;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(513, 521);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(283, 16);
+            this.label13.TabIndex = 30;
+            this.label13.Text = "Ainda não tens conta criada. Regista te agora.";
+            this.label13.Click += new System.EventHandler(this.Label13_Click);
+            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
@@ -64,6 +76,7 @@
             this.button1.TabIndex = 10;
             this.button1.Text = "Login";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.Button1_Click_1);
             // 
             // txtPassword
             // 
@@ -108,18 +121,6 @@
             this.label1.Size = new System.Drawing.Size(97, 24);
             this.label1.TabIndex = 6;
             this.label1.Text = "Username";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(513, 521);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(283, 16);
-            this.label13.TabIndex = 30;
-            this.label13.Text = "Ainda não tens conta criada. Regista te agora.";
-            this.label13.Click += new System.EventHandler(this.Label13_Click);
             // 
             // Form1
             // 
