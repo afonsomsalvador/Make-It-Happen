@@ -38,7 +38,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                     conn.Close();
                 }
             }
-           
             MySqlCommand CMD = new MySqlCommand(cmb, conn);
 
             MySqlDataAdapter da = new MySqlDataAdapter(CMD);
