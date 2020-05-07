@@ -336,6 +336,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Register_Page";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Register_Page";
             this.Load += new System.EventHandler(this.Register_Page_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
