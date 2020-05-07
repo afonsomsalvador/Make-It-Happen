@@ -13,38 +13,37 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 {
     public partial class Register_Page : Form
     {
-        MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=psi18_afonsosalvador");
+       
         public Register_Page()
         {
             InitializeComponent();
         }
         private void Button1_Click(object sender, EventArgs e)
         {
-            
-                conn.Open();
-            MySqlCommand cmd = conn.CreateCommand();
-
-            cmd.CommandType = CommandType.Text;
+            string connetionString = null;
+            MySqlConnection conn;
+            connetionString = "datasource=localhost;port=3306;username=root;password=;database=psi18_afonsosalvador;";
+            conn = new MySqlConnection(connetionString);
 
             if (txt_password.Text == txt_conpass.Text)
             {
-                cmd.Parameters.Add("@user", MySqlDbType.VarChar, 20).Value = txt_user.Text;
-                cmd.Parameters.Add("@Password", MySqlDbType.VarChar, 8).Value = txt_password.Text;
-                cmd.Parameters.Add("@nome", MySqlDbType.VarChar, 80).Value = txt_nome.Text;
-                cmd.Parameters.Add("@email", MySqlDbType.VarChar, 45).Value = txt_email.Text;
-                if (cmd.ExecuteNonQuery() == 1)
-                {
-                    MessageBox.Show("Conta criada!!");
-                }
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO 'login' ('user','Password','nome','email') VALUES(param1,param2,param3,param4)");
+                cmd.Parameters.Add("param1", MySqlDbType.VarChar, 20).Value = txt_user.Text;
+                cmd.Parameters.Add("param2", MySqlDbType.VarChar, 8).Value = txt_password.Text;
+                cmd.Parameters.Add("param3", MySqlDbType.VarChar, 80).Value = txt_nome.Text;
+                cmd.Parameters.Add("param4", MySqlDbType.VarChar, 45).Value = txt_email.Text;
+                cmd.ExecuteNonQuery();
+                conn.Close();
             }
-            else 
-            {
-                
-            }
-            
-         
-            conn.Close();
+        
+
+            //  if (txt_password.Text == txt_conpass.Text)
+            //{
+            //  if (cmd.ExecuteNonQuery() == 1)//Se nao existir ainda esta conta 
+            //{
         }
+      
         private void Register_Page_Load(object sender, EventArgs e)
         {
 
