@@ -37,11 +37,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                 conn.Close();
             }
         
-
-            //  if (txt_password.Text == txt_conpass.Text)
-            //{
-            //  if (cmd.ExecuteNonQuery() == 1)//Se nao existir ainda esta conta 
-            //{
         }
       
         private void Register_Page_Load(object sender, EventArgs e)
@@ -53,10 +48,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 
         private void Btnuploadimage_Click(object sender, EventArgs e)
         {
-            MemoryStream ms = new MemoryStream();
-            bunifuImageButton1.Image.Save(ms,bunifuImageButton1.Image.RawFormat);
-            byte[] img = ms.ToArray();
-            String insertQuery = "INSERT INTO foto";
+ 
             String imageLocation = "";
 
             try
