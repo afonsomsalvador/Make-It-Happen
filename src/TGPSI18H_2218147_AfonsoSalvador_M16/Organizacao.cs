@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using System.Configuration;
+using System.Runtime.InteropServices;
+using System.IO;
 
 namespace TGPSI18H_2218147_AfonsoSalvador_M16
 {
@@ -65,5 +69,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             button3.ForeColor = Color.White;
 
         }
+
+
     }
 }

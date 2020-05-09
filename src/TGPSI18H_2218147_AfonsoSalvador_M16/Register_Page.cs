@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Configuration;
+using System.Runtime.InteropServices;
 using System.IO;
 namespace TGPSI18H_2218147_AfonsoSalvador_M16
 {
@@ -50,9 +51,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         {
 
         }
-
-
-
         private void Btnuploadimage_Click(object sender, EventArgs e)
         {
  
@@ -98,6 +96,38 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         private void Cmb_nacionalidade_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
+        private void Panel2_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+        private void PictureBox3_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void PictureBox1_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+
+        }
+
+        private void PictureBox2_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

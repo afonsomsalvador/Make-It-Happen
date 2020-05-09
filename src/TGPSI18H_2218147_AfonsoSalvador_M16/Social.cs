@@ -81,5 +81,10 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             button3.ForeColor = Color.White;
 
         }
+
+        private void Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
