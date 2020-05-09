@@ -12,13 +12,12 @@ using MySql.Data.MySqlClient;
 
 namespace TGPSI18H_2218147_AfonsoSalvador_M16
 {
-    public partial class Form1 : Form
+    public partial class LoginForm : Form
     {
         MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=123456;database=psi18_afonsosalvador");
-        public Form1()
+        public LoginForm()
         {
             InitializeComponent();
-            txtPassword.PasswordChar = '•';
         }
         private void Label1_Click(object sender, EventArgs e)
         {
@@ -95,6 +94,16 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         private void PictureBox2_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void TxtPassword_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtPassword_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtPassword.PasswordChar = '•';
         }
     }
 }

@@ -326,6 +326,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1154, 32);
             this.panel2.TabIndex = 31;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel2_Paint_1);
             this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel2_MouseDown);
             // 
             // pictureBox3
