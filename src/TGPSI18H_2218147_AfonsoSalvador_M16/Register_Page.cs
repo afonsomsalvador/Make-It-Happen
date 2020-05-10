@@ -15,31 +15,45 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 {
     public partial class Register_Page : Form
     {
+        String imageLocation = "";
         MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=psi18_afonsosalvador;");
 
         void combobox()
         {
-            string Query = ("SELECT p.idPais, l.Pais_idPais, p.nome FROM login l, pais p where p.idPais = l.Pais_idPais and p.nome = p.idPais INNER JOIN pais ON l.Pais_idPais = p.idPais");
+            string Query = ("SELECT * FROM pais ORDER BY nome ASC;"); /*.. where p.idPais = l.Pais_idPais and p.nome = p.idPais*/
 
             using (MySqlCommand mysqlcommand = new MySqlCommand(Query, conn))
             {
                 MySqlDataReader myReader;
                 try
                 {
-
+              
                     conn.Open();
                     myReader = mysqlcommand.ExecuteReader();
-                    while (myReader.Read())
-                    {
-                        string sName = myReader.GetString("nome");
-                        cmb_nacionalidade.Items.Add(sName);
-                    }
+                                
+                    
+                 
+                   
+                   
+                       
+                        DataTable dt = new DataTable();
+                        dt.Load(myReader); // Carrega os dados para o DataTable 
+                        // Define qual coluna será manipulada via código
+                        cmb_nacionalidade.DisplayMember = "nome";
+                        // Define a fonte de dados
+                        cmb_nacionalidade.ValueMember = "idPais";
+                        cmb_nacionalidade.DataSource = dt;
+                        cmb_nacionalidade.Text = "Selecione uma nacionalidade";
+
                 }
-                catch (Exception)
+                catch (Exception erro)
                 {
-                    throw;
+                    MessageBox.Show("Erro:" + erro.Message);
                 }
-                conn.Close();
+                finally
+                {
+                    conn.Close();// Fecha a conexão com o BD
+                }
             }
         }
         public Register_Page()
@@ -49,25 +63,29 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         }
         private void Button1_Click(object sender, EventArgs e)
         {
-
+             
             string sql = ("INSERT INTO login(user, Password, nome, email, Pais_idPais) VALUES(@param1, @param2, @param3, @param4, @param5) ");
-            string sql1 = ("SELECT idPais FROM login INNER JOIN pais ON idPais = pais.idPais");
-            string sql2 = ("SELECT idPais FROM pais Inner join login On idPais = login.idPais ");
 
-            using (MySqlCommand cmd= new MySqlCommand(sql,conn))
+
+            if (txt_password.Text == txt_conpass.Text)
             {
-                if (txt_password.Text == txt_conpass.Text)
+                using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                 {
                     conn.Open();
-                    cmd.Parameters.Add("@param1", MySqlDbType.VarChar, 20).Value = txt_user.Text;
-                    cmd.Parameters.Add("@param2", MySqlDbType.VarChar, 8).Value = txt_password.Text;
-                    cmd.Parameters.Add("@param3", MySqlDbType.VarChar, 80).Value = txt_nome.Text;
-                    cmd.Parameters.Add("@param4", MySqlDbType.VarChar, 45).Value = txt_email.Text;
-                    cmd.Parameters.Add("@param5", MySqlDbType.VarChar, 45).Value = cmb_nacionalidade.SelectedItem;
+                    cmd.Parameters.AddWithValue("@param1", txt_user.Text);
+                    cmd.Parameters.AddWithValue("@param2", txt_password.Text);
+                    cmd.Parameters.AddWithValue("@param3", txt_nome.Text);
+                    cmd.Parameters.AddWithValue("@param4", txt_email.Text);
+                    cmd.Parameters.AddWithValue("@param6", cmb_nacionalidade.SelectedValue);
                     cmd.ExecuteNonQuery();
                     conn.Close();
                 }
             }
+            else
+            {
+
+            }
+            
       
         }
 

@@ -20,7 +20,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
-        private void panel2_MouseDown(object sender, MouseEventArgs e)
+        private void Panel2_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
@@ -79,7 +79,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 
         private void PictureBox3_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            
         }
 
         private void Map_Page_Load(object sender, EventArgs e)
@@ -103,14 +103,26 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
            
             if (arg2.Id == ("PT"))
             {
-                this.Hide();
-                LoginForm f1 = new LoginForm();   
-                f1.ShowDialog();
+
             }
            
         }
 
+        private void PictureBox4_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
 
+        private void PictureBox3_Click_1(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+
+        }
+
+        private void PictureBox1_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 
 }

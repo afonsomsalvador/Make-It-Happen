@@ -35,10 +35,19 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             MySqlCommand cmd = conn.CreateCommand();
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "Select * from login where username= '" + textBox1.Text + "' and password= '" + txtPassword.Text + "'";
+            if (textBox1.Text == "admin" && txtPassword.Text == "admin" ) 
+            {
+                this.Hide();
+                admin adm = new admin();
+                adm.ShowDialog();
+            }
+            else
+            {
+                this.Hide();
+                Map_Page mp = new Map_Page();
+                mp.ShowDialog();
+            }
             cmd.ExecuteNonQuery();
-            this.Hide();
-            Map_Page mp = new Map_Page();
-            mp.ShowDialog();
             conn.Close();
         }
 
@@ -69,10 +78,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             RP.ShowDialog();
         }
 
-        private void Button1_Click_1(object sender, EventArgs e)
-        {
-
-        }
+   
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
 
@@ -105,5 +111,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         {
             txtPassword.PasswordChar = '•';
         }
+
+     
     }
 }
