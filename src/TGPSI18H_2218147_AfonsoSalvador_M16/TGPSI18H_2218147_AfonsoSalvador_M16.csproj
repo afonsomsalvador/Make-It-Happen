@@ -142,12 +142,6 @@
     <Compile Include="Login_Page.Designer.cs">
       <DependentUpon>Login_Page.cs</DependentUpon>
     </Compile>
-    <Compile Include="MapPage.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="MapPage.Designer.cs">
-      <DependentUpon>MapPage.cs</DependentUpon>
-    </Compile>
     <Compile Include="Map_Page.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -191,9 +185,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login_Page.resx">
       <DependentUpon>Login_Page.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MapPage.resx">
-      <DependentUpon>MapPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Map_Page.resx">
       <DependentUpon>Map_Page.cs</DependentUpon>
