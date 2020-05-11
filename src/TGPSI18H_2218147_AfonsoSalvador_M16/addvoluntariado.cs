@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace TGPSI18H_2218147_AfonsoSalvador_M16
 {
-    public partial class Categoria : UserControl
+    public partial class addvoluntariado : UserControl
     {
-        public Categoria()
+        public addvoluntariado()
         {
             InitializeComponent();
         }

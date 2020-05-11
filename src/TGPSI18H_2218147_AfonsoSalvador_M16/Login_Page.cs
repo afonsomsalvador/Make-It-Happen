@@ -112,6 +112,9 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             txtPassword.PasswordChar = '•';
         }
 
-     
+        private void TextBox1_TextChanged_2(object sender, EventArgs e)
+        {
+
+        }
     }
 }

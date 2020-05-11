@@ -1,6 +1,6 @@
 ﻿namespace TGPSI18H_2218147_AfonsoSalvador_M16
 {
-    partial class Categoria
+    partial class addvoluntariado
     {
         /// <summary> 
         /// Required designer variable.
@@ -30,11 +30,12 @@
         {
             this.SuspendLayout();
             // 
-            // Categoria
+            // addvoluntariado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "Categoria";
+            this.Location = new System.Drawing.Point(166, 28);
+            this.Name = "addvoluntariado";
             this.Size = new System.Drawing.Size(1153, 558);
             this.ResumeLayout(false);
 

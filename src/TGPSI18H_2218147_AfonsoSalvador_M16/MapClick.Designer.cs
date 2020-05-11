@@ -1,6 +1,6 @@
 ﻿namespace TGPSI18H_2218147_AfonsoSalvador_M16
 {
-    partial class Categoria
+    partial class MapClick
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,16 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // Categoria
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "Categoria";
-            this.Size = new System.Drawing.Size(1153, 558);
-            this.ResumeLayout(false);
-
         }
 
         #endregion

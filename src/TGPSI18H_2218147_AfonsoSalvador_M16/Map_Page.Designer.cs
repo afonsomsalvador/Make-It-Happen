@@ -35,17 +35,20 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.organizacao1 = new TGPSI18H_2218147_AfonsoSalvador_M16.Organizacao();
+            this.socialClick1 = new TGPSI18H_2218147_AfonsoSalvador_M16.SocialClick();
+            this.categoria1 = new TGPSI18H_2218147_AfonsoSalvador_M16.Categoria();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -139,15 +142,6 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(45, 128);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(48, 49);
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
@@ -191,12 +185,46 @@
             this.pictureBox4.TabStop = false;
             this.pictureBox4.Click += new System.EventHandler(this.PictureBox4_Click);
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(45, 128);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(48, 49);
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            // 
+            // organizacao1
+            // 
+            this.organizacao1.Location = new System.Drawing.Point(166, 28);
+            this.organizacao1.Name = "organizacao1";
+            this.organizacao1.Size = new System.Drawing.Size(1153, 558);
+            this.organizacao1.TabIndex = 34;
+            // 
+            // socialClick1
+            // 
+            this.socialClick1.Location = new System.Drawing.Point(166, 28);
+            this.socialClick1.Name = "socialClick1";
+            this.socialClick1.Size = new System.Drawing.Size(1153, 558);
+            this.socialClick1.TabIndex = 33;
+            this.socialClick1.Load += new System.EventHandler(this.SocialClick1_Load);
+            // 
+            // categoria1
+            // 
+            this.categoria1.Location = new System.Drawing.Point(166, 28);
+            this.categoria1.Name = "categoria1";
+            this.categoria1.Size = new System.Drawing.Size(1153, 558);
+            this.categoria1.TabIndex = 35;
+            // 
             // Map_Page
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1319, 586);
+            this.Controls.Add(this.categoria1);
+            this.Controls.Add(this.organizacao1);
+            this.Controls.Add(this.socialClick1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox2);
@@ -206,11 +234,11 @@
             this.TransparencyKey = System.Drawing.Color.Black;
             this.Load += new System.EventHandler(this.Map_Page_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -227,6 +255,9 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private SocialClick socialClick1;
+        private Organizacao organizacao1;
+        private Categoria categoria1;
     }
 }
 

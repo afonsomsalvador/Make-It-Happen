@@ -41,6 +41,8 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             button1.ForeColor = Color.White;
             button2.ForeColor = Color.White;
             button4.ForeColor = Color.White;
+            categoria1.Show();
+            categoria1.BringToFront();
      
         }
 
@@ -52,8 +54,11 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             button4.ForeColor = Color.White;
             button2.ForeColor = Color.White;
             button3.ForeColor = Color.White;
-            Map_Page mp = new Map_Page();
-            mp.ShowDialog();
+            categoria1.Hide();
+            organizacao1.Hide();
+            socialClick1.Hide();
+            
+           
         }
 
         private void Button2_Click(object sender, EventArgs e)
@@ -65,6 +70,8 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             button1.ForeColor = Color.White;
             button4.ForeColor = Color.White;
             button3.ForeColor = Color.White;
+            organizacao1.Show();
+            organizacao1.BringToFront();
         }
 
         private void Button4_Click(object sender, EventArgs e)
@@ -75,6 +82,8 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             button1.ForeColor = Color.White;
             button2.ForeColor = Color.White;
             button3.ForeColor = Color.White;
+            socialClick1.Show();
+            socialClick1.BringToFront();
         }
 
         private void PictureBox3_Click(object sender, EventArgs e)
@@ -122,6 +131,16 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         private void PictureBox1_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void VoluntariadO_CLICK1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SocialClick1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 

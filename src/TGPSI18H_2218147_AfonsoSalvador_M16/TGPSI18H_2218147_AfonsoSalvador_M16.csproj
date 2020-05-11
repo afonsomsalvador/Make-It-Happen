@@ -118,6 +118,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addvoluntariado.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="addvoluntariado.Designer.cs">
+      <DependentUpon>addvoluntariado.cs</DependentUpon>
+    </Compile>
     <Compile Include="admin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,7 +131,7 @@
       <DependentUpon>admin.cs</DependentUpon>
     </Compile>
     <Compile Include="Categoria.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Categoria.Designer.cs">
       <DependentUpon>Categoria.cs</DependentUpon>
@@ -135,6 +141,12 @@
     </Compile>
     <Compile Include="Login_Page.Designer.cs">
       <DependentUpon>Login_Page.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MapPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MapPage.Designer.cs">
+      <DependentUpon>MapPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Map_Page.cs">
       <SubType>Form</SubType>
@@ -156,12 +168,21 @@
     <Compile Include="Register_Page.Designer.cs">
       <DependentUpon>Register_Page.cs</DependentUpon>
     </Compile>
-    <Compile Include="Social.cs">
-      <SubType>Form</SubType>
+    <Compile Include="SocialClick.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Social.Designer.cs">
-      <DependentUpon>Social.cs</DependentUpon>
+    <Compile Include="SocialClick.Designer.cs">
+      <DependentUpon>SocialClick.cs</DependentUpon>
     </Compile>
+    <Compile Include="VOLUNTARIADO_CLICK.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VOLUNTARIADO_CLICK.Designer.cs">
+      <DependentUpon>VOLUNTARIADO_CLICK.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="addvoluntariado.resx">
+      <DependentUpon>addvoluntariado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="admin.resx">
       <DependentUpon>admin.cs</DependentUpon>
     </EmbeddedResource>
@@ -170,6 +191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login_Page.resx">
       <DependentUpon>Login_Page.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MapPage.resx">
+      <DependentUpon>MapPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Map_Page.resx">
       <DependentUpon>Map_Page.cs</DependentUpon>
@@ -190,8 +214,11 @@
     <EmbeddedResource Include="Register_Page.resx">
       <DependentUpon>Register_Page.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Social.resx">
-      <DependentUpon>Social.cs</DependentUpon>
+    <EmbeddedResource Include="SocialClick.resx">
+      <DependentUpon>SocialClick.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VOLUNTARIADO_CLICK.resx">
+      <DependentUpon>VOLUNTARIADO_CLICK.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

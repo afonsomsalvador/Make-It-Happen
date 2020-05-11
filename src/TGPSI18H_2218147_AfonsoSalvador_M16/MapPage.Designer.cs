@@ -1,6 +1,6 @@
 ﻿namespace TGPSI18H_2218147_AfonsoSalvador_M16
 {
-    partial class Categoria
+    partial class MapPage
     {
         /// <summary> 
         /// Required designer variable.
@@ -30,12 +30,13 @@
         {
             this.SuspendLayout();
             // 
-            // Categoria
+            // MapPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "Categoria";
+            this.Name = "MapPage";
             this.Size = new System.Drawing.Size(1153, 558);
+            this.Load += new System.EventHandler(this.MapPage_Load);
             this.ResumeLayout(false);
 
         }
