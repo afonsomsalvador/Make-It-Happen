@@ -43,6 +43,7 @@
             this.categoria1 = new TGPSI18H_2218147_AfonsoSalvador_M16.Categoria();
             this.organizacao1 = new TGPSI18H_2218147_AfonsoSalvador_M16.Organizacao();
             this.socialClick1 = new TGPSI18H_2218147_AfonsoSalvador_M16.SocialClick();
+            this.pais_Click1 = new TGPSI18H_2218147_AfonsoSalvador_M16.Pais_Click();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -216,12 +217,20 @@
             this.socialClick1.TabIndex = 33;
             this.socialClick1.Load += new System.EventHandler(this.SocialClick1_Load);
             // 
+            // pais_Click1
+            // 
+            this.pais_Click1.Location = new System.Drawing.Point(166, 28);
+            this.pais_Click1.Name = "pais_Click1";
+            this.pais_Click1.Size = new System.Drawing.Size(1153, 558);
+            this.pais_Click1.TabIndex = 36;
+            // 
             // Map_Page
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1319, 586);
+            this.Controls.Add(this.pais_Click1);
             this.Controls.Add(this.categoria1);
             this.Controls.Add(this.organizacao1);
             this.Controls.Add(this.socialClick1);
@@ -258,6 +267,7 @@
         private SocialClick socialClick1;
         private Organizacao organizacao1;
         private Categoria categoria1;
+        private Pais_Click pais_Click1;
     }
 }
 

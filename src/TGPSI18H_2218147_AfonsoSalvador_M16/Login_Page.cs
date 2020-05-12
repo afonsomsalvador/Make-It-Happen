@@ -116,5 +116,20 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         {
 
         }
+
+        private void Button1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -54,11 +54,10 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             button4.ForeColor = Color.White;
             button2.ForeColor = Color.White;
             button3.ForeColor = Color.White;
+            pais_Click1.Hide();
             categoria1.Hide();
             organizacao1.Hide();
             socialClick1.Hide();
-            
-           
         }
 
         private void Button2_Click(object sender, EventArgs e)
@@ -112,9 +111,17 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
            
             if (arg2.Id == ("PT"))
             {
-
+                pais_Click1.Show();
+                pais_Click1.BringToFront();
             }
+            if (arg2.Id == ("BR"))
+            {
            
+                pais_Click1.Show();
+                pais_Click1.BringToFront();
+                //Pais_Click pc = new Pais_Click();
+                //pc.SetTextForLabel(label1.Text);
+            }
         }
 
         private void PictureBox4_Click(object sender, EventArgs e)

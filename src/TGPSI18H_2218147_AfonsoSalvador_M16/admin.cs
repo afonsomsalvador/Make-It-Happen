@@ -46,7 +46,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             SidePanel.Top = button1.Top;
             button1.ForeColor = Color.Wheat;
             button3.ForeColor = Color.White;
-            //UtilizadoresGridView.Hide();
+          //  UtilizadoresGridView.Hide();
             addvoluntariado1.Show();
             addvoluntariado1.BringToFront();
         }
@@ -75,8 +75,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             button3.ForeColor = Color.Wheat;
             button1.ForeColor = Color.White;
             addvoluntariado1.Hide();
-            //UtilizadoresGridView.Show();
-            //UtilizadoresGridView.BringToFront();
+
         }
     }
 }

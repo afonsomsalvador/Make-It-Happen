@@ -32,11 +32,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         
         }
 
-        private void Button1_Click(object sender, EventArgs e)
-        {
-        
-        }
-
         private void Button2_Click(object sender, EventArgs e)
         {
         }
@@ -47,6 +42,20 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 
         }
 
+        private void Button1_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void Organizacao_Load(object sender, EventArgs e)
+        {
+            label1.Text = "Global Volunteers";
+        }
+
+        private void Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+            ControlPaint.DrawBorder(e.Graphics, panel1.DisplayRectangle, Color.FromArgb(0, 192, 192), ButtonBorderStyle.Dashed);
+        }
     }
 }

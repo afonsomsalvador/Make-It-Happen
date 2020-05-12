@@ -14,19 +14,11 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
     public partial class addvoluntariado : UserControl
     {
         MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=123456;database=psi18_afonsosalvador");
+
+        List<Panel> pnl = new List<Panel>();
         public addvoluntariado()
         {
             InitializeComponent();
-        }
-
-        private void Label15_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label8_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void Addvoluntariado_Load(object sender, EventArgs e)
@@ -34,21 +26,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 
         }
 
-        private void VScrollBar1_Scroll(object sender, ScrollEventArgs e)
-        {
-
-        }
-
-        private void DateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-          
-        }
-
-        private void Label14_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void Button1_Click(object sender, EventArgs e)
         {
             string sql = "INSERT INTO voluntariado(descricao, nome) VALUES(@param1, @param2)";
@@ -69,55 +47,81 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                 cmd.Parameters.AddWithValue("@param3", textBox4.Text);
                 cmd.Parameters.AddWithValue("@param4", textBox6.Text);
                 cmd.Parameters.AddWithValue("@param5", textBox7.Text);
-                cmd.Parameters.AddWithValue("@param5", textBox8.Text);
-                cmd.Parameters.AddWithValue("@param6", textBox9.Text);
-                cmd.Parameters.AddWithValue("@param7", textBox10.Text);
+                cmd.Parameters.AddWithValue("@param6", textBox8.Text);
+                cmd.Parameters.AddWithValue("@param7", textBox9.Text);
+                cmd.Parameters.AddWithValue("@param8", textBox10.Text);
                 cmd.ExecuteNonQuery();
                 conn.Close();
             }
+            string sql2 = "INSERT INTO requisitos(Idade, Lingua, Escolaridade) VALUES(@param1, @param2, @param3)";
+            using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+            {
+                conn.Open();
+                cmd.Parameters.AddWithValue("@param1", textBox12.Text);
+                cmd.Parameters.AddWithValue("@param2", textBox13.Text);
+                cmd.Parameters.AddWithValue("@param3", textBox14.Text);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
+            string sql3 = "INSERT INTO experiencia(tipo_experiencia) VALUES(@param1)";
+            using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+            {
+                conn.Open();
+                cmd.Parameters.AddWithValue("@param1", textBox11.Text);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
+            //int x = 0;
+            //int y = 0;
+            //int delta = 10;
+            //for (int i = 0; i < .Count; i++)
+            //{
+
+            //    Panel p = new Panel();
+            //    p.Name = "panel" + i;
+            //    pnl.Add(p);
+
+            //    // Create picture box
+            //    var picture = new PictureBox();
+            //    picture.Location = new Point(x, y);
+            //    picture.Size = new Size(picture.Image.Width, picture.Image.Height);
+            //    int dx = picture.Width + delta;
+            //    // Create name label
+            //    var labelName = new Label();
+            //    labelName.AutoSize = true;
+            //    labelName.Location = new Point(x + dx, y);
+            //    labelName.Font = new Font(labelName.Font, FontStyle.Bold);
+            //    // Create mail label
+            //    var labelMail = new Label();
+            //    labelMail.AutoSize = true;
+            //    labelMail.Location = new Point(x + dx, y + labelName.Height);
+            //    // Create phone label
+            //    var labelPhone = new Label();
+            //    labelPhone.AutoSize = true;
+            //    labelPhone.Location = new Point(x + dx, y + labelName.Height + labelMail.Height);
+            //    //// Add controls
+            //    //panel.Controls.Add(picture);
+            //    //panel.Controls.Add(labelName);
+            //    //panel.Controls.Add(labelMail);
+            //    //panel.Controls.Add(labelPhone);
+            //    // Iterate
+            //    int dy1 = labelName.Height + labelMail.Height + labelPhone.Height;
+            //    int dy2 = picture.Height;
+            //    y += Math.Max(dy1, dy2) + delta;
+            //}
+        }
+
+        private void TextBox12_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TextBox11_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void TextBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox6_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox7_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox8_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox9_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox10_TextChanged(object sender, EventArgs e)
         {
 
         }

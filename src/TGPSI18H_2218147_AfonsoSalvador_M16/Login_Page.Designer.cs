@@ -62,7 +62,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(491, 467);
+            this.label13.Location = new System.Drawing.Point(491, 583);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(283, 16);
             this.label13.TabIndex = 38;
@@ -80,6 +80,7 @@
             this.button1.TabIndex = 37;
             this.button1.Text = "Login";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.Button1_Click_1);
             // 
             // txtPassword
             // 
@@ -88,6 +89,7 @@
             this.txtPassword.Location = new System.Drawing.Point(493, 366);
             this.txtPassword.Multiline = true;
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '•';
             this.txtPassword.Size = new System.Drawing.Size(263, 33);
             this.txtPassword.TabIndex = 36;
             this.txtPassword.UseSystemPasswordChar = true;
@@ -114,6 +116,7 @@
             this.label2.Size = new System.Drawing.Size(92, 24);
             this.label2.TabIndex = 34;
             this.label2.Text = "Password";
+            this.label2.Click += new System.EventHandler(this.Label2_Click);
             // 
             // label1
             // 
@@ -125,6 +128,7 @@
             this.label1.Size = new System.Drawing.Size(97, 24);
             this.label1.TabIndex = 33;
             this.label1.Text = "Username";
+            this.label1.Click += new System.EventHandler(this.Label1_Click_1);
             // 
             // pictureBox2
             // 
