@@ -68,7 +68,7 @@
             this.Controls.Add(this.panel1);
             this.Location = new System.Drawing.Point(166, 28);
             this.Name = "VOLUNTARIADO_CLICK";
-            this.Size = new System.Drawing.Size(983, 600);
+            this.Size = new System.Drawing.Size(1153, 558);
             this.ResumeLayout(false);
             this.PerformLayout();
 

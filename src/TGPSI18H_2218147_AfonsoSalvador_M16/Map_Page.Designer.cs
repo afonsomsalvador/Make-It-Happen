@@ -40,9 +40,9 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.categoria1 = new TGPSI18H_2218147_AfonsoSalvador_M16.Categoria();
             this.organizacao1 = new TGPSI18H_2218147_AfonsoSalvador_M16.Organizacao();
             this.socialClick1 = new TGPSI18H_2218147_AfonsoSalvador_M16.SocialClick();
-            this.categoria1 = new TGPSI18H_2218147_AfonsoSalvador_M16.Categoria();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -151,7 +151,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(166, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1153, 32);
+            this.panel2.Size = new System.Drawing.Size(1153, 30);
             this.panel2.TabIndex = 32;
             this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel2_MouseDown);
             // 
@@ -194,6 +194,13 @@
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
+            // categoria1
+            // 
+            this.categoria1.Location = new System.Drawing.Point(166, 28);
+            this.categoria1.Name = "categoria1";
+            this.categoria1.Size = new System.Drawing.Size(1153, 558);
+            this.categoria1.TabIndex = 35;
+            // 
             // organizacao1
             // 
             this.organizacao1.Location = new System.Drawing.Point(166, 28);
@@ -208,13 +215,6 @@
             this.socialClick1.Size = new System.Drawing.Size(1153, 558);
             this.socialClick1.TabIndex = 33;
             this.socialClick1.Load += new System.EventHandler(this.SocialClick1_Load);
-            // 
-            // categoria1
-            // 
-            this.categoria1.Location = new System.Drawing.Point(166, 28);
-            this.categoria1.Name = "categoria1";
-            this.categoria1.Size = new System.Drawing.Size(1153, 558);
-            this.categoria1.TabIndex = 35;
             // 
             // Map_Page
             // 
