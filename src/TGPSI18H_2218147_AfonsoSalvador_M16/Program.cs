@@ -16,7 +16,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new admin());
+            Application.Run(new Map_Page());
         }
     }
 }

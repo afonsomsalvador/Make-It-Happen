@@ -31,7 +31,9 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             SidePanel.Height = button1.Height;
             SidePanel.Top = button1.Top;
 
+
         }
+        public Pais_Click pais;
   
         private void Button3_Click(object sender, EventArgs e)
         {
@@ -101,24 +103,26 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             geomap.LandClick += GeoMap1_LandClick;
             geomap.Hoverable = true;
             geomap.BringToFront();
+
+     
         }
-
-
-        private void GeoMap1_LandClick(object arg1, LiveCharts.Maps.MapData arg2)
+        public void GeoMap1_LandClick(object arg1, LiveCharts.Maps.MapData arg2)
         {
-            
+
             Console.WriteLine(arg2.Id);
            
             if (arg2.Id == ("PT"))
             {
                 pais_Click1.Show();
                 pais_Click1.BringToFront();
+                pais_Click1.texto = "Projecto de voluntariado de Portugal";
             }
             if (arg2.Id == ("BR"))
             {
            
                 pais_Click1.Show();
                 pais_Click1.BringToFront();
+                pais_Click1.texto = "Projecto de voluntariado do Brasil";
                 //Pais_Click pc = new Pais_Click();
                 //pc.SetTextForLabel(label1.Text);
             }
