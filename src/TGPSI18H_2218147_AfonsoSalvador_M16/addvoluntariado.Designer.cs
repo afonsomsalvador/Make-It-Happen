@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(addvoluntariado));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -67,6 +68,10 @@
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.label21 = new System.Windows.Forms.Label();
+            this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
+            this.btnuploadimage = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -240,7 +245,7 @@
             // 
             this.vScrollBar1.Location = new System.Drawing.Point(1133, 0);
             this.vScrollBar1.Name = "vScrollBar1";
-            this.vScrollBar1.Size = new System.Drawing.Size(20, 774);
+            this.vScrollBar1.Size = new System.Drawing.Size(20, 815);
             this.vScrollBar1.TabIndex = 17;
             // 
             // dateTimePicker1
@@ -431,11 +436,51 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.label21.Location = new System.Drawing.Point(786, 309);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(46, 20);
+            this.label21.TabIndex = 40;
+            this.label21.Text = "Foto";
+            // 
+            // bunifuImageButton1
+            // 
+            this.bunifuImageButton1.BackColor = System.Drawing.Color.White;
+            this.bunifuImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton1.Image")));
+            this.bunifuImageButton1.ImageActive = null;
+            this.bunifuImageButton1.Location = new System.Drawing.Point(790, 332);
+            this.bunifuImageButton1.Name = "bunifuImageButton1";
+            this.bunifuImageButton1.Size = new System.Drawing.Size(263, 164);
+            this.bunifuImageButton1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.bunifuImageButton1.TabIndex = 41;
+            this.bunifuImageButton1.TabStop = false;
+            this.bunifuImageButton1.Zoom = 10;
+            // 
+            // btnuploadimage
+            // 
+            this.btnuploadimage.BackColor = System.Drawing.Color.Transparent;
+            this.btnuploadimage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnuploadimage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnuploadimage.ForeColor = System.Drawing.Color.Black;
+            this.btnuploadimage.Location = new System.Drawing.Point(836, 507);
+            this.btnuploadimage.Name = "btnuploadimage";
+            this.btnuploadimage.Size = new System.Drawing.Size(174, 28);
+            this.btnuploadimage.TabIndex = 42;
+            this.btnuploadimage.Text = "Inserir Imagem";
+            this.btnuploadimage.UseVisualStyleBackColor = false;
+            this.btnuploadimage.Click += new System.EventHandler(this.Btnuploadimage_Click);
+            // 
             // addvoluntariado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.Controls.Add(this.btnuploadimage);
+            this.Controls.Add(this.bunifuImageButton1);
+            this.Controls.Add(this.label21);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox14);
             this.Controls.Add(this.textBox13);
@@ -479,6 +524,7 @@
             this.Name = "addvoluntariado";
             this.Size = new System.Drawing.Size(1153, 815);
             this.Load += new System.EventHandler(this.Addvoluntariado_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -525,5 +571,8 @@
         private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.TextBox textBox14;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label21;
+        private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton1;
+        private System.Windows.Forms.Button btnuploadimage;
     }
 }

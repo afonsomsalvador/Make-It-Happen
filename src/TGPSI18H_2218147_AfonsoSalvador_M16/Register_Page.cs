@@ -43,7 +43,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                         // Define a fonte de dados
                         cmb_nacionalidade.ValueMember = "idPais";
                         cmb_nacionalidade.DataSource = dt;
-                        cmb_nacionalidade.Text = "Selecione uma nacionalidade";
+                        cmb_nacionalidade.SelectedText = "Selecione uma nacionalidade";
 
                 }
                 catch (Exception erro)
@@ -76,7 +76,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                     cmd.Parameters.AddWithValue("@param2", txt_password.Text);
                     cmd.Parameters.AddWithValue("@param3", txt_nome.Text);
                     cmd.Parameters.AddWithValue("@param4", txt_email.Text);
-                    cmd.Parameters.AddWithValue("@param6", cmb_nacionalidade.SelectedValue);
+                    cmd.Parameters.AddWithValue("@param5", cmb_nacionalidade.SelectedValue);
                     cmd.ExecuteNonQuery();
                     conn.Close();
                 }

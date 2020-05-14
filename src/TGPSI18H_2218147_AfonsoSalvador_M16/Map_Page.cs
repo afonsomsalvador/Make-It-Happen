@@ -122,7 +122,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
            
                 pais_Click1.Show();
                 pais_Click1.BringToFront();
-                pais_Click1.texto = "Projecto de voluntariado do Brasil";
+                pais_Click1.texto = "Projecto de voluntariado do Brasil"; 
                 //Pais_Click pc = new Pais_Click();
                 //pc.SetTextForLabel(label1.Text);
             }

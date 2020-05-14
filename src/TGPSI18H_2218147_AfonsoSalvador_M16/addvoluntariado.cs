@@ -16,7 +16,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=123456;database=psi18_afonsosalvador");
 
         List<Panel> pnl = new List<Panel>();
-        int count = 1;
+    
         public addvoluntariado()
         {
             InitializeComponent();
@@ -30,7 +30,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         
         private void Button1_Click(object sender, EventArgs e)
         {
-            count++;
             string sql = "INSERT INTO voluntariado(descricao, nome) VALUES(@param1, @param2)";
             using (MySqlCommand cmd = new MySqlCommand(sql, conn))
             {
@@ -73,48 +72,36 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                 cmd.ExecuteNonQuery();
                 conn.Close();
             }
-            //int x = 0;
-            //int y = 0;
-            //int delta = 10;
-            for (int i = 0; i < .Count; i++)
-            {
-
                 Panel p = new Panel();
-                p.Name = "panel" + i;
-                p.Size = new System.Drawing.Size(1048, 171);
-                //    pnl.Add(p);
-
-                //    // Create picture box
-                //    var picture = new PictureBox();
-                //    picture.Location = new Point(x, y);
-                //    picture.Size = new Size(picture.Image.Width, picture.Image.Height);
-                //    int dx = picture.Width + delta;
-                //    // Create name label
-                //    var labelName = new Label();
-                //    labelName.AutoSize = true;
-                //    labelName.Location = new Point(x + dx, y);
-                //    labelName.Font = new Font(labelName.Font, FontStyle.Bold);
-                //    // Create mail label
-                //    var labelMail = new Label();
-                //    labelMail.AutoSize = true;
-                //    labelMail.Location = new Point(x + dx, y + labelName.Height);
-                //    // Create phone label
-                //    var labelPhone = new Label();
-                //    labelPhone.AutoSize = true;
-                //    labelPhone.Location = new Point(x + dx, y + labelName.Height + labelMail.Height);
-                //    //// Add controls
-                //    //panel.Controls.Add(picture);
-                //    //panel.Controls.Add(labelName);
-                //    //panel.Controls.Add(labelMail);
-                //    //panel.Controls.Add(labelPhone);
-                //    // Iterate
-                //    int dy1 = labelName.Height + labelMail.Height + labelPhone.Height;
-                //    int dy2 = picture.Height;
-                //    y += Math.Max(dy1, dy2) + delta;
-            }
+                p.Name = "panel" + pnl.Count;
+                p.Size = new System.Drawing.Size(1048, 288);
+                p.Location = new Point(55, 36);
+                PictureBox pb = new PictureBox();
+                pb.Name = "picturebox" + pnl.Count;
+                pb.Size = new System.Drawing.Size(325, 40);
+                pb.Location = new Point(469, 226);
+                Button btn = new Button();
+                btn.Name = "button" + pnl.Count;
+                btn.Size = new System.Drawing.Size(325, 40);
+                btn.Location = new Point(469, 226);
+                p.Controls.Add(pb);
+                Label lbl = new Label();
+                lbl.Name = "label" + pnl.Count;
+                lbl.Size = new System.Drawing.Size(325, 40);
+                lbl.Location = new Point(469, 226);
+                TextBox txtbox = new TextBox();
+                txtbox.Name = "textbox" + pnl.Count;
+                txtbox.Size = new System.Drawing.Size(325, 40);
+                txtbox.Location = new Point(469, 226);
+                p.Controls.Add(pb);
+                p.Controls.Add(btn);
+                p.Controls.Add(lbl);
+                p.Controls.Add(txtbox);
+                pnl.Add(p);
         }
 
-        private void TextBox12_TextChanged(object sender, EventArgs e)
+
+            private void TextBox12_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -133,5 +120,29 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         {
 
         }
+
+        private void Btnuploadimage_Click(object sender, EventArgs e)
+        {
+            String imageLocation = "";
+
+            try
+            {
+                OpenFileDialog dialog = new OpenFileDialog();
+                dialog.Filter = "jpg files(*.jpg)|*.jpg| PNG files(*.png)|*.png| All files(*.*)|*.*";
+
+                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    imageLocation = dialog.FileName;
+
+                    bunifuImageButton1.ImageLocation = imageLocation;
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ocorreu um erro !!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
     }
 }
+
