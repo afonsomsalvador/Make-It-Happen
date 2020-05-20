@@ -17,7 +17,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             InitializeComponent();
         }
 
-  
         private string _nome;
         private string _descricao;
         private Image _image;
@@ -29,7 +28,8 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             }
             set
             {
-                 _nome = value; label2.Text = value;
+                _nome = value;
+                label2.Text = value;
             }
         }
         public string Descricao
@@ -40,7 +40,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             }
             set
             {
-                _descricao = value; textBox1.Text = value;
+                _descricao = value; richTextBox1.Text = value;
             }
         }
         public Image image
@@ -83,6 +83,9 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 
         }
 
-      
+        private void RichTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
