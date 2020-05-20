@@ -160,6 +160,12 @@
     <Compile Include="Pais_Click.Designer.cs">
       <DependentUpon>Pais_Click.cs</DependentUpon>
     </Compile>
+    <Compile Include="Panels.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panels.Designer.cs">
+      <DependentUpon>Panels.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register_Page.cs">
@@ -206,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pais_Click.resx">
       <DependentUpon>Pais_Click.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels.resx">
+      <DependentUpon>Panels.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

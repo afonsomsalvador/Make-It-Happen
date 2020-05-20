@@ -8,12 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 using System.IO;
 
 namespace TGPSI18H_2218147_AfonsoSalvador_M16
 {
+
     public partial class Map_Page : Form
     {
+        MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=psi18_afonsosalvador;");
+
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
 
@@ -56,7 +60,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             button4.ForeColor = Color.White;
             button2.ForeColor = Color.White;
             button3.ForeColor = Color.White;
-            pais_Click1.Hide();
+            pais_Click2.Hide();
             categoria1.Hide();
             organizacao1.Hide();
             socialClick1.Hide();
@@ -87,10 +91,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             socialClick1.BringToFront();
         }
 
-        private void PictureBox3_Click(object sender, EventArgs e)
-        {
-            
-        }
+      
 
         private void Map_Page_Load(object sender, EventArgs e)
         {
@@ -113,18 +114,27 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
            
             if (arg2.Id == ("PT"))
             {
-                pais_Click1.Show();
-                pais_Click1.BringToFront();
-                pais_Click1.texto = "Projecto de voluntariado de Portugal";
+                pais_Click2.Show();
+                pais_Click2.BringToFront();
+                pais_Click2.texto = "Projecto de voluntariado de Portugal";
+
+                //string sql = "SELECT localidade from detalhes where localidade = Portugal";
+                //using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                //{
+
+                //}
             }
             if (arg2.Id == ("BR"))
             {
            
-                pais_Click1.Show();
-                pais_Click1.BringToFront();
-                pais_Click1.texto = "Projecto de voluntariado do Brasil"; 
-                //Pais_Click pc = new Pais_Click();
-                //pc.SetTextForLabel(label1.Text);
+                pais_Click2.Show();
+                pais_Click2.BringToFront();
+                pais_Click2.texto = "Projecto de voluntariado do Brasil";
+                //string sql = "SELECT localidade from detalhes where localidade = Brasil  ";
+                //using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                //{
+
+                //}
             }
         }
 
@@ -144,12 +154,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void VoluntariadO_CLICK1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void SocialClick1_Load(object sender, EventArgs e)
+        private void Pais_Click2_Load(object sender, EventArgs e)
         {
 
         }

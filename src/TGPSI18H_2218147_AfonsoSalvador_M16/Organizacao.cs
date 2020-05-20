@@ -57,5 +57,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 
             ControlPaint.DrawBorder(e.Graphics, panel1.DisplayRectangle, Color.FromArgb(0, 192, 192), ButtonBorderStyle.Dashed);
         }
+
+    
     }
 }

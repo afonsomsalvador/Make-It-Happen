@@ -28,47 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // pictureBox1
             // 
-            this.panel1.Location = new System.Drawing.Point(33, 136);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(641, 181);
-            this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel1_Paint);
+            this.pictureBox1.Location = new System.Drawing.Point(47, 35);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(393, 220);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.PictureBox1_Click);
             // 
-            // panel2
+            // vScrollBar1
             // 
-            this.panel2.Location = new System.Drawing.Point(33, 341);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(589, 181);
-            this.panel2.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 30F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(25, 71);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(676, 45);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Projectos de Voluntariado em Portugal";
+            this.vScrollBar1.Location = new System.Drawing.Point(1134, 0);
+            this.vScrollBar1.Name = "vScrollBar1";
+            this.vScrollBar1.Size = new System.Drawing.Size(19, 1114);
+            this.vScrollBar1.TabIndex = 1;
             // 
             // VOLUNTARIADO_CLICK
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.vScrollBar1);
+            this.Controls.Add(this.pictureBox1);
             this.Location = new System.Drawing.Point(166, 28);
             this.Name = "VOLUNTARIADO_CLICK";
-            this.Size = new System.Drawing.Size(1153, 558);
+            this.Size = new System.Drawing.Size(1153, 1115);
+            this.Load += new System.EventHandler(this.VOLUNTARIADO_CLICK_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -76,8 +69,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.VScrollBar vScrollBar1;
     }
 }

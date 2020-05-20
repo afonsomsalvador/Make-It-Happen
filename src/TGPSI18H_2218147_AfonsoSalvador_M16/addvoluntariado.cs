@@ -15,22 +15,11 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
     {
         MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=123456;database=psi18_afonsosalvador");
 
-        List<Panel> pnl = new List<Panel>();
-    
-        public addvoluntariado()
-        {
-            InitializeComponent();
-        }
+        List<Panels> pnl = new List<Panels>();
 
-        private void Addvoluntariado_Load(object sender, EventArgs e)
+        void add()
         {
-
-        }
-
-        
-        private void Button1_Click(object sender, EventArgs e)
-        {
-            string sql = "INSERT INTO voluntariado(descricao, nome) VALUES(@param1, @param2)";
+            string sql = "INSERT INTO voluntariado(nome, descricao) VALUES(@param1, @param2)";
             using (MySqlCommand cmd = new MySqlCommand(sql, conn))
             {
                 conn.Open();
@@ -72,32 +61,48 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                 cmd.ExecuteNonQuery();
                 conn.Close();
             }
-                Panel p = new Panel();
-                p.Name = "panel" + pnl.Count;
-                p.Size = new System.Drawing.Size(1048, 288);
-                p.Location = new Point(55, 36);
-                PictureBox pb = new PictureBox();
-                pb.Name = "picturebox" + pnl.Count;
-                pb.Size = new System.Drawing.Size(325, 40);
-                pb.Location = new Point(469, 226);
-                Button btn = new Button();
-                btn.Name = "button" + pnl.Count;
-                btn.Size = new System.Drawing.Size(325, 40);
-                btn.Location = new Point(469, 226);
-                p.Controls.Add(pb);
-                Label lbl = new Label();
-                lbl.Name = "label" + pnl.Count;
-                lbl.Size = new System.Drawing.Size(325, 40);
-                lbl.Location = new Point(469, 226);
-                TextBox txtbox = new TextBox();
-                txtbox.Name = "textbox" + pnl.Count;
-                txtbox.Size = new System.Drawing.Size(325, 40);
-                txtbox.Location = new Point(469, 226);
-                p.Controls.Add(pb);
-                p.Controls.Add(btn);
-                p.Controls.Add(lbl);
-                p.Controls.Add(txtbox);
-                pnl.Add(p);
+            Panels p = new Panels();
+            p.Name = "panel" + pnl.Count;
+            p.Size = new System.Drawing.Size(1048, 288);
+            p.Location = new Point(55, 36);
+            PictureBox pb = new PictureBox();
+            pb.Name = "picturebox" + pnl.Count;
+            pb.Size = new System.Drawing.Size(325, 40);
+            pb.Location = new Point(469, 226);
+            Button btn = new Button();
+            btn.Name = "button" + pnl.Count;
+            btn.Size = new System.Drawing.Size(325, 40);
+            btn.Location = new Point(469, 226);
+            Label lbl = new Label();
+            lbl.Name = "label" + pnl.Count;
+            lbl.Size = new System.Drawing.Size(325, 40);
+            lbl.Location = new Point(469, 226);
+            lbl.Text = textBox1.Text;
+            TextBox txtbox = new TextBox();
+            txtbox.Name = "textbox" + pnl.Count;
+            txtbox.Size = new System.Drawing.Size(325, 40);
+            txtbox.Location = new Point(469, 226);
+            txtbox.Text = textBox2.Text;
+            p.Controls.Add(pb);
+            p.Controls.Add(btn);
+            p.Controls.Add(lbl);
+            p.Controls.Add(txtbox);
+            pnl.Add(p);
+        }
+        public addvoluntariado()
+        {
+            InitializeComponent();
+        }
+
+        private void Addvoluntariado_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            add();
         }
 
 
@@ -143,6 +148,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             }
 
         }
+
     }
 }
 
