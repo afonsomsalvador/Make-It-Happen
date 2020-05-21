@@ -40,7 +40,8 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             }
             set
             {
-                _descricao = value; richTextBox1.Text = value;
+                _descricao = value;
+                richTextBox1.Text = value;
             }
         }
         public Image image

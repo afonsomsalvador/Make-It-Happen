@@ -14,9 +14,11 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 {
     public partial class Pais_Click : UserControl
     {
+        
         MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=psi18_afonsosalvador");
-        MySqlDataReader dr ;
-        MySqlCommand cmd = new MySqlCommand(); 
+        MySqlCommand cmd = new MySqlCommand();
+        DataSet dataset = new DataSet();
+        
         public string texto
         {
             get
@@ -29,49 +31,33 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             }
         }
         private void populateItems()
-       {
-            //Panels[] panel = new Panels[20];
-            //for (int i = 0; i < panel.Length; i++)
-            //{
-            //    panel[i] = new Panels();
-            //    panel[i].Nome = "";
-            //    panel[i].Descricao = "";
-            //    //panel[i].image = ;
-
-            //    //if (flowLayoutPanel1.Controls.Count > 0)
-            //    //{
-            //    //    flowLayoutPanel1.Controls.Clear();
-            //    //}
-            //    //else
-            //    //{
-
-            //    flowLayoutPanel1.Controls.Add(panel[i]);
-            //}
-
-        }
-    
-        private void GetData()
         {
             conn.Open();
-            cmd = new MySqlCommand("SELECT descricao, nome, imagem from voluntariado", conn);
-            dr = cmd.ExecuteReader();
-            while(dr.Read())
+            string sql = ("SELECT nome, descricao, imagem from voluntariado where nome like '%" + textBox1 + "%' order by nome");
+            using (MySqlCommand cmd = new MySqlCommand(sql, conn))
             {
-                long len = dr.GetBytes(0, 0, null, 0, 0);
-                byte[] array = new byte[len + 1];
-                dr.GetBytes(0, 0, array, 0, 0);
-                pictureBox1 = new PictureBox();
-                pictureBox1.Width = 100;
-                pictureBox1.Height = 100;
-                pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
+                          MySqlDataReader dr;
 
-                MemoryStream ms = new MemoryStream(array);
-                Bitmap bitmap = new Bitmap(ms);
-                pictureBox1.BackgroundImage = bitmap;
+                dr = cmd.ExecuteReader();
+                dr.Read();
 
-                flowLayoutPanel1.Controls.Add(pictureBox1);
+                        Panels[] panel = new Panels[dr.FieldCount];
+                        panel[dr.FieldCount] = new Panels();
+                        panel[dr.FieldCount].Nome = dr.GetString(0);
+                        panel[dr.FieldCount].Descricao = dr.GetString(1);
+                //panel[i].image = "";
+
+                flowLayoutPanel1.Controls.Add(panel[dr.FieldCount]);
+
+                //if (flowLayoutPanel1.Controls.Count > 0)
+                //{
+                //    flowLayoutPanel1.Controls.Clear();
+                //}
+                //else
+                //{
+
+
             }
-            dr.Close();
             conn.Close();
         }
             public Pais_Click()
@@ -83,10 +69,14 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             label1.Text = texto;
             populateItems();
             VerticalScroll.Enabled = true;
-            GetData();
         }
 
         private void Label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TextBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
