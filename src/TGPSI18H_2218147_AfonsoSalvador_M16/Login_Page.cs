@@ -14,63 +14,30 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 {
     public partial class LoginForm : Form
     {
-        MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=123456;database=psi18_afonsosalvador");
+        MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=psi18_afonsosalvador");
         public LoginForm()
         {
             InitializeComponent();
-        }
-        private void Label1_Click(object sender, EventArgs e)
-        {
+            label4.Hide();
+            label5.Hide();
+            pictureBox5.Hide();
+            pictureBox6.Hide();
 
         }
 
-        private void TextBox1_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
 
-        private void Button1_Click(object sender, EventArgs e)
-        {
-            conn.Open();
-            MySqlCommand cmd = conn.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "Select * from login where username= '" + textBox1.Text + "' and password= '" + txtPassword.Text + "'";
-            if (textBox1.Text == "admin" && txtPassword.Text == "admin" ) 
-            {
-                this.Hide();
-                admin adm = new admin();
-                adm.ShowDialog();
-            }
-            else
-            {
-                this.Hide();
-                Map_Page mp = new Map_Page();
-                mp.ShowDialog();
-            }
-            cmd.ExecuteNonQuery();
-            conn.Close();
-        }
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void TextBox2_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void TextBox1_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TxtPassword_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+    
         private void Label13_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -79,18 +46,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         }
 
    
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-
-        private void Panel2_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-
+       
         private void PictureBox1_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
@@ -102,32 +58,78 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void TxtPassword_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
+     
         private void TxtPassword_MouseClick(object sender, MouseEventArgs e)
         {
-            txtPassword.PasswordChar = '•';
         }
 
-        private void TextBox1_TextChanged_2(object sender, EventArgs e)
+     
+
+        private void TextBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+           
+            label5.Hide();
+           
+            pictureBox6.Hide();
+        }
+
+        private void TxtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            label4.Hide();
+            pictureBox5.Hide();
+
+        }
+
+        private void Panel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void PictureBox3_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void Panel2_MouseDown_1(object sender, MouseEventArgs e)
+        {
+
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
         private void Button1_Click_1(object sender, EventArgs e)
         {
+            if (textBox1.Text.Trim() != null || txtPassword.Text.Trim() != null)
+            {
+                label4.Show();
+                label5.Show();
+                pictureBox5.Show();
+                pictureBox6.Show();
+               
+            }
+            else
+            {
+                conn.Open();
+                MySqlCommand cmd = conn.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "Select * from login where username= '" + textBox1.Text + "' and password= '" + txtPassword.Text + "'";
+                cmd.ExecuteNonQuery();
+            }
 
+            conn.Close();
         }
 
-        private void Label2_Click(object sender, EventArgs e)
+        private void Label13_Click_1(object sender, EventArgs e)
         {
 
         }
 
-        private void Label1_Click_1(object sender, EventArgs e)
+        private void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtPassword_TextChanged(object sender, EventArgs e)
         {
 
         }

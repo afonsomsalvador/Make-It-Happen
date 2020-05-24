@@ -70,7 +70,7 @@
             // SidePanel
             // 
             this.SidePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.SidePanel.Location = new System.Drawing.Point(3, 82);
+            this.SidePanel.Location = new System.Drawing.Point(3, 98);
             this.SidePanel.Name = "SidePanel";
             this.SidePanel.Size = new System.Drawing.Size(10, 82);
             this.SidePanel.TabIndex = 5;
@@ -82,7 +82,7 @@
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.White;
             this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.Location = new System.Drawing.Point(12, 337);
+            this.button4.Location = new System.Drawing.Point(12, 353);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(154, 97);
             this.button4.TabIndex = 1;
@@ -99,7 +99,7 @@
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.White;
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(12, 252);
+            this.button3.Location = new System.Drawing.Point(12, 268);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(154, 79);
             this.button3.TabIndex = 1;
@@ -116,7 +116,7 @@
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(12, 167);
+            this.button2.Location = new System.Drawing.Point(12, 183);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(154, 79);
             this.button2.TabIndex = 1;
@@ -134,7 +134,7 @@
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Wheat;
             this.button1.Image = global::TGPSI18H_2218147_AfonsoSalvador_M16.Properties.Resources.icons8_globe_48px_1;
-            this.button1.Location = new System.Drawing.Point(12, 82);
+            this.button1.Location = new System.Drawing.Point(12, 98);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(154, 79);
             this.button1.TabIndex = 1;
@@ -228,7 +228,7 @@
             // pais_Click2
             // 
             this.pais_Click2.AutoScroll = true;
-            this.pais_Click2.Location = new System.Drawing.Point(166, 31);
+            this.pais_Click2.Location = new System.Drawing.Point(166, 28);
             this.pais_Click2.Name = "pais_Click2";
             this.pais_Click2.Size = new System.Drawing.Size(1153, 555);
             this.pais_Click2.TabIndex = 38;

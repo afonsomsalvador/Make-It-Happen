@@ -43,7 +43,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.cmb_nacionalidade = new System.Windows.Forms.ComboBox();
             this.btnuploadimage = new System.Windows.Forms.Button();
-            this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
             this.label4 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -55,11 +54,12 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
+            this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -83,6 +83,7 @@
             this.txt_password.Name = "txt_password";
             this.txt_password.Size = new System.Drawing.Size(263, 33);
             this.txt_password.TabIndex = 9;
+            this.txt_password.TextChanged += new System.EventHandler(this.Txt_password_TextChanged);
             // 
             // txt_user
             // 
@@ -163,8 +164,9 @@
             this.txt_nome.Location = new System.Drawing.Point(865, 214);
             this.txt_nome.Multiline = true;
             this.txt_nome.Name = "txt_nome";
-            this.txt_nome.Size = new System.Drawing.Size(263, 33);
+            this.txt_nome.Size = new System.Drawing.Size(263, 79);
             this.txt_nome.TabIndex = 18;
+            this.txt_nome.TextChanged += new System.EventHandler(this.Txt_nome_TextChanged);
             // 
             // label6
             // 
@@ -182,7 +184,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.label7.Location = new System.Drawing.Point(862, 269);
+            this.label7.Location = new System.Drawing.Point(862, 310);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(131, 24);
             this.label7.TabIndex = 19;
@@ -192,7 +194,7 @@
             // 
             this.cmb_nacionalidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.cmb_nacionalidade.FormattingEnabled = true;
-            this.cmb_nacionalidade.Location = new System.Drawing.Point(865, 296);
+            this.cmb_nacionalidade.Location = new System.Drawing.Point(865, 337);
             this.cmb_nacionalidade.Name = "cmb_nacionalidade";
             this.cmb_nacionalidade.Size = new System.Drawing.Size(263, 28);
             this.cmb_nacionalidade.TabIndex = 20;
@@ -211,20 +213,6 @@
             this.btnuploadimage.Text = "Inserir Imagem";
             this.btnuploadimage.UseVisualStyleBackColor = false;
             this.btnuploadimage.Click += new System.EventHandler(this.Btnuploadimage_Click);
-            // 
-            // bunifuImageButton1
-            // 
-            this.bunifuImageButton1.BackColor = System.Drawing.Color.White;
-            this.bunifuImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton1.Image")));
-            this.bunifuImageButton1.ImageActive = null;
-            this.bunifuImageButton1.Location = new System.Drawing.Point(100, 198);
-            this.bunifuImageButton1.Name = "bunifuImageButton1";
-            this.bunifuImageButton1.Size = new System.Drawing.Size(212, 189);
-            this.bunifuImageButton1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.bunifuImageButton1.TabIndex = 21;
-            this.bunifuImageButton1.TabStop = false;
-            this.bunifuImageButton1.Zoom = 10;
-            this.bunifuImageButton1.Click += new System.EventHandler(this.BunifuImageButton1_Click);
             // 
             // label4
             // 
@@ -286,7 +274,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.label12.Location = new System.Drawing.Point(1111, 269);
+            this.label12.Location = new System.Drawing.Point(1111, 310);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(17, 24);
             this.label12.TabIndex = 28;
@@ -348,6 +336,20 @@
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Click += new System.EventHandler(this.PictureBox3_Click);
             // 
+            // bunifuImageButton1
+            // 
+            this.bunifuImageButton1.BackColor = System.Drawing.Color.White;
+            this.bunifuImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton1.Image")));
+            this.bunifuImageButton1.ImageActive = null;
+            this.bunifuImageButton1.Location = new System.Drawing.Point(100, 198);
+            this.bunifuImageButton1.Name = "bunifuImageButton1";
+            this.bunifuImageButton1.Size = new System.Drawing.Size(212, 189);
+            this.bunifuImageButton1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.bunifuImageButton1.TabIndex = 21;
+            this.bunifuImageButton1.TabStop = false;
+            this.bunifuImageButton1.Zoom = 10;
+            this.bunifuImageButton1.Click += new System.EventHandler(this.BunifuImageButton1_Click);
+            // 
             // Register_Page
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -383,11 +385,11 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Register_Page";
             this.Load += new System.EventHandler(this.Register_Page_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

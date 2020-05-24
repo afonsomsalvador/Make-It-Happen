@@ -136,6 +136,12 @@
     <Compile Include="Categoria.Designer.cs">
       <DependentUpon>Categoria.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forgot.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forgot.Designer.cs">
+      <DependentUpon>Forgot.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login_Page.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +186,12 @@
     <Compile Include="SocialClick.Designer.cs">
       <DependentUpon>SocialClick.cs</DependentUpon>
     </Compile>
+    <Compile Include="SplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashScreen.Designer.cs">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="UtilizadoresGridView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -200,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Categoria.resx">
       <DependentUpon>Categoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forgot.resx">
+      <DependentUpon>Forgot.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login_Page.resx">
       <DependentUpon>Login_Page.cs</DependentUpon>
@@ -231,6 +246,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SocialClick.resx">
       <DependentUpon>SocialClick.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplashScreen.resx">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UtilizadoresGridView.resx">
       <DependentUpon>UtilizadoresGridView.cs</DependentUpon>
@@ -265,6 +283,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\charity_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\planeta.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

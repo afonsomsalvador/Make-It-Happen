@@ -13,7 +13,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 {
     public partial class addvoluntariado : UserControl
     {
-        MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=123456;database=psi18_afonsosalvador");
+        MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=psi18_afonsosalvador");
 
         List<Panels> pnl = new List<Panels>();
 

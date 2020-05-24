@@ -28,45 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.psi18afonsosalvadorDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.psi18afonsosalvadorDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // psi18_afonsosalvadorDataSet
-            // 
-            // 
-            // psi18afonsosalvadorDataSetBindingSource
-            // 
-            this.psi18afonsosalvadorDataSetBindingSource.Position = 0;
-            // 
             // dataGridView1
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.DataSource = this.psi18afonsosalvadorDataSetBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(248, 137);
+            this.dataGridView1.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 151);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(568, 175);
+            this.dataGridView1.Size = new System.Drawing.Size(1147, 407);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick_2);
+            this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DataGridView1_CellFormatting);
             // 
             // UtilizadoresGridView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.Controls.Add(this.dataGridView1);
             this.Name = "UtilizadoresGridView";
             this.Size = new System.Drawing.Size(1153, 558);
-            ((System.ComponentModel.ISupportInitialize)(this.psi18afonsosalvadorDataSetBindingSource)).EndInit();
+            this.Load += new System.EventHandler(this.UtilizadoresGridView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.BindingSource psi18afonsosalvadorDataSetBindingSource;
+
         private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

@@ -22,7 +22,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         public string texto
         {
             get
-            {
+           {
                 return label1.Text;
             }
             set
@@ -33,21 +33,25 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         private void populateItems()
         {
             conn.Open();
-            string sql = ("SELECT nome, descricao, imagem from voluntariado where nome like '%" + textBox1 + "%' order by nome");
-            using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+            //MySqlDataAdapter da = new MySqlDataAdapter("SELECT nome, descricao, imagem FROM voluntariado WHERE nome LIKE '%" + textBox1 + "%' ORDER BY nome", conn);
+            cmd = new MySqlCommand("SELECT nome, descricao, imagem FROM voluntariado");
+            //DataTable dt = new DataTable();
+            MySqlDataReader dt;
+            //da.Fill(dt);
+            dt = cmd.ExecuteReader();
+            while (dt.Read())
+            //for (int i = 0; i < dt.Rows.Count; i++)
             {
-                          MySqlDataReader dr;
 
-                dr = cmd.ExecuteReader();
-                dr.Read();
-
-                        Panels[] panel = new Panels[dr.FieldCount];
-                        panel[dr.FieldCount] = new Panels();
-                        panel[dr.FieldCount].Nome = dr.GetString(0);
-                        panel[dr.FieldCount].Descricao = dr.GetString(1);
+                Panels[] panel = new Panels[4];
+                panel[4] = new Panels();
+                string a = dt["nome"].ToString();
+                panel[4].Nome = a.ToString();
+                //panel[dt.Rows.Count].Descricao = dt.GetString(1);
                 //panel[i].image = "";
 
-                flowLayoutPanel1.Controls.Add(panel[dr.FieldCount]);
+                flowLayoutPanel1.Controls.Add(panel[4]);
+
 
                 //if (flowLayoutPanel1.Controls.Count > 0)
                 //{
@@ -56,10 +60,10 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                 //else
                 //{
 
-
             }
             conn.Close();
-        }
+
+            }
             public Pais_Click()
         {
             InitializeComponent();

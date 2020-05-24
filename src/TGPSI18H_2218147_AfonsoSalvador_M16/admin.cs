@@ -33,6 +33,15 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             addvoluntariado1.HorizontalScroll.Enabled = false;
             addvoluntariado1.HorizontalScroll.Visible = false;
             addvoluntariado1.AutoScroll = true;
+
+
+            utilizadoresGridView2.AutoScroll = true;
+            SidePanel.Height = button1.Height;
+            SidePanel.Top = button1.Top;
+            button1.ForeColor = Color.Wheat;
+            button3.ForeColor = Color.White;
+            utilizadoresGridView2.SendToBack();
+            addvoluntariado1.BringToFront();
         }
 
         private void Admin_Load(object sender, EventArgs e)
@@ -46,8 +55,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             SidePanel.Top = button1.Top;
             button1.ForeColor = Color.Wheat;
             button3.ForeColor = Color.White;
-          //  UtilizadoresGridView.Hide();
-            addvoluntariado1.Show();
+            utilizadoresGridView2.SendToBack();
             addvoluntariado1.BringToFront();
         }
 
@@ -74,8 +82,27 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             SidePanel.Top = button3.Top;
             button3.ForeColor = Color.Wheat;
             button1.ForeColor = Color.White;
-            addvoluntariado1.Hide();
+            addvoluntariado1.SendToBack();
+            utilizadoresGridView2.BringToFront();
 
+
+        }
+
+        private void PictureBox2_Click(object sender, EventArgs e)
+        {
+
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void PictureBox1_Click(object sender, EventArgs e)
+        {
+
+            this.WindowState = FormWindowState.Maximized;
+        }
+
+        private void PictureBox3_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Configuration;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 using System.IO;
 namespace TGPSI18H_2218147_AfonsoSalvador_M16
 {
@@ -73,7 +74,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                 {
                     conn.Open();
                     cmd.Parameters.AddWithValue("@param1", txt_user.Text);
-                    cmd.Parameters.AddWithValue("@param2", txt_password.Text);
+                    cmd.Parameters.AddWithValue("@param2", Encrypt(txt_password.Text.Trim()));
                     cmd.Parameters.AddWithValue("@param3", txt_nome.Text);
                     cmd.Parameters.AddWithValue("@param4", txt_email.Text);
                     cmd.Parameters.AddWithValue("@param5", cmb_nacionalidade.SelectedValue);
@@ -87,6 +88,27 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             }
             
       
+        }
+        private string Encrypt(string clearText)
+        {
+            string EncryptionKey = "MAKV2SPBNI99212";
+            byte[] clearBytes = Encoding.Unicode.GetBytes(clearText);
+            using (Aes encryptor = Aes.Create())
+            {
+                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
+                encryptor.Key = pdb.GetBytes(32);
+                encryptor.IV = pdb.GetBytes(16);
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateEncryptor(), CryptoStreamMode.Write))
+                    {
+                        cs.Write(clearBytes, 0, clearBytes.Length);
+                        cs.Close();
+                    }
+                    clearText = Convert.ToBase64String(ms.ToArray());
+                }
+            }
+            return clearText;
         }
 
         private void Register_Page_Load(object sender, EventArgs e)
@@ -174,6 +196,16 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         }
 
         private void Panel2_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Txt_nome_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Txt_password_TextChanged(object sender, EventArgs e)
         {
 
         }
