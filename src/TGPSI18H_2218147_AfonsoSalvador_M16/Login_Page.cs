@@ -22,7 +22,8 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             label5.Hide();
             pictureBox5.Hide();
             pictureBox6.Hide();
-
+            pictureBox7.BringToFront();
+            txtPassword.PasswordChar = '*';
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -61,6 +62,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
      
         private void TxtPassword_MouseClick(object sender, MouseEventArgs e)
         {
+
         }
 
      
@@ -69,7 +71,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         {
            
             label5.Hide();
-           
             pictureBox6.Hide();
         }
 
@@ -132,6 +133,28 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         private void TxtPassword_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void PictureBox4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BunifuCustomTextbox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PictureBox4_Click_1(object sender, EventArgs e)
+        {
+            pictureBox7.BringToFront();
+            txtPassword.PasswordChar = '*';
+        }
+
+        private void PictureBox7_Click(object sender, EventArgs e)
+        {
+            pictureBox4.BringToFront();
+            txtPassword.PasswordChar = '\0';
         }
     }
 }

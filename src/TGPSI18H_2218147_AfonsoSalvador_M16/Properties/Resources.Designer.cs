@@ -83,6 +83,16 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap invisible {
+            get {
+                object obj = ResourceManager.GetObject("invisible", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap mapac_ {
             get {
                 object obj = ResourceManager.GetObject("mapac#", resourceCulture);
@@ -96,6 +106,16 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16.Properties {
         internal static System.Drawing.Bitmap planeta {
             get {
                 object obj = ResourceManager.GetObject("planeta", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap visible {
+            get {
+                object obj = ResourceManager.GetObject("visible", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

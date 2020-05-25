@@ -287,5 +287,11 @@
   <ItemGroup>
     <None Include="Resources\planeta.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\visible.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\invisible.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

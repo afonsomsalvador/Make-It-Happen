@@ -18,6 +18,8 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
+        private int _Progress = 0;
         public SplashScreen()
         {
             InitializeComponent();
@@ -52,6 +54,24 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             Image flipImage = pictureBox1.Image;
             flipImage.RotateFlip(RotateFlipType.Rotate90FlipXY);
             pictureBox1.Image = flipImage;
+
+            if (_Progress < 100)
+            {
+                _Progress = _Progress + 5;
+                label3.Text = _Progress.ToString() + "%";
+                while(_Progress == 100)
+                {
+                    this.Hide();
+                    Map_Page mp = new Map_Page();
+                    mp.ShowDialog();
+                }
+
+            }
+            else
+            {
+                timer1.Enabled = false;
+            }
+
         }
 
         private void Panel2_MouseDown(object sender, MouseEventArgs e)

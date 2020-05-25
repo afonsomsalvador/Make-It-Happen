@@ -34,8 +34,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             InitializeComponent();
             SidePanel.Height = button1.Height;
             SidePanel.Top = button1.Top;
-
-
         }
         public Pais_Click pais;
   
@@ -155,6 +153,11 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         }
 
         private void Pais_Click2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
