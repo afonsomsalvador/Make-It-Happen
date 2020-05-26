@@ -17,12 +17,11 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         
         MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=psi18_afonsosalvador");
         MySqlCommand cmd = new MySqlCommand();
-        DataSet dataset = new DataSet();
         
         public string texto
         {
             get
-           {
+            {
                 return label1.Text;
             }
             set
@@ -30,40 +29,23 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                 label1.Text = value;
             }
         }
-        //private void populateItems()
-        //{
-        //    conn.Open();
-        //    //MySqlDataAdapter da = new MySqlDataAdapter("SELECT nome, descricao, imagem FROM voluntariado WHERE nome LIKE '%" + textBox1 + "%' ORDER BY nome", conn);
-        //    cmd = new MySqlCommand("SELECT nome, descricao, imagem FROM voluntariado");
-        //    //DataTable dt = new DataTable();
-        //    MySqlDataReader dt;
-        //    //da.Fill(dt);
-        //    dt = cmd.ExecuteReader();
-        //    while (dt.Read())
-        //    //for (int i = 0; i < dt.Rows.Count; i++)
-        //    {
+        private void populateItems()
+        {
+            conn.Open();
+            cmd = new MySqlCommand("SELECT nome, descricao, imagem FROM voluntariado", conn);
+            MySqlDataReader dt;
+            dt = cmd.ExecuteReader();
+            while (dt.Read())
+            {
+                Panels p = new Panels();
+                p.Nome = dt["nome"].ToString();
+                p.Descricao = dt["descricao"].ToString();
+                //p.image = dt["imagem"];
 
-        //        Panels[] panel = new Panels[4];
-        //        panel[4] = new Panels();
-        //        string a = dt["nome"].ToString();
-        //        panel[4].Nome = a.ToString();
-        //        //panel[dt.Rows.Count].Descricao = dt.GetString(1);
-        //        //panel[i].image = "";
-
-        //        flowLayoutPanel1.Controls.Add(panel[4]);
-
-
-        //        //if (flowLayoutPanel1.Controls.Count > 0)
-        //        //{
-        //        //    flowLayoutPanel1.Controls.Clear();
-        //        //}
-        //        //else
-        //        //{
-
-        //    }
-        //    conn.Close();
-
-        //    }
+                flowLayoutPanel1.Controls.Add(p);
+            }
+            conn.Close();
+        }
             public Pais_Click()
         {
             InitializeComponent();
@@ -71,7 +53,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         private void Pais_Click_Load(object sender, EventArgs e)
         {
             label1.Text = texto;
-            //populateItems();
+            populateItems();
             VerticalScroll.Enabled = true;
         }
 

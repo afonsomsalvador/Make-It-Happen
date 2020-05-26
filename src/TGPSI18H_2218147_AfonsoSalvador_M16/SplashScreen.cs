@@ -23,9 +23,9 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         public SplashScreen()
         {
             InitializeComponent();
-            
+            LoginForm lf = new LoginForm();
+            lf.current_user = label2.Text.Trim();
         }
-
         private void PictureBox1_Click(object sender, EventArgs e)
         {
 
@@ -36,7 +36,8 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             timer1.Interval = 150;    
             timer1.Tick += Timer1_Tick;
             timer1.Start();
-
+          
+            
         }
 
         private void PictureBox1_Paint(object sender, PaintEventArgs e)
@@ -65,19 +66,22 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                     Map_Page mp = new Map_Page();
                     mp.ShowDialog();
                 }
-
             }
             else
             {
                 timer1.Enabled = false;
             }
-
         }
 
         private void Panel2_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void Label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

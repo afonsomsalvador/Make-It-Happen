@@ -89,28 +89,102 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             
       
         }
-        private string Encrypt(string clearText)
+        public static class Global
         {
-            string EncryptionKey = "MAKV2SPBNI99212";
-            byte[] clearBytes = Encoding.Unicode.GetBytes(clearText);
-            using (Aes encryptor = Aes.Create())
-            {
-                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
-                encryptor.Key = pdb.GetBytes(32);
-                encryptor.IV = pdb.GetBytes(16);
-                using (MemoryStream ms = new MemoryStream())
-                {
-                    using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateEncryptor(), CryptoStreamMode.Write))
-                    {
-                        cs.Write(clearBytes, 0, clearBytes.Length);
-                        cs.Close();
-                    }
-                    clearText = Convert.ToBase64String(ms.ToArray());
-                }
-            }
-            return clearText;
+            // set password
+            public const string strPassword = "LetMeIn99$";
+
+            // set permutations
+            public const String strPermutation = "ouiveyxaqtd";
+            public const Int32 bytePermutation1 = 0x19;
+            public const Int32 bytePermutation2 = 0x59;
+            public const Int32 bytePermutation3 = 0x17;
+            public const Int32 bytePermutation4 = 0x41;
+        }
+        public static string Encrypt(string strData)
+        {
+
+            return Convert.ToBase64String(Encrypt(Encoding.UTF8.GetBytes(strData)));
+
+        }
+        public static byte[] Encrypt(byte[] strData)
+        {
+            PasswordDeriveBytes passbytes =
+            new PasswordDeriveBytes(Global.strPermutation,
+            new byte[] { Global.bytePermutation1,
+                         Global.bytePermutation2,
+                         Global.bytePermutation3,
+                         Global.bytePermutation4
+            });
+
+            MemoryStream memstream = new MemoryStream();
+            Aes aes = new AesManaged();
+            aes.Key = passbytes.GetBytes(aes.KeySize / 8);
+            aes.IV = passbytes.GetBytes(aes.BlockSize / 8);
+
+            CryptoStream cryptostream = new CryptoStream(memstream,
+            aes.CreateEncryptor(), CryptoStreamMode.Write);
+            cryptostream.Write(strData, 0, strData.Length);
+            cryptostream.Close();
+            return memstream.ToArray();
         }
 
+        //public static class EncryptionHelper
+        //{
+        //    private static byte[] keyAndIvBytes;
+
+        //    static EncryptionHelper()
+        //    {
+        //        // You'll need a more secure way of storing this, I hope this isn't
+        //        // the real key
+        //        keyAndIvBytes = UTF8Encoding.UTF8.GetBytes("tR7nR6wZHGjYMCuV");
+        //    }
+        //    public static string ByteArrayToHexString(byte[] ba)
+        //    {
+        //        return BitConverter.ToString(ba).Replace("-", "");
+        //    }
+
+        //    public static byte[] StringToByteArray(string hex)
+        //    {
+        //        return Enumerable.Range(0, hex.Length)
+        //                         .Where(x => x % 2 == 0)
+        //                         .Select(x => Convert.ToByte(hex.Substring(x, 2), 16))
+        //                         .ToArray();
+        //    }
+        //    public static string EncryptAndEncode(string plaintext)
+        //    {
+        //        return ByteArrayToHexString(AesEncrypt(plaintext));
+        //    }
+
+        //    public static byte[] AesEncrypt(string inputText)
+        //    {
+        //        byte[] inputBytes = UTF8Encoding.UTF8.GetBytes(inputText);//AbHLlc5uLone0D1q
+
+        //        byte[] result = null;
+        //        using (MemoryStream memoryStream = new MemoryStream())
+        //        {
+        //            using (CryptoStream cryptoStream = new CryptoStream(memoryStream, GetCryptoAlgorithm().CreateEncryptor(keyAndIvBytes, keyAndIvBytes), CryptoStreamMode.Write))
+        //            {
+        //                cryptoStream.Write(inputBytes, 0, inputBytes.Length);
+        //                cryptoStream.FlushFinalBlock();
+
+        //                result = memoryStream.ToArray();
+        //            }
+        //        }
+
+        //        return result;
+        //    }
+        //    private static RijndaelManaged GetCryptoAlgorithm()
+        //    {
+        //        RijndaelManaged algorithm = new RijndaelManaged();
+        //        //set the mode, padding and block size
+        //        algorithm.Padding = PaddingMode.PKCS7;
+        //        algorithm.Mode = CipherMode.CBC;
+        //        algorithm.KeySize = 128;
+        //        algorithm.BlockSize = 128;
+        //        return algorithm;
+        //    }
+        //}
         private void Register_Page_Load(object sender, EventArgs e)
         {
 
@@ -209,5 +283,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         {
 
         }
+     
     }
 }

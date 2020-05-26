@@ -52,7 +52,8 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             }
             set
             {
-                _image = value; pictureBox1.Image = value;
+                _image = value;
+                pictureBox1.Image = value;
             }
         }
         private void Panel_Load(object sender, EventArgs e)

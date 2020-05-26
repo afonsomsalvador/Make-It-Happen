@@ -17,6 +17,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
     public partial class Map_Page : Form
     {
         MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=psi18_afonsosalvador;");
+        MySqlCommand cmd = new MySqlCommand();
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -160,6 +161,13 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         private void Panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void Button5_Click(object sender, EventArgs e)
+        {
+            LoginForm lg = new LoginForm();
+            this.Hide();
+            lg.ShowDialog();
         }
     }
 

@@ -31,20 +31,21 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Map_Page));
             this.panel1 = new System.Windows.Forms.Panel();
             this.SidePanel = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pais_Click2 = new TGPSI18H_2218147_AfonsoSalvador_M16.Pais_Click();
             this.voluntariadO_CLICK1 = new TGPSI18H_2218147_AfonsoSalvador_M16.VOLUNTARIADO_CLICK();
             this.categoria1 = new TGPSI18H_2218147_AfonsoSalvador_M16.Categoria();
             this.organizacao1 = new TGPSI18H_2218147_AfonsoSalvador_M16.Organizacao();
             this.socialClick1 = new TGPSI18H_2218147_AfonsoSalvador_M16.SocialClick();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -56,6 +57,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.panel1.Controls.Add(this.button5);
             this.panel1.Controls.Add(this.SidePanel);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.button3);
@@ -75,6 +77,105 @@
             this.SidePanel.Name = "SidePanel";
             this.SidePanel.Size = new System.Drawing.Size(10, 82);
             this.SidePanel.TabIndex = 5;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Controls.Add(this.pictureBox3);
+            this.panel2.Controls.Add(this.pictureBox4);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(166, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1153, 30);
+            this.panel2.TabIndex = 32;
+            this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel2_MouseDown);
+            // 
+            // pais_Click2
+            // 
+            this.pais_Click2.AutoScroll = true;
+            this.pais_Click2.Location = new System.Drawing.Point(166, 28);
+            this.pais_Click2.Name = "pais_Click2";
+            this.pais_Click2.Size = new System.Drawing.Size(1153, 555);
+            this.pais_Click2.TabIndex = 38;
+            this.pais_Click2.texto = "";
+            this.pais_Click2.Load += new System.EventHandler(this.Pais_Click2_Load);
+            // 
+            // voluntariadO_CLICK1
+            // 
+            this.voluntariadO_CLICK1.AutoSize = true;
+            this.voluntariadO_CLICK1.Location = new System.Drawing.Point(166, 28);
+            this.voluntariadO_CLICK1.Name = "voluntariadO_CLICK1";
+            this.voluntariadO_CLICK1.Size = new System.Drawing.Size(1153, 1114);
+            this.voluntariadO_CLICK1.TabIndex = 37;
+            // 
+            // categoria1
+            // 
+            this.categoria1.Location = new System.Drawing.Point(166, 28);
+            this.categoria1.Name = "categoria1";
+            this.categoria1.Size = new System.Drawing.Size(1153, 558);
+            this.categoria1.TabIndex = 35;
+            // 
+            // organizacao1
+            // 
+            this.organizacao1.Location = new System.Drawing.Point(166, 28);
+            this.organizacao1.Name = "organizacao1";
+            this.organizacao1.Size = new System.Drawing.Size(1153, 558);
+            this.organizacao1.TabIndex = 34;
+            // 
+            // socialClick1
+            // 
+            this.socialClick1.Location = new System.Drawing.Point(166, 28);
+            this.socialClick1.Name = "socialClick1";
+            this.socialClick1.Size = new System.Drawing.Size(1153, 558);
+            this.socialClick1.TabIndex = 33;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(1044, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(32, 34);
+            this.pictureBox1.TabIndex = 32;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.PictureBox1_Click);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(1082, -1);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(31, 33);
+            this.pictureBox3.TabIndex = 32;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.PictureBox3_Click_1);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(1119, 0);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(35, 38);
+            this.pictureBox4.TabIndex = 3;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.PictureBox4_Click);
+            // 
+            // button5
+            // 
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.Color.White;
+            this.button5.Image = global::TGPSI18H_2218147_AfonsoSalvador_M16.Properties.Resources.logout;
+            this.button5.Location = new System.Drawing.Point(12, 507);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(154, 67);
+            this.button5.TabIndex = 6;
+            this.button5.Text = "Sair";
+            this.button5.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.Button5_Click);
             // 
             // button4
             // 
@@ -145,49 +246,6 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Controls.Add(this.pictureBox3);
-            this.panel2.Controls.Add(this.pictureBox4);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(166, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1153, 30);
-            this.panel2.TabIndex = 32;
-            this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel2_MouseDown);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(1044, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(32, 34);
-            this.pictureBox1.TabIndex = 32;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.PictureBox1_Click);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(1082, -1);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(31, 33);
-            this.pictureBox3.TabIndex = 32;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.PictureBox3_Click_1);
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(1119, 0);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(35, 38);
-            this.pictureBox4.TabIndex = 3;
-            this.pictureBox4.TabStop = false;
-            this.pictureBox4.Click += new System.EventHandler(this.PictureBox4_Click);
-            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
@@ -196,45 +254,6 @@
             this.pictureBox2.Size = new System.Drawing.Size(48, 49);
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
-            // 
-            // pais_Click2
-            // 
-            this.pais_Click2.AutoScroll = true;
-            this.pais_Click2.Location = new System.Drawing.Point(166, 28);
-            this.pais_Click2.Name = "pais_Click2";
-            this.pais_Click2.Size = new System.Drawing.Size(1153, 555);
-            this.pais_Click2.TabIndex = 38;
-            this.pais_Click2.texto = "";
-            this.pais_Click2.Load += new System.EventHandler(this.Pais_Click2_Load);
-            // 
-            // voluntariadO_CLICK1
-            // 
-            this.voluntariadO_CLICK1.AutoSize = true;
-            this.voluntariadO_CLICK1.Location = new System.Drawing.Point(166, 28);
-            this.voluntariadO_CLICK1.Name = "voluntariadO_CLICK1";
-            this.voluntariadO_CLICK1.Size = new System.Drawing.Size(1153, 1114);
-            this.voluntariadO_CLICK1.TabIndex = 37;
-            // 
-            // categoria1
-            // 
-            this.categoria1.Location = new System.Drawing.Point(166, 28);
-            this.categoria1.Name = "categoria1";
-            this.categoria1.Size = new System.Drawing.Size(1153, 558);
-            this.categoria1.TabIndex = 35;
-            // 
-            // organizacao1
-            // 
-            this.organizacao1.Location = new System.Drawing.Point(166, 28);
-            this.organizacao1.Name = "organizacao1";
-            this.organizacao1.Size = new System.Drawing.Size(1153, 558);
-            this.organizacao1.TabIndex = 34;
-            // 
-            // socialClick1
-            // 
-            this.socialClick1.Location = new System.Drawing.Point(166, 28);
-            this.socialClick1.Name = "socialClick1";
-            this.socialClick1.Size = new System.Drawing.Size(1153, 558);
-            this.socialClick1.TabIndex = 33;
             // 
             // Map_Page
             // 
@@ -283,6 +302,7 @@
         private VOLUNTARIADO_CLICK voluntariadO_CLICK1;
         private System.Windows.Forms.Button button2;
         private Pais_Click pais_Click2;
+        private System.Windows.Forms.Button button5;
     }
 }
 
