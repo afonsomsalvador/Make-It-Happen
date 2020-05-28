@@ -103,6 +103,16 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                 textBox1.Text = value;
             }
         }
+
+
+        // definir uma cchavemestre
+        // a password do utilizador adicionar a chave mestre
+        // codificar com um algoritmo de HASH (SHA256 ou semelhante)
+        // guardar a password na bd desta forma
+        // quando for para comparar, fazer os calculos entre o que utilizador coloca como password e o que está na BD.
+       
+
+
         public static class Global
         {
             // set password
@@ -118,10 +128,11 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 
         public static string Decrypt(string strData)
         {
-            return Encoding.UTF8.GetString(Decrypt(Convert.FromBase64String(strData)));
+            byte[] bytePass = Encoding.ASCII.GetBytes(strData);
+            return Encoding.UTF8.GetString(DecryptByte(bytePass));
 
         }
-        public static byte[] Decrypt(byte[] strData)
+        public static byte[] DecryptByte(byte[] strData)
         {
             PasswordDeriveBytes passbytes =
             new PasswordDeriveBytes(Global.strPermutation,

@@ -32,14 +32,13 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.SidePanel = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.addvoluntariado1 = new TGPSI18H_2218147_AfonsoSalvador_M16.addvoluntariado();
-            this.utilizadoresGridView2 = new TGPSI18H_2218147_AfonsoSalvador_M16.UtilizadoresGridView();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.utilizadoresGridView2 = new TGPSI18H_2218147_AfonsoSalvador_M16.UtilizadoresGridView();
+            this.addvoluntariado1 = new TGPSI18H_2218147_AfonsoSalvador_M16.addvoluntariado();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -50,7 +49,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.SidePanel);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button1);
@@ -83,25 +81,6 @@
             this.panel2.TabIndex = 40;
             this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel2_MouseDown_1);
             // 
-            // addvoluntariado1
-            // 
-            this.addvoluntariado1.AutoScroll = true;
-            this.addvoluntariado1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.addvoluntariado1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.addvoluntariado1.Location = new System.Drawing.Point(165, 29);
-            this.addvoluntariado1.Name = "addvoluntariado1";
-            this.addvoluntariado1.Size = new System.Drawing.Size(1154, 557);
-            this.addvoluntariado1.TabIndex = 41;
-            this.addvoluntariado1.Load += new System.EventHandler(this.Addvoluntariado1_Load);
-            // 
-            // utilizadoresGridView2
-            // 
-            this.utilizadoresGridView2.AutoScroll = true;
-            this.utilizadoresGridView2.Location = new System.Drawing.Point(166, 29);
-            this.utilizadoresGridView2.Name = "utilizadoresGridView2";
-            this.utilizadoresGridView2.Size = new System.Drawing.Size(1153, 558);
-            this.utilizadoresGridView2.TabIndex = 42;
-            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
@@ -131,23 +110,6 @@
             this.pictureBox3.TabIndex = 3;
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Click += new System.EventHandler(this.PictureBox3_Click);
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Image = global::TGPSI18H_2218147_AfonsoSalvador_M16.Properties.Resources.news_48px;
-            this.button2.Location = new System.Drawing.Point(12, 248);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(148, 90);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Adicionar noticia";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button2.UseVisualStyleBackColor = false;
             // 
             // button3
             // 
@@ -184,6 +146,25 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
+            // utilizadoresGridView2
+            // 
+            this.utilizadoresGridView2.AutoScroll = true;
+            this.utilizadoresGridView2.Location = new System.Drawing.Point(166, 29);
+            this.utilizadoresGridView2.Name = "utilizadoresGridView2";
+            this.utilizadoresGridView2.Size = new System.Drawing.Size(1153, 558);
+            this.utilizadoresGridView2.TabIndex = 42;
+            // 
+            // addvoluntariado1
+            // 
+            this.addvoluntariado1.AutoScroll = true;
+            this.addvoluntariado1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.addvoluntariado1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.addvoluntariado1.Location = new System.Drawing.Point(165, 29);
+            this.addvoluntariado1.Name = "addvoluntariado1";
+            this.addvoluntariado1.Size = new System.Drawing.Size(1154, 557);
+            this.addvoluntariado1.TabIndex = 41;
+            this.addvoluntariado1.Load += new System.EventHandler(this.Addvoluntariado1_Load);
+            // 
             // admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -219,6 +200,5 @@
         private addvoluntariado addvoluntariado1;
         private UtilizadoresGridView utilizadoresGridView1;
         private UtilizadoresGridView utilizadoresGridView2;
-        private System.Windows.Forms.Button button2;
     }
 }
