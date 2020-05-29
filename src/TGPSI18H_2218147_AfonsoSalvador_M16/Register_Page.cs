@@ -32,11 +32,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                     conn.Open();
                     myReader = mysqlcommand.ExecuteReader();
                                 
-                    
-                 
-                   
-                   
-                       
                         DataTable dt = new DataTable();
                         dt.Load(myReader); // Carrega os dados para o DataTable 
                         // Define qual coluna será manipulada via código
@@ -55,29 +50,56 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                 {
                     conn.Close();// Fecha a conexão com o BD
                 }
+
             }
         }
         public Register_Page()
         {
             InitializeComponent();
             combobox();
+            // Email
+            label14.Hide();
+            pictureBox6.Hide();
+            // User
+            label15.Hide();
+            pictureBox4.Hide();
+            // Password
+            label16.Hide();
+            pictureBox5.Hide();
+            // Confirmar Password
+            label17.Hide();
+            pictureBox7.Hide();
+            // Nacionalidade
+            label19.Hide();
+            pictureBox9.Hide();
+            // Nome Completo
+            label18.Hide();
+            pictureBox8.Hide();
+            // Conta Existe
+            label20.Hide();
+            pictureBox14.Hide();
         }
         private void Button1_Click(object sender, EventArgs e)
         {
              
-            string sql = ("INSERT INTO login(user, Password, nome, email, Pais_idPais) VALUES(@param1, @param2, @param3, @param4, @param5) ");
+            string sql = ("INSERT INTO login(user, Password, nome, email, Pais_idPais, foto) VALUES(@param1, @param2, @param3, @param4, @param5, @param6) ");
 
 
             if (txt_password.Text == txt_conpass.Text)
             {
                 using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                 {
+                    MemoryStream ms = new MemoryStream();
+                    pictureBox1.BackgroundImage.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                    byte[] arrImage = ms.GetBuffer();
+
                     conn.Open();
                     cmd.Parameters.AddWithValue("@param1", txt_user.Text);
                     cmd.Parameters.AddWithValue("@param2", Encrypt(txt_password.Text.Trim()));
                     cmd.Parameters.AddWithValue("@param3", txt_nome.Text);
                     cmd.Parameters.AddWithValue("@param4", txt_email.Text);
                     cmd.Parameters.AddWithValue("@param5", cmb_nacionalidade.SelectedValue);
+                    cmd.Parameters.AddWithValue("@param6", arrImage);
                     cmd.ExecuteNonQuery();
                     conn.Close();
                 }
@@ -205,6 +227,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                     imageLocation = dialog.FileName;
 
                     bunifuImageButton1.ImageLocation = imageLocation;
+                    pictureBox1.BackgroundImage = Image.FromFile(dialog.FileName);
                 }
             }
             catch (Exception)

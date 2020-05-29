@@ -302,5 +302,11 @@
   <ItemGroup>
     <None Include="Resources\news_48px.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ensino.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Capturar.PNG" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

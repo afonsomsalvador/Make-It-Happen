@@ -29,7 +29,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             adapter.Fill(table);
             dataGridView1.DataSource = table;
            
-
         }
         
         private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

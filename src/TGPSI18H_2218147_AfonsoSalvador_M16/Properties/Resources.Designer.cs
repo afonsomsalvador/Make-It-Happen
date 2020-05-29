@@ -63,9 +63,29 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Capturar {
+            get {
+                object obj = ResourceManager.GetObject("Capturar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap charity_64px {
             get {
                 object obj = ResourceManager.GetObject("charity_64px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ensino {
+            get {
+                object obj = ResourceManager.GetObject("ensino", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

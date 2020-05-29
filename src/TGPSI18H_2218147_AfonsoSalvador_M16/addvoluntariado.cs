@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using System.IO;
 using System.Windows.Forms;
 
 namespace TGPSI18H_2218147_AfonsoSalvador_M16
@@ -16,23 +17,96 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=psi18_afonsosalvador");
 
         List<Panels> pnl = new List<Panels>();
+        void combobox()
+        {
+            string Query = ("SELECT * FROM categorias ORDER BY nome ASC;"); /*.. where p.idPais = l.Pais_idPais and p.nome = p.idPais*/
 
+            using (MySqlCommand mysqlcommand = new MySqlCommand(Query, conn))
+            {
+                MySqlDataReader myReader;
+                try
+                {
+                    conn.Open();
+                    myReader = mysqlcommand.ExecuteReader();
+
+                    DataTable dt = new DataTable();
+                    dt.Load(myReader); // Carrega os dados para o DataTable 
+                                       // Define qual coluna será manipulada via código
+                    cmb_categoria.DisplayMember = "nome";
+                    // Define a fonte de dados
+                    cmb_categoria.ValueMember = "id_Categoria";
+                    cmb_categoria.DataSource = dt;
+                    cmb_categoria.SelectedText = "Selecione uma categoria";
+
+                }
+                catch (Exception erro)
+                {
+                    MessageBox.Show("Erro:" + erro.Message);
+                }
+                finally
+                {
+                    conn.Close();// Fecha a conexão com o BD
+                }
+
+            }
+        }
+        void combobox1()
+        {
+            string Query = ("SELECT * FROM organizacao ORDER BY nome ASC;"); /*.. where p.idPais = l.Pais_idPais and p.nome = p.idPais*/
+
+            using (MySqlCommand mysqlcommand = new MySqlCommand(Query, conn))
+            {
+                MySqlDataReader myReader;
+                try
+                {
+                    conn.Open();
+                    myReader = mysqlcommand.ExecuteReader();
+                    DataTable dt = new DataTable();
+                    dt.Load(myReader); // Carrega os dados para o DataTable 
+                                       // Define qual coluna será manipulada via código
+                    cmb_organizacao.DisplayMember = "nome";
+                    // Define a fonte de dados
+                    cmb_organizacao.ValueMember = "idOrganizacao";
+                    cmb_organizacao.DataSource = dt;
+                    cmb_organizacao.SelectedText = "Selecione uma organização";
+
+                }
+                catch (Exception erro)
+                {
+                    MessageBox.Show("Erro:" + erro.Message);
+                }
+                finally
+                {
+                    conn.Close();// Fecha a conexão com o BD
+                }
+
+            }
+        }
         void add()
         {
-            string sql = "INSERT INTO voluntariado(nome, descricao) VALUES(@param1, @param2)";
+            MemoryStream ms = new MemoryStream();
+            bunifuImageButton1.BackgroundImage.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+            byte[] arrImage = ms.GetBuffer();
+
+            string sql = "INSERT INTO voluntariado(nome, descricao, imagem, Categoria_id_Categoria, Organizacao_idOrganizacao, Detalhes_idDetalhes, Experiencia_idExperiencia) VALUES(@param1, @param2, @param3, @param4, @param5, @param6, @param7)";
             using (MySqlCommand cmd = new MySqlCommand(sql, conn))
             {
                 conn.Open();
                 cmd.Parameters.AddWithValue("@param1", textBox1.Text);
                 cmd.Parameters.AddWithValue("@param2", textBox2.Text);
+                cmd.Parameters.AddWithValue("@param3", arrImage);
+                cmd.Parameters.AddWithValue("@param4", cmb_categoria.SelectedValue);
+                cmd.Parameters.AddWithValue("@param5", cmb_organizacao.SelectedValue);
+                //cmd.Parameters.AddWithValue("@param6", );
+                //cmd.Parameters.AddWithValue("@param7", );
                 cmd.ExecuteNonQuery();
                 conn.Close();
             }
-            string sql1 = "INSERT INTO detalhes(data, duracao, alojamento, alimentacao, transfers, seguro, acompanhamento, adicional) VALUES(@param1, @param2, @param3, @param4, @param5, @param6, @param7, @param8)";
+            string sql1 = "INSERT INTO detalhes(data, duracao, alojamento, alimentacao, transfers, seguro, acompanhamento, adicional, localidade) VALUES(@param1, @param2, @param3, @param4, @param5, @param6, @param7, @param8, @param9)";
             using (MySqlCommand cmd = new MySqlCommand(sql, conn))
             {
                 conn.Open();
-                cmd.Parameters.AddWithValue("@param1", dateTimePicker1.Value);
+                cmd.Parameters.AddWithValue("@param1", dateTimePicker1.Text);
                 cmd.Parameters.AddWithValue("@param2", textBox3.Text);
                 cmd.Parameters.AddWithValue("@param3", textBox4.Text);
                 cmd.Parameters.AddWithValue("@param4", textBox6.Text);
@@ -40,10 +114,11 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                 cmd.Parameters.AddWithValue("@param6", textBox8.Text);
                 cmd.Parameters.AddWithValue("@param7", textBox9.Text);
                 cmd.Parameters.AddWithValue("@param8", textBox10.Text);
+                cmd.Parameters.AddWithValue("@param9", textBox5.Text);
                 cmd.ExecuteNonQuery();
                 conn.Close();
             }
-            string sql2 = "INSERT INTO requisitos(Idade, Lingua, Escolaridade) VALUES(@param1, @param2, @param3)";
+            string sql2 = "INSERT INTO requisitos(Idade, Lingua, escolaridade) VALUES(@param1, @param2, @param3)";
             using (MySqlCommand cmd = new MySqlCommand(sql, conn))
             {
                 conn.Open();
@@ -66,6 +141,8 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         public addvoluntariado()
         {
             InitializeComponent();
+            combobox();
+            combobox1();
         }
 
         private void Addvoluntariado_Load(object sender, EventArgs e)
@@ -114,6 +191,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                     imageLocation = dialog.FileName;
 
                     bunifuImageButton1.ImageLocation = imageLocation;
+                    bunifuImageButton1.BackgroundImage = Image.FromFile(dialog.FileName);
                 }
             }
             catch (Exception)
@@ -124,6 +202,11 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         }
 
         private void BunifuImageButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Cmb_nacionalidade_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

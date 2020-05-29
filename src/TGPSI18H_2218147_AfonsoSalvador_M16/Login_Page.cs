@@ -113,46 +113,47 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
        
 
 
-        public static class Global
-        {
-            // set password
-            public const string strPassword = "LetMeIn99$";
+        //public static class Global
+        //{
+        //    // set password
+        //    public const string strPassword = "LetMeIn99$";
 
-            // set permutations
-            public const String strPermutation = "ouiveyxaqtd";
-            public const Int32 bytePermutation1 = 0x19;
-            public const Int32 bytePermutation2 = 0x59;
-            public const Int32 bytePermutation3 = 0x17;
-            public const Int32 bytePermutation4 = 0x41;
-        }
+        //    // set permutations
+        //    public const String strPermutation = "ouiveyxaqtd";
+        //    public const Int32 bytePermutation1 = 0x19;
+        //    public const Int32 bytePermutation2 = 0x59;
+        //    public const Int32 bytePermutation3 = 0x17;
+        //    public const Int32 bytePermutation4 = 0x41;
+        //}
 
-        public static string Decrypt(string strData)
-        {
-            byte[] bytePass = Encoding.ASCII.GetBytes(strData);
-            return Encoding.UTF8.GetString(DecryptByte(bytePass));
+        //public static string Decrypt(string strData)
+        //{
+        //    byte[] bytePass = Encoding.ASCII.GetBytes(strData);
+        //    return Encoding.UTF8.GetString(DecryptByte(bytePass));
 
-        }
-        public static byte[] DecryptByte(byte[] strData)
-        {
-            PasswordDeriveBytes passbytes =
-            new PasswordDeriveBytes(Global.strPermutation,
-            new byte[] { Global.bytePermutation1,
-                         Global.bytePermutation2,
-                         Global.bytePermutation3,
-                         Global.bytePermutation4
-            });
+        //}
+        //public static byte[] DecryptByte(byte[] strData)
+        //{
+        //    PasswordDeriveBytes passbytes =
+        //    new PasswordDeriveBytes(Global.strPermutation,
+        //    new byte[] { Global.bytePermutation1,
+        //                 Global.bytePermutation2,
+        //                 Global.bytePermutation3,
+        //                 Global.bytePermutation4
+        //    });
 
-            MemoryStream memstream = new MemoryStream();
-            Aes aes = new AesManaged();
-            aes.Key = passbytes.GetBytes(aes.KeySize / 8);
-            aes.IV = passbytes.GetBytes(aes.BlockSize / 8);
+        //    MemoryStream memstream = new MemoryStream();
+        //    Aes aes = new AesManaged();
+        //    aes.Key = passbytes.GetBytes(aes.KeySize / 8);
+        //    aes.IV = passbytes.GetBytes(aes.BlockSize / 8);
 
-            CryptoStream cryptostream = new CryptoStream(memstream,
-            aes.CreateDecryptor(), CryptoStreamMode.Write);
-            cryptostream.Write(strData, 0, strData.Length);
-            cryptostream.Close();
-            return memstream.ToArray();
-        }
+        //    CryptoStream cryptostream = new CryptoStream(memstream,
+        //    aes.CreateDecryptor(), CryptoStreamMode.Write);
+        //    cryptostream.Write(strData, 0, strData.Length);
+        //    cryptostream.Close();
+        //    return memstream.ToArray();
+        //}
+        //FIMMMM
         //public static class EncryptionHelper
         //{
         //    private static byte[] keyAndIvBytes;
@@ -221,7 +222,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         private void Button1_Click_1(object sender, EventArgs e)
         {
             conn.Open();
-            string sql = ("Select * from login where user= '" + textBox1.Text.Trim() + "' and password= '" + Decrypt(txtPassword.Text.ToString().Trim()) + "'");
+            string sql = ("Select * from login where user= '" + textBox1.Text.Trim() + "' and password= '" + (txtPassword.Text.ToString().Trim()) + "'");
             MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
             DataTable dt = new DataTable();
             da.Fill(dt);

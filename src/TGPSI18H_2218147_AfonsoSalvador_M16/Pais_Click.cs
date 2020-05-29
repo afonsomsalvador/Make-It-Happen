@@ -40,7 +40,8 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                 Panels p = new Panels();
                 p.Nome = dt["nome"].ToString();
                 p.Descricao = dt["descricao"].ToString();
-                p.image = byte[] imageBytes = (byte[])dt["imagem"];
+                //p.image = array;
+                //p.image = byte[] imageBytes = (byte[])dt["imagem"];
                 //p.image = dt["imagem"];
 
                 flowLayoutPanel1.Controls.Add(p);

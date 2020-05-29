@@ -55,8 +55,8 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.cmb_nacionalidade = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cmb_categoria = new System.Windows.Forms.ComboBox();
+            this.cmb_organizacao = new System.Windows.Forms.ComboBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
@@ -244,6 +244,7 @@
             // 
             // textBox1
             // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.textBox1.Location = new System.Drawing.Point(31, 96);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
@@ -252,6 +253,7 @@
             // 
             // textBox2
             // 
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.textBox2.Location = new System.Drawing.Point(31, 168);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
@@ -263,18 +265,19 @@
             // 
             this.vScrollBar1.Location = new System.Drawing.Point(1133, 0);
             this.vScrollBar1.Name = "vScrollBar1";
-            this.vScrollBar1.Size = new System.Drawing.Size(20, 815);
+            this.vScrollBar1.Size = new System.Drawing.Size(20, 893);
             this.vScrollBar1.TabIndex = 17;
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker1.Location = new System.Drawing.Point(451, 107);
             this.dateTimePicker1.MaxDate = new System.DateTime(2120, 12, 31, 0, 0, 0, 0);
             this.dateTimePicker1.MinDate = new System.DateTime(2020, 1, 1, 0, 0, 0, 0);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(165, 26);
+            this.dateTimePicker1.Size = new System.Drawing.Size(265, 26);
             this.dateTimePicker1.TabIndex = 18;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.DateTimePicker1_ValueChanged);
             // 
@@ -300,6 +303,7 @@
             // 
             // textBox3
             // 
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.textBox3.Location = new System.Drawing.Point(451, 168);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
@@ -308,6 +312,7 @@
             // 
             // textBox4
             // 
+            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.textBox4.Location = new System.Drawing.Point(451, 250);
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
@@ -328,7 +333,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label19.Location = new System.Drawing.Point(28, 516);
+            this.label19.Location = new System.Drawing.Point(454, 795);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(96, 20);
             this.label19.TabIndex = 24;
@@ -338,33 +343,35 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label20.Location = new System.Drawing.Point(28, 587);
+            this.label20.Location = new System.Drawing.Point(28, 511);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(110, 20);
             this.label20.TabIndex = 25;
             this.label20.Text = "Organização";
             // 
-            // cmb_nacionalidade
+            // cmb_categoria
             // 
-            this.cmb_nacionalidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.cmb_nacionalidade.FormattingEnabled = true;
-            this.cmb_nacionalidade.Location = new System.Drawing.Point(31, 468);
-            this.cmb_nacionalidade.Name = "cmb_nacionalidade";
-            this.cmb_nacionalidade.Size = new System.Drawing.Size(263, 28);
-            this.cmb_nacionalidade.TabIndex = 26;
+            this.cmb_categoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.cmb_categoria.FormattingEnabled = true;
+            this.cmb_categoria.Location = new System.Drawing.Point(31, 468);
+            this.cmb_categoria.Name = "cmb_categoria";
+            this.cmb_categoria.Size = new System.Drawing.Size(263, 25);
+            this.cmb_categoria.TabIndex = 26;
+            this.cmb_categoria.SelectedIndexChanged += new System.EventHandler(this.Cmb_nacionalidade_SelectedIndexChanged);
             // 
-            // comboBox2
+            // cmb_organizacao
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(31, 610);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(263, 28);
-            this.comboBox2.TabIndex = 28;
+            this.cmb_organizacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.cmb_organizacao.FormattingEnabled = true;
+            this.cmb_organizacao.Location = new System.Drawing.Point(31, 534);
+            this.cmb_organizacao.Name = "cmb_organizacao";
+            this.cmb_organizacao.Size = new System.Drawing.Size(263, 25);
+            this.cmb_organizacao.TabIndex = 28;
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(31, 539);
+            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.textBox5.Location = new System.Drawing.Point(457, 818);
             this.textBox5.Multiline = true;
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(263, 29);
@@ -372,6 +379,7 @@
             // 
             // textBox6
             // 
+            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.textBox6.Location = new System.Drawing.Point(450, 332);
             this.textBox6.Multiline = true;
             this.textBox6.Name = "textBox6";
@@ -380,6 +388,7 @@
             // 
             // textBox7
             // 
+            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.textBox7.Location = new System.Drawing.Point(453, 420);
             this.textBox7.Multiline = true;
             this.textBox7.Name = "textBox7";
@@ -388,6 +397,7 @@
             // 
             // textBox8
             // 
+            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.textBox8.Location = new System.Drawing.Point(453, 507);
             this.textBox8.Multiline = true;
             this.textBox8.Name = "textBox8";
@@ -396,6 +406,7 @@
             // 
             // textBox9
             // 
+            this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.textBox9.Location = new System.Drawing.Point(453, 589);
             this.textBox9.Multiline = true;
             this.textBox9.Name = "textBox9";
@@ -404,6 +415,7 @@
             // 
             // textBox10
             // 
+            this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.textBox10.Location = new System.Drawing.Point(455, 737);
             this.textBox10.Multiline = true;
             this.textBox10.Name = "textBox10";
@@ -412,6 +424,7 @@
             // 
             // textBox11
             // 
+            this.textBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.textBox11.Location = new System.Drawing.Point(453, 666);
             this.textBox11.Multiline = true;
             this.textBox11.Name = "textBox11";
@@ -421,6 +434,7 @@
             // 
             // textBox12
             // 
+            this.textBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.textBox12.Location = new System.Drawing.Point(790, 104);
             this.textBox12.Multiline = true;
             this.textBox12.Name = "textBox12";
@@ -430,6 +444,7 @@
             // 
             // textBox13
             // 
+            this.textBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.textBox13.Location = new System.Drawing.Point(790, 168);
             this.textBox13.Multiline = true;
             this.textBox13.Name = "textBox13";
@@ -438,6 +453,7 @@
             // 
             // textBox14
             // 
+            this.textBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.textBox14.Location = new System.Drawing.Point(790, 250);
             this.textBox14.Multiline = true;
             this.textBox14.Name = "textBox14";
@@ -446,9 +462,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(857, 724);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.button1.Location = new System.Drawing.Point(830, 795);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(164, 44);
+            this.button1.Size = new System.Drawing.Size(194, 64);
             this.button1.TabIndex = 39;
             this.button1.Text = "Adicionar Voluntariado";
             this.button1.UseVisualStyleBackColor = true;
@@ -468,11 +485,11 @@
             // 
             this.btnuploadimage.BackColor = System.Drawing.Color.Transparent;
             this.btnuploadimage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnuploadimage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnuploadimage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnuploadimage.ForeColor = System.Drawing.Color.Black;
-            this.btnuploadimage.Location = new System.Drawing.Point(836, 507);
+            this.btnuploadimage.Location = new System.Drawing.Point(830, 507);
             this.btnuploadimage.Name = "btnuploadimage";
-            this.btnuploadimage.Size = new System.Drawing.Size(174, 28);
+            this.btnuploadimage.Size = new System.Drawing.Size(180, 29);
             this.btnuploadimage.TabIndex = 42;
             this.btnuploadimage.Text = "Inserir Imagem";
             this.btnuploadimage.UseVisualStyleBackColor = false;
@@ -637,7 +654,7 @@
             this.label36.AutoSize = true;
             this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label36.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label36.Location = new System.Drawing.Point(277, 584);
+            this.label36.Location = new System.Drawing.Point(277, 508);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(17, 24);
             this.label36.TabIndex = 57;
@@ -648,7 +665,7 @@
             this.label37.AutoSize = true;
             this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label37.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label37.Location = new System.Drawing.Point(277, 512);
+            this.label37.Location = new System.Drawing.Point(703, 791);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(17, 24);
             this.label37.TabIndex = 58;
@@ -727,8 +744,8 @@
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.cmb_nacionalidade);
+            this.Controls.Add(this.cmb_organizacao);
+            this.Controls.Add(this.cmb_categoria);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.label18);
@@ -757,7 +774,7 @@
             this.Controls.Add(this.label1);
             this.Location = new System.Drawing.Point(166, 28);
             this.Name = "addvoluntariado";
-            this.Size = new System.Drawing.Size(1153, 815);
+            this.Size = new System.Drawing.Size(1153, 893);
             this.Load += new System.EventHandler(this.Addvoluntariado_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
             this.ResumeLayout(false);
@@ -793,8 +810,8 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.ComboBox cmb_nacionalidade;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cmb_categoria;
+        private System.Windows.Forms.ComboBox cmb_organizacao;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox7;
