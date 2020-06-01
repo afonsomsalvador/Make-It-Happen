@@ -35,5 +35,10 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             pictureBox1.Width = 548;
             pictureBox1.Height =  377;
         }
+
+        private void Label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

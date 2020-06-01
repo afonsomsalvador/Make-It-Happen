@@ -90,6 +90,7 @@
     <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
     </Reference>
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
@@ -118,6 +119,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addnews.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="addnews.Designer.cs">
+      <DependentUpon>addnews.cs</DependentUpon>
+    </Compile>
     <Compile Include="addvoluntariado.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -153,6 +160,12 @@
     </Compile>
     <Compile Include="Map_Page.Designer.cs">
       <DependentUpon>Map_Page.cs</DependentUpon>
+    </Compile>
+    <Compile Include="News.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="News.Designer.cs">
+      <DependentUpon>News.cs</DependentUpon>
     </Compile>
     <Compile Include="Organizacao.cs">
       <SubType>UserControl</SubType>
@@ -204,6 +217,9 @@
     <Compile Include="VOLUNTARIADO_CLICK.Designer.cs">
       <DependentUpon>VOLUNTARIADO_CLICK.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="addnews.resx">
+      <DependentUpon>addnews.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="addvoluntariado.resx">
       <DependentUpon>addvoluntariado.cs</DependentUpon>
     </EmbeddedResource>
@@ -221,6 +237,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Map_Page.resx">
       <DependentUpon>Map_Page.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="News.resx">
+      <DependentUpon>News.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Organizacao.resx">
       <DependentUpon>Organizacao.cs</DependentUpon>
@@ -307,6 +326,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Capturar.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\local.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\house.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\duracao.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alimentacao.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\transfers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\seguro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\language.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\school.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\experience.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\people_40px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

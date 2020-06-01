@@ -78,6 +78,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             // Conta Existe
             label20.Hide();
             pictureBox14.Hide();
+            txt_password.UseSystemPasswordChar = false;
         }
         private void Button1_Click(object sender, EventArgs e)
         {
@@ -306,6 +307,17 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         {
 
         }
-     
+
+        private void PictureBox12_Click(object sender, EventArgs e)
+        {
+            pictureBox11.BringToFront();
+            txt_password.UseSystemPasswordChar = false;
+        }
+
+        private void PictureBox11_Click(object sender, EventArgs e)
+        {
+            pictureBox12.BringToFront();
+            txt_password.UseSystemPasswordChar = true;
+        }
     }
 }

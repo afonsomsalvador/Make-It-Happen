@@ -5,15 +5,15 @@ using System.Drawing;
 using System.Data;
 using System.Linq;
 using System.Text;
-using System.IO;
 using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 
 namespace TGPSI18H_2218147_AfonsoSalvador_M16
 {
-    public partial class Panels : UserControl
+    public partial class News : UserControl
     {
-        public Panels()
+        public News()
         {
             InitializeComponent();
         }
@@ -30,17 +30,30 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             set
             {
                 _nome = value;
-                label2.Text = value;
+                titulopnl.Text = value;
             }
         }
-
+        public string Descricao
+        {
+            get
+            {
+                return _descricao;
+            }
+            set
+            {
+                _descricao = value;
+               groupBox1.Text = value;
+            }
+        }
         public Image image
         {
             get
             {
-                MemoryStream ms = new MemoryStream();
+                Byte[] byteBLOBData = new Byte[0];
+                MemoryStream stmBLOBData = new MemoryStream(byteBLOBData);
 
-                    return _image;
+                pictureBox1.Image = System.Drawing.Image.FromStream(stmBLOBData);
+                return _image;
             }
             set
             {
@@ -48,36 +61,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                 pictureBox1.Image = value;
             }
         }
-        private void Panel_Load(object sender, EventArgs e)
-        {
-        }
-
-        private void TextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Panels_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void RichTextBox1_TextChanged(object sender, EventArgs e)
+        private void News_Load(object sender, EventArgs e)
         {
 
         }

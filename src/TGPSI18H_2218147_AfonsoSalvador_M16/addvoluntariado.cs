@@ -16,7 +16,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
     {
         MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=psi18_afonsosalvador");
 
-        List<Panels> pnl = new List<Panels>();
         void combobox()
         {
             string Query = ("SELECT * FROM categorias ORDER BY nome ASC;"); /*.. where p.idPais = l.Pais_idPais and p.nome = p.idPais*/

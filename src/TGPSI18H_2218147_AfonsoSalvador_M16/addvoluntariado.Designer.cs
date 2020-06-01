@@ -467,7 +467,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(194, 64);
             this.button1.TabIndex = 39;
-            this.button1.Text = "Adicionar Voluntariado";
+            this.button1.Text = "Adicionar voluntariado";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 

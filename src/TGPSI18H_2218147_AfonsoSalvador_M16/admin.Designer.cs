@@ -35,8 +35,10 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.addnews1 = new TGPSI18H_2218147_AfonsoSalvador_M16.addnews();
             this.utilizadoresGridView2 = new TGPSI18H_2218147_AfonsoSalvador_M16.UtilizadoresGridView();
             this.addvoluntariado1 = new TGPSI18H_2218147_AfonsoSalvador_M16.addvoluntariado();
             this.panel1.SuspendLayout();
@@ -49,6 +51,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.SidePanel);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button1);
@@ -66,6 +69,7 @@
             this.SidePanel.Name = "SidePanel";
             this.SidePanel.Size = new System.Drawing.Size(10, 90);
             this.SidePanel.TabIndex = 5;
+            this.SidePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.SidePanel_Paint);
             // 
             // panel2
             // 
@@ -111,6 +115,23 @@
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Click += new System.EventHandler(this.PictureBox3_Click);
             // 
+            // button2
+            // 
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.Location = new System.Drawing.Point(12, 252);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(154, 79);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "Adicionar noticia";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Button2_Click_1);
+            // 
             // button3
             // 
             this.button3.FlatAppearance.BorderSize = 0;
@@ -146,6 +167,14 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
+            // addnews1
+            // 
+            this.addnews1.Location = new System.Drawing.Point(166, 29);
+            this.addnews1.Name = "addnews1";
+            this.addnews1.Size = new System.Drawing.Size(1153, 558);
+            this.addnews1.TabIndex = 43;
+            this.addnews1.Load += new System.EventHandler(this.Addnews1_Load);
+            // 
             // utilizadoresGridView2
             // 
             this.utilizadoresGridView2.AutoScroll = true;
@@ -170,6 +199,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1319, 586);
+            this.Controls.Add(this.addnews1);
             this.Controls.Add(this.utilizadoresGridView2);
             this.Controls.Add(this.addvoluntariado1);
             this.Controls.Add(this.panel2);
@@ -200,5 +230,7 @@
         private addvoluntariado addvoluntariado1;
         private UtilizadoresGridView utilizadoresGridView1;
         private UtilizadoresGridView utilizadoresGridView2;
+        private System.Windows.Forms.Button button2;
+        private addnews addnews1;
     }
 }
