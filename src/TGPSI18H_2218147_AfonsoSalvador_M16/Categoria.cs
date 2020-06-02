@@ -17,7 +17,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         public Categoria()
         {
             InitializeComponent();
-            pais_Click1.Hide();
+         
         }
 
         private void Categoria_Load(object sender, EventArgs e)
@@ -36,7 +36,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         private void Button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            pais_Click1.BringToFront();
+   
         }
 
         private void Panel2_Paint(object sender, PaintEventArgs e)
@@ -47,13 +47,11 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         private void Button2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            pais_Click1.BringToFront();
         }
 
         private void Button3_Click(object sender, EventArgs e)
         {
             this.Hide();
-            pais_Click1.BringToFront();
         }
 
         private void Pais_Click1_Load(object sender, EventArgs e)

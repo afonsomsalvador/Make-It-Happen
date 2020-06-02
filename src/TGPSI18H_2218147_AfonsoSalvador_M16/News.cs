@@ -20,7 +20,8 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 
         private string _nome;
         private string _descricao;
-        private Image _image;
+        private string _image;
+
         public string Nome
         {
             get
@@ -45,20 +46,18 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                groupBox1.Text = value;
             }
         }
-        public Image image
+        public string image
         {
             get
             {
-                Byte[] byteBLOBData = new Byte[0];
-                MemoryStream stmBLOBData = new MemoryStream(byteBLOBData);
-
-                pictureBox1.Image = System.Drawing.Image.FromStream(stmBLOBData);
                 return _image;
             }
             set
             {
+                if(File.Exists(value))
+                    pictureBox1.Image = System.Drawing.Image.FromFile(value);
+
                 _image = value;
-                pictureBox1.Image = value;
             }
         }
         private void News_Load(object sender, EventArgs e)

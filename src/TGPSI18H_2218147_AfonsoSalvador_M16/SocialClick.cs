@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using MySql.Data.MySqlClient;
+using System.Configuration;
 
 namespace TGPSI18H_2218147_AfonsoSalvador_M16
 {
@@ -36,8 +37,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 
                 n.Nome = dt["Titulo"].ToString();
                 n.Descricao = dt["Corpo"].ToString();
-
-                //p.image = byte[] imageBytes = (byte[])dt["imagem"];
+                n.image = $"{ConfigurationManager.AppSettings["filesBasePath"]}{ dt["Imagem"]}";
                 //p.image = dt["imagem"];
 
                 flowLayoutPanel2.Controls.Add(n);

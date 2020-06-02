@@ -105,7 +105,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label18.Location = new System.Drawing.Point(562, 424);
+            this.label18.Location = new System.Drawing.Point(556, 434);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(87, 20);
             this.label18.TabIndex = 24;
@@ -115,7 +115,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(856, 424);
+            this.label2.Location = new System.Drawing.Point(850, 434);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(110, 20);
             this.label2.TabIndex = 25;
@@ -125,7 +125,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(207, 424);
+            this.label3.Location = new System.Drawing.Point(201, 434);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(96, 20);
             this.label3.TabIndex = 27;
@@ -294,7 +294,7 @@
             // 
             // pictureBox14
             // 
-            this.pictureBox14.Image = global::TGPSI18H_2218147_AfonsoSalvador_M16.Properties.Resources.language;
+            this.pictureBox14.Image = global::TGPSI18H_2218147_AfonsoSalvador_M16.Properties.Resources.idade;
             this.pictureBox14.Location = new System.Drawing.Point(94, 1037);
             this.pictureBox14.Name = "pictureBox14";
             this.pictureBox14.Size = new System.Drawing.Size(39, 37);
@@ -395,7 +395,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(821, 415);
+            this.pictureBox4.Location = new System.Drawing.Point(815, 425);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(39, 37);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -405,7 +405,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(526, 415);
+            this.pictureBox3.Location = new System.Drawing.Point(520, 425);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(39, 37);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -415,7 +415,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::TGPSI18H_2218147_AfonsoSalvador_M16.Properties.Resources.local;
-            this.pictureBox2.Location = new System.Drawing.Point(162, 415);
+            this.pictureBox2.Location = new System.Drawing.Point(156, 425);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(39, 37);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

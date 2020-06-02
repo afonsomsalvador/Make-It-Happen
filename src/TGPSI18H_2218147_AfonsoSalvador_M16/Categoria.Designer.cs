@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Categoria));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pais_Click1 = new TGPSI18H_2218147_AfonsoSalvador_M16.Pais_Click();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -53,7 +52,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Controls.Add(this.pais_Click1);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox1);
@@ -63,16 +61,6 @@
             this.panel1.Size = new System.Drawing.Size(1048, 171);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel1_Paint);
-            // 
-            // pais_Click1
-            // 
-            this.pais_Click1.AutoScroll = true;
-            this.pais_Click1.Location = new System.Drawing.Point(-55, -46);
-            this.pais_Click1.Name = "pais_Click1";
-            this.pais_Click1.Size = new System.Drawing.Size(1153, 558);
-            this.pais_Click1.TabIndex = 39;
-            this.pais_Click1.texto = "";
-            this.pais_Click1.Load += new System.EventHandler(this.Pais_Click1_Load);
             // 
             // button1
             // 
@@ -211,7 +199,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "Categoria";
-            this.Size = new System.Drawing.Size(1119, 558);
+            this.Size = new System.Drawing.Size(1102, 541);
             this.Load += new System.EventHandler(this.Categoria_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -240,6 +228,5 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private Pais_Click pais_Click1;
     }
 }

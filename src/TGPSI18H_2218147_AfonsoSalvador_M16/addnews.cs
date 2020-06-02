@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using MySql.Data.MySqlClient;
+using System.Configuration;
 
 namespace TGPSI18H_2218147_AfonsoSalvador_M16
 {
@@ -22,9 +23,11 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         }
         void add()
         {
-            MemoryStream ms = new MemoryStream();
-            bunifuImageButton1.BackgroundImage.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-            byte[] arrImage = ms.GetBuffer();
+            string FileName = $"{Guid.NewGuid().ToString()}.jpg";
+
+            //MemoryStream ms = new MemoryStream();
+            bunifuImageButton1.BackgroundImage.Save($"{ConfigurationManager.AppSettings["filesBasePath"]}{FileName}", System.Drawing.Imaging.ImageFormat.Jpeg);
+            //byte[] arrImage = ms.GetBuffer();
 
             string sql = "INSERT INTO noticias(Titulo,Corpo,Imagem) VALUES(@param1, @param2, @param3)";
             using (MySqlCommand cmd = new MySqlCommand(sql, conn))
@@ -32,7 +35,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                 conn.Open();
                 cmd.Parameters.AddWithValue("@param1", textBox13.Text);
                 cmd.Parameters.AddWithValue("@param2", textBox14.Text);
-                cmd.Parameters.AddWithValue("@param3", arrImage);
+                cmd.Parameters.AddWithValue("@param3", FileName);
                 cmd.ExecuteNonQuery();
                 conn.Close();
             }
@@ -84,6 +87,16 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             {
                 MessageBox.Show("Ocorreu um erro !!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void PictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

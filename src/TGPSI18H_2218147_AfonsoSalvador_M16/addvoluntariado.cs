@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.IO;
 using System.Windows.Forms;
+using System.Configuration;
 
 namespace TGPSI18H_2218147_AfonsoSalvador_M16
 {
@@ -81,60 +82,107 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 
             }
         }
+        void combobox2()
+        {
+            string Query = ("SELECT idExperiencia, tipo_experiencia FROM experiencia ORDER BY tipo_experiencia ASC;"); /*.. where p.idPais = l.Pais_idPais and p.nome = p.idPais*/
+
+            using (MySqlCommand mysqlcommand = new MySqlCommand(Query, conn))
+            {
+                MySqlDataReader myReader;
+                try
+                {
+                    conn.Open();
+                    myReader = mysqlcommand.ExecuteReader();
+                    DataTable dt = new DataTable();
+                    dt.Load(myReader); // Carrega os dados para o DataTable 
+                                       // Define qual coluna será manipulada via código
+                    cmb_Experiencia.DisplayMember = "tipo_experiencia";
+                    // Define a fonte de dados
+                    cmb_Experiencia.ValueMember = "idExperiencia";
+                    cmb_Experiencia.DataSource = dt;
+                    cmb_Experiencia.SelectedText = "Selecione o tipo de experiencia";
+
+                }
+                catch (Exception erro)
+                {
+                    MessageBox.Show("Erro:" + erro.Message);
+                }
+                finally
+                {
+                    conn.Close();// Fecha a conexão com o BD
+                }
+
+            }
+        }
+        void combobox3()
+        {
+            string Query = ("SELECT * FROM pais ORDER BY nome ASC;"); /*.. where p.idPais = l.Pais_idPais and p.nome = p.idPais*/
+
+            using (MySqlCommand mysqlcommand = new MySqlCommand(Query, conn))
+            {
+                MySqlDataReader myReader;
+                try
+                {
+
+                    conn.Open();
+                    myReader = mysqlcommand.ExecuteReader();
+
+                    DataTable dt = new DataTable();
+                    dt.Load(myReader); // Carrega os dados para o DataTable 
+                                       // Define qual coluna será manipulada via código
+                    cmb_pais.DisplayMember = "nome";
+                    // Define a fonte de dados
+                    cmb_pais.ValueMember = "idPais";
+                    cmb_pais.DataSource = dt;
+                    cmb_pais.SelectedText = "Selecione uma nacionalidade";
+
+                }
+                catch (Exception erro)
+                {
+                    MessageBox.Show("Erro:" + erro.Message);
+                }
+                finally
+                {
+                    conn.Close();// Fecha a conexão com o BD
+                }
+
+            }
+        }
         void add()
         {
-            MemoryStream ms = new MemoryStream();
-            bunifuImageButton1.BackgroundImage.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-            byte[] arrImage = ms.GetBuffer();
+            string FileName = $"{Guid.NewGuid().ToString()}.jpg";
 
-            string sql = "INSERT INTO voluntariado(nome, descricao, imagem, Categoria_id_Categoria, Organizacao_idOrganizacao, Detalhes_idDetalhes, Experiencia_idExperiencia) VALUES(@param1, @param2, @param3, @param4, @param5, @param6, @param7)";
+            //MemoryStream ms = new MemoryStream();
+            bunifuImageButton1.BackgroundImage.Save($"{ConfigurationManager.AppSettings["filesBasePath"]}{FileName}", System.Drawing.Imaging.ImageFormat.Jpeg);
+            //byte[] arrImage = ms.GetBuffer();
+
+            string sql = "INSERT INTO voluntariado(nome, descricao, imagem, Categorias_id_Categoria, Organizacao_idOrganizacao, Experiencia_idExperiencia, data, duracao, alojamento, alimentacao, transfers, seguro, acompanhamento, adicional, localidade, Idade, Lingua, escolaridade, Pais_idPais) VALUES(@param1, @param2, @param3, @param4, @param5, @param6, @param7, @param8, @param9, @param10, @param11, @param12, @param13, @param14, @param15, @param16, @param17, @param18, @param19)";
             using (MySqlCommand cmd = new MySqlCommand(sql, conn))
             {
                 conn.Open();
                 cmd.Parameters.AddWithValue("@param1", textBox1.Text);
                 cmd.Parameters.AddWithValue("@param2", textBox2.Text);
-                cmd.Parameters.AddWithValue("@param3", arrImage);
+                cmd.Parameters.AddWithValue("@param3", FileName);
                 cmd.Parameters.AddWithValue("@param4", cmb_categoria.SelectedValue);
                 cmd.Parameters.AddWithValue("@param5", cmb_organizacao.SelectedValue);
-                //cmd.Parameters.AddWithValue("@param6", );
-                //cmd.Parameters.AddWithValue("@param7", );
+                cmd.Parameters.AddWithValue("@param6", cmb_Experiencia.SelectedValue);
+                cmd.Parameters.AddWithValue("@param7", dateTimePicker1.Value);
+                cmd.Parameters.AddWithValue("@param8", textBox3.Text);
+                cmd.Parameters.AddWithValue("@param9", textBox4.Text);
+                cmd.Parameters.AddWithValue("@param10", textBox6.Text);
+                cmd.Parameters.AddWithValue("@param11", textBox7.Text);
+                cmd.Parameters.AddWithValue("@param12", textBox8.Text);
+                cmd.Parameters.AddWithValue("@param13", textBox9.Text);
+                cmd.Parameters.AddWithValue("@param14", textBox10.Text);
+                cmd.Parameters.AddWithValue("@param15", textBox5.Text);
+                cmd.Parameters.AddWithValue("@param16", textBox12.Text);
+                cmd.Parameters.AddWithValue("@param17", textBox13.Text);
+                cmd.Parameters.AddWithValue("@param18", textBox14.Text);
+                cmd.Parameters.AddWithValue("@param19", cmb_pais.SelectedValue);
                 cmd.ExecuteNonQuery();
                 conn.Close();
             }
-            string sql1 = "INSERT INTO detalhes(data, duracao, alojamento, alimentacao, transfers, seguro, acompanhamento, adicional, localidade) VALUES(@param1, @param2, @param3, @param4, @param5, @param6, @param7, @param8, @param9)";
-            using (MySqlCommand cmd = new MySqlCommand(sql, conn))
-            {
-                conn.Open();
-                cmd.Parameters.AddWithValue("@param1", dateTimePicker1.Text);
-                cmd.Parameters.AddWithValue("@param2", textBox3.Text);
-                cmd.Parameters.AddWithValue("@param3", textBox4.Text);
-                cmd.Parameters.AddWithValue("@param4", textBox6.Text);
-                cmd.Parameters.AddWithValue("@param5", textBox7.Text);
-                cmd.Parameters.AddWithValue("@param6", textBox8.Text);
-                cmd.Parameters.AddWithValue("@param7", textBox9.Text);
-                cmd.Parameters.AddWithValue("@param8", textBox10.Text);
-                cmd.Parameters.AddWithValue("@param9", textBox5.Text);
-                cmd.ExecuteNonQuery();
-                conn.Close();
-            }
-            string sql2 = "INSERT INTO requisitos(Idade, Lingua, escolaridade) VALUES(@param1, @param2, @param3)";
-            using (MySqlCommand cmd = new MySqlCommand(sql, conn))
-            {
-                conn.Open();
-                cmd.Parameters.AddWithValue("@param1", textBox12.Text);
-                cmd.Parameters.AddWithValue("@param2", textBox13.Text);
-                cmd.Parameters.AddWithValue("@param3", textBox14.Text);
-                cmd.ExecuteNonQuery();
-                conn.Close();
-            }
-            string sql3 = "INSERT INTO experiencia(tipo_experiencia) VALUES(@param1)";
-            using (MySqlCommand cmd = new MySqlCommand(sql, conn))
-            {
-                conn.Open();
-                cmd.Parameters.AddWithValue("@param1", textBox11.Text);
-                cmd.ExecuteNonQuery();
-                conn.Close();
-            }
+            
          
         }
         public addvoluntariado()
@@ -142,6 +190,8 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             InitializeComponent();
             combobox();
             combobox1();
+            combobox2();
+            combobox3();
         }
 
         private void Addvoluntariado_Load(object sender, EventArgs e)

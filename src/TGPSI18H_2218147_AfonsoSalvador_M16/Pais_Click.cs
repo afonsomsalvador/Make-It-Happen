@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;//
+using System.Configuration;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
@@ -32,13 +33,17 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         private void populateItems()
         {
             conn.Open();
-            cmd = new MySqlCommand("SELECT nome, descricao, imagem FROM voluntariado", conn);
+            cmd = new MySqlCommand("SELECT nome, imagem, Categorias_id_Categoria, Organizacao_idOrganizacao, Pais_idPais FROM voluntariado ", conn);
             MySqlDataReader dt;
             dt = cmd.ExecuteReader();
             while (dt.Read())
             {
                 Panels p = new Panels();
                 p.Nome = dt["nome"].ToString();
+                p.Categoria = dt["Categorias_id_Categoria"].ToString();
+                p.Organizacao = dt["Organizacao_idOrganizacao"].ToString();
+                p.image = $"{ConfigurationManager.AppSettings["filesBasePath"]}{ dt["imagem"]}";
+                p.Pais = dt["Pais_idPais"].ToString();
                 //p.image = array;
                 //p.image = byte[] imageBytes = (byte[])dt["imagem"];
                 //p.image = dt["imagem"];

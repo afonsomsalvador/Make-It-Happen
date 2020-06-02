@@ -34,7 +34,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.voluntariadO_CLICK1 = new TGPSI18H_2218147_AfonsoSalvador_M16.VOLUNTARIADO_CLICK();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,9 +52,9 @@
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.AutoSize = true;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(47, 205);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(38, 205);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1041, 336);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1123, 1218);
             this.flowLayoutPanel1.TabIndex = 1;
             this.flowLayoutPanel1.WrapContents = false;
             // 
@@ -90,27 +89,18 @@
             this.textBox1.TabIndex = 4;
             this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
-            // voluntariadO_CLICK1
-            // 
-            this.voluntariadO_CLICK1.AutoSize = true;
-            this.voluntariadO_CLICK1.Location = new System.Drawing.Point(0, 0);
-            this.voluntariadO_CLICK1.Name = "voluntariadO_CLICK1";
-            this.voluntariadO_CLICK1.Size = new System.Drawing.Size(1153, 1212);
-            this.voluntariadO_CLICK1.TabIndex = 5;
-            // 
             // Pais_Click
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.Controls.Add(this.voluntariadO_CLICK1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.label1);
             this.Name = "Pais_Click";
-            this.Size = new System.Drawing.Size(1136, 541);
+            this.Size = new System.Drawing.Size(1102, 541);
             this.Load += new System.EventHandler(this.Pais_Click_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -125,6 +115,5 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox textBox1;
-        private VOLUNTARIADO_CLICK voluntariadO_CLICK1;
     }
 }

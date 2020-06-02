@@ -71,7 +71,7 @@
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label32.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label32.Location = new System.Drawing.Point(908, 118);
+            this.label32.Location = new System.Drawing.Point(1101, 91);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(17, 24);
             this.label32.TabIndex = 63;
@@ -82,7 +82,7 @@
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label31.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label31.Location = new System.Drawing.Point(908, 225);
+            this.label31.Location = new System.Drawing.Point(1101, 175);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(17, 24);
             this.label31.TabIndex = 62;
@@ -93,7 +93,7 @@
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label30.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label30.Location = new System.Drawing.Point(522, 87);
+            this.label30.Location = new System.Drawing.Point(487, 91);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(17, 24);
             this.label30.TabIndex = 61;
@@ -105,7 +105,7 @@
             this.btnuploadimage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnuploadimage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnuploadimage.ForeColor = System.Drawing.Color.Black;
-            this.btnuploadimage.Location = new System.Drawing.Point(242, 384);
+            this.btnuploadimage.Location = new System.Drawing.Point(214, 380);
             this.btnuploadimage.Name = "btnuploadimage";
             this.btnuploadimage.Size = new System.Drawing.Size(213, 34);
             this.btnuploadimage.TabIndex = 60;
@@ -117,7 +117,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label21.Location = new System.Drawing.Point(164, 91);
+            this.label21.Location = new System.Drawing.Point(129, 95);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(46, 20);
             this.label21.TabIndex = 58;
@@ -126,20 +126,20 @@
             // textBox14
             // 
             this.textBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.textBox14.Location = new System.Drawing.Point(662, 251);
+            this.textBox14.Location = new System.Drawing.Point(656, 202);
             this.textBox14.Multiline = true;
             this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(263, 29);
+            this.textBox14.Size = new System.Drawing.Size(462, 209);
             this.textBox14.TabIndex = 57;
             this.textBox14.TextChanged += new System.EventHandler(this.TextBox14_TextChanged);
             // 
             // textBox13
             // 
             this.textBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.textBox13.Location = new System.Drawing.Point(662, 145);
+            this.textBox13.Location = new System.Drawing.Point(656, 118);
             this.textBox13.Multiline = true;
             this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(263, 29);
+            this.textBox13.Size = new System.Drawing.Size(462, 29);
             this.textBox13.TabIndex = 56;
             this.textBox13.TextChanged += new System.EventHandler(this.TextBox13_TextChanged);
             // 
@@ -147,28 +147,28 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label17.Location = new System.Drawing.Point(658, 228);
+            this.label17.Location = new System.Drawing.Point(652, 179);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(113, 20);
+            this.label17.Size = new System.Drawing.Size(57, 20);
             this.label17.TabIndex = 55;
-            this.label17.Text = "Escolaridade";
+            this.label17.Text = "Corpo";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(658, 122);
+            this.label7.Location = new System.Drawing.Point(652, 95);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(63, 20);
+            this.label7.Size = new System.Drawing.Size(53, 20);
             this.label7.TabIndex = 54;
-            this.label7.Text = "Lingua";
+            this.label7.Text = "Titulo";
             // 
             // bunifuImageButton1
             // 
             this.bunifuImageButton1.BackColor = System.Drawing.Color.White;
             this.bunifuImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton1.Image")));
             this.bunifuImageButton1.ImageActive = null;
-            this.bunifuImageButton1.Location = new System.Drawing.Point(161, 122);
+            this.bunifuImageButton1.Location = new System.Drawing.Point(133, 118);
             this.bunifuImageButton1.Name = "bunifuImageButton1";
             this.bunifuImageButton1.Size = new System.Drawing.Size(378, 245);
             this.bunifuImageButton1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -180,7 +180,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.button1.Location = new System.Drawing.Point(697, 345);
+            this.button1.Location = new System.Drawing.Point(925, 484);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(193, 45);
             this.button1.TabIndex = 64;
@@ -192,7 +192,7 @@
             // 
             this.pictureBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(656, 280);
+            this.pictureBox5.Location = new System.Drawing.Point(656, 417);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(32, 16);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -205,7 +205,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(685, 283);
+            this.label4.Location = new System.Drawing.Point(685, 420);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(103, 13);
             this.label4.TabIndex = 65;
@@ -215,7 +215,7 @@
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(656, 174);
+            this.pictureBox1.Location = new System.Drawing.Point(656, 147);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(32, 16);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -228,7 +228,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(685, 177);
+            this.label1.Location = new System.Drawing.Point(685, 150);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(103, 13);
             this.label1.TabIndex = 67;
@@ -238,12 +238,13 @@
             // 
             this.pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(724, 323);
+            this.pictureBox3.Location = new System.Drawing.Point(952, 462);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(32, 16);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 71;
             this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.PictureBox3_Click);
             // 
             // label3
             // 
@@ -251,17 +252,18 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label3.Location = new System.Drawing.Point(752, 326);
+            this.label3.Location = new System.Drawing.Point(980, 465);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(95, 13);
             this.label3.TabIndex = 72;
             this.label3.Text = "Noticia adicionada";
+            this.label3.Click += new System.EventHandler(this.Label3_Click);
             // 
             // pictureBox2
             // 
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(231, 424);
+            this.pictureBox2.Location = new System.Drawing.Point(203, 420);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(32, 16);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -274,7 +276,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(260, 427);
+            this.label2.Location = new System.Drawing.Point(232, 423);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(103, 13);
             this.label2.TabIndex = 73;
