@@ -33,8 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BouncyCastle.Crypto, Version=1.8.3.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
-      <HintPath>..\packages\BouncyCastle.1.8.3.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\packages\Portable.BouncyCastle.1.8.5\lib\net40\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu_UI_v1.5.3">
       <HintPath>..\..\..\..\..\Downloads\Bunifu_UI_v1.5.3.dll</HintPath>
@@ -47,6 +47,9 @@
     </Reference>
     <Reference Include="Guna.UI2">
       <HintPath>..\..\..\..\..\Downloads\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="ImagedComboBox">
+      <HintPath>..\..\..\..\..\Downloads\ImagedComboBox\ImagedComboBox\bin\Release\ImagedComboBox.exe</HintPath>
     </Reference>
     <Reference Include="K4os.Compression.LZ4, Version=1.1.11.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
       <HintPath>..\packages\K4os.Compression.LZ4.1.1.11\lib\net46\K4os.Compression.LZ4.dll</HintPath>
@@ -67,6 +70,9 @@
       <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="MimeKit, Version=2.8.0.0, Culture=neutral, PublicKeyToken=bede1c8a46c66814, processorArchitecture=MSIL">
+      <HintPath>..\packages\MimeKit.2.8.0\lib\net47\MimeKit.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data, Version=8.0.20.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.8.0.20\lib\net452\MySql.Data.dll</HintPath>
     </Reference>
@@ -98,6 +104,7 @@
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.6.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+    <Reference Include="System.Security" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
@@ -143,11 +150,17 @@
     <Compile Include="Categoria.Designer.cs">
       <DependentUpon>Categoria.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forgot.cs">
+    <Compile Include="GestaoNOt.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Forgot.Designer.cs">
-      <DependentUpon>Forgot.cs</DependentUpon>
+    <Compile Include="GestaoNOt.Designer.cs">
+      <DependentUpon>GestaoNOt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestaoVol.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GestaoVol.Designer.cs">
+      <DependentUpon>GestaoVol.cs</DependentUpon>
     </Compile>
     <Compile Include="Login_Page.cs">
       <SubType>Form</SubType>
@@ -229,8 +242,11 @@
     <EmbeddedResource Include="Categoria.resx">
       <DependentUpon>Categoria.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forgot.resx">
-      <DependentUpon>Forgot.cs</DependentUpon>
+    <EmbeddedResource Include="GestaoNOt.resx">
+      <DependentUpon>GestaoNOt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestaoVol.resx">
+      <DependentUpon>GestaoVol.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login_Page.resx">
       <DependentUpon>Login_Page.cs</DependentUpon>
@@ -365,6 +381,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\idade.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database_administrator_40px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

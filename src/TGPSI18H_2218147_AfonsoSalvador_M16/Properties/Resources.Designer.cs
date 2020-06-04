@@ -113,6 +113,16 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap database_administrator_40px {
+            get {
+                object obj = ResourceManager.GetObject("database_administrator_40px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap duracao {
             get {
                 object obj = ResourceManager.GetObject("duracao", resourceCulture);

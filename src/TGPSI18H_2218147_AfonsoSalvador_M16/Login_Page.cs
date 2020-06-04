@@ -19,7 +19,9 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
     public partial class LoginForm : Form
     {
         MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=psi18_afonsosalvador");
-   
+
+        private string _current;
+        private string _image;
         public LoginForm()
         {
             InitializeComponent();
@@ -49,9 +51,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
     
         private void Label13_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Register_Page RP = new Register_Page();
-            RP.ShowDialog();
+           
         }
 
    
@@ -100,17 +100,31 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             }
             set
             {
+                _current = value;
                 textBox1.Text = value;
             }
         }
+        public string image
+        {
+            get
+            {
+                return _image;
+            }
+            set
+            {
+                if (File.Exists(value))
+                    pictureBox1.Image = System.Drawing.Image.FromFile(value);
 
+                _image = value;
+            }
+        }
 
         // definir uma cchavemestre
         // a password do utilizador adicionar a chave mestre
         // codificar com um algoritmo de HASH (SHA256 ou semelhante)
         // guardar a password na bd desta forma
         // quando for para comparar, fazer os calculos entre o que utilizador coloca como password e o que está na BD.
-       
+
 
 
         //public static class Global
@@ -310,6 +324,13 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         private void PictureBox9_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Label13_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            Register_Page RP = new Register_Page();
+            RP.ShowDialog();
         }
     }
 }

@@ -30,10 +30,10 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                 label1.Text = value;
             }
         }
-        private void populateItems()
+        public void populateItems()
         {
             conn.Open();
-            cmd = new MySqlCommand("SELECT nome, imagem, Categorias_id_Categoria, Organizacao_idOrganizacao, Pais_idPais FROM voluntariado ", conn);
+            cmd = new MySqlCommand("SELECT nome, imagem, Categorias_id_Categoria, Organizacao_idOrganizacao, Pais_idPais FROM voluntariado where nome like '"+ textBox1.Text +"%' order by nome", conn);
             MySqlDataReader dt;
             dt = cmd.ExecuteReader();
             while (dt.Read())
@@ -44,17 +44,22 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                 p.Organizacao = dt["Organizacao_idOrganizacao"].ToString();
                 p.image = $"{ConfigurationManager.AppSettings["filesBasePath"]}{ dt["imagem"]}";
                 p.Pais = dt["Pais_idPais"].ToString();
-                //p.image = array;
-                //p.image = byte[] imageBytes = (byte[])dt["imagem"];
-                //p.image = dt["imagem"];
+                //p.ButtonClick += new EventHandler(p_ButtonClick);
+                
+
 
                 flowLayoutPanel1.Controls.Add(p);
             }
             conn.Close();
         }
-            public Pais_Click()
+        private void p_ButtonClick(object sender, EventArgs e)
+        {
+            voluntariadO_CLICK1.BringToFront();
+        }
+        public Pais_Click()
         {
             InitializeComponent();
+            voluntariadO_CLICK1.Hide();
         }
         private void Pais_Click_Load(object sender, EventArgs e)
         {

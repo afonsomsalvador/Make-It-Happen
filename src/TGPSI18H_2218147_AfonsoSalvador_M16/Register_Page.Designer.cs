@@ -41,7 +41,6 @@
             this.txt_nome = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.cmb_nacionalidade = new System.Windows.Forms.ComboBox();
             this.btnuploadimage = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -74,6 +73,7 @@
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
+            this.cmb_nacionalidade = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -220,16 +220,6 @@
             this.label7.Size = new System.Drawing.Size(131, 24);
             this.label7.TabIndex = 19;
             this.label7.Text = "Nacionalidade";
-            // 
-            // cmb_nacionalidade
-            // 
-            this.cmb_nacionalidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.cmb_nacionalidade.FormattingEnabled = true;
-            this.cmb_nacionalidade.Location = new System.Drawing.Point(866, 322);
-            this.cmb_nacionalidade.Name = "cmb_nacionalidade";
-            this.cmb_nacionalidade.Size = new System.Drawing.Size(263, 28);
-            this.cmb_nacionalidade.TabIndex = 20;
-            this.cmb_nacionalidade.SelectedIndexChanged += new System.EventHandler(this.Cmb_nacionalidade_SelectedIndexChanged);
             // 
             // btnuploadimage
             // 
@@ -598,6 +588,16 @@
             this.pictureBox15.TabIndex = 66;
             this.pictureBox15.TabStop = false;
             // 
+            // cmb_nacionalidade
+            // 
+            this.cmb_nacionalidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.cmb_nacionalidade.FormattingEnabled = true;
+            this.cmb_nacionalidade.Location = new System.Drawing.Point(866, 322);
+            this.cmb_nacionalidade.Name = "cmb_nacionalidade";
+            this.cmb_nacionalidade.Size = new System.Drawing.Size(263, 28);
+            this.cmb_nacionalidade.TabIndex = 20;
+            this.cmb_nacionalidade.SelectedIndexChanged += new System.EventHandler(this.Cmb_nacionalidade_SelectedIndexChanged);
+            // 
             // Register_Page
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -688,7 +688,6 @@
         private System.Windows.Forms.TextBox txt_nome;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cmb_nacionalidade;
         private System.Windows.Forms.Button btnuploadimage;
         private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton1;
         private System.Windows.Forms.Label label4;
@@ -721,5 +720,6 @@
         private System.Windows.Forms.PictureBox pictureBox14;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.PictureBox pictureBox15;
+        private System.Windows.Forms.ComboBox cmb_nacionalidade;
     }
 }

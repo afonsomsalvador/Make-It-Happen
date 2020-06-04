@@ -11,12 +11,19 @@ using System.Windows.Forms;
 
 namespace TGPSI18H_2218147_AfonsoSalvador_M16
 {
+    public delegate void MyEventHandler();
     public partial class Panels : UserControl
     {
         public Panels()
         {
             InitializeComponent();
         }
+
+      
+
+        [Category("_ Control _")]
+        [Description("Dispara para notificar o boss!")]
+        public event EventHandler ButtonClick;
 
         private string _nome;
         private string _Categoria;
@@ -59,6 +66,10 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                 label3.Text = value;
             }
         }
+        public void dvd(string msg)
+        {
+           
+        }
         public string Pais
         {
             get
@@ -97,9 +108,18 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 
         private void Button1_Click(object sender, EventArgs e)
         {
+            if (ButtonClick != null)
+            {
+                VOLUNTARIADO_CLICK vc = new VOLUNTARIADO_CLICK();
+                vc.BringToFront();
+                ButtonClick(this, e);
+               
+            }
+            else
+            {
 
+            }
         }
-
         private void Label2_Click(object sender, EventArgs e)
         {
 

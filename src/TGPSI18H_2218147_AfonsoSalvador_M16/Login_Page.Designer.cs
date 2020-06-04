@@ -115,6 +115,7 @@
             this.label13.Size = new System.Drawing.Size(283, 16);
             this.label13.TabIndex = 38;
             this.label13.Text = "Ainda não tens conta criada. Regista te agora.";
+            this.label13.Click += new System.EventHandler(this.Label13_Click_1);
             // 
             // button1
             // 

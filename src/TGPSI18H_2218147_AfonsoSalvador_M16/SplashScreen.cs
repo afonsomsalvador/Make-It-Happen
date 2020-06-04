@@ -24,7 +24,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         {
             InitializeComponent();
             LoginForm lf = new LoginForm();
-            lf.current_user = label2.Text.Trim();
+            lf.current_user = label2.Text.ToString().Trim();
         }
         private void PictureBox1_Click(object sender, EventArgs e)
         {
@@ -36,8 +36,8 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             timer1.Interval = 150;    
             timer1.Tick += Timer1_Tick;
             timer1.Start();
+
           
-            
         }
 
         private void PictureBox1_Paint(object sender, PaintEventArgs e)
@@ -80,6 +80,11 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         }
 
         private void Label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label2_Click(object sender, EventArgs e)
         {
 
         }

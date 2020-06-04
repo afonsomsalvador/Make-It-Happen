@@ -34,12 +34,13 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                                 
                         DataTable dt = new DataTable();
                         dt.Load(myReader); // Carrega os dados para o DataTable 
-                        // Define qual coluna será manipulada via código
-                        cmb_nacionalidade.DisplayMember = "nome";
-                        // Define a fonte de dados
-                        cmb_nacionalidade.ValueMember = "idPais";
-                        cmb_nacionalidade.DataSource = dt;
-                        cmb_nacionalidade.SelectedText = "Selecione uma nacionalidade";
+                                           // Define qual coluna será manipulada via código
+                  
+                    cmb_nacionalidade.DisplayMember = "nome";
+                    // Define a fonte de dados
+                    cmb_nacionalidade.ValueMember = "idPais";
+                    cmb_nacionalidade.DataSource = dt;
+                    cmb_nacionalidade.SelectedText = "Selecione uma nacionalidade";
 
                 }
                 catch (Exception erro)
@@ -105,10 +106,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                     conn.Close();
                 }
             }
-            else
-            {
-
-            }
+        
             
       
         }
