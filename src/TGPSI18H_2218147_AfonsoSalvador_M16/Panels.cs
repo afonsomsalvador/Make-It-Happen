@@ -12,14 +12,16 @@ using System.Windows.Forms;
 namespace TGPSI18H_2218147_AfonsoSalvador_M16
 {
     public delegate void MyEventHandler();
+
+    [System.ComponentModel.DefaultEvent("ButtonClicked")]
     public partial class Panels : UserControl
     {
+        
         public Panels()
         {
             InitializeComponent();
+            button1.Click += Button1_Click;
         }
-
-      
 
         [Category("_ Control _")]
         [Description("Dispara para notificar o boss!")]
@@ -30,6 +32,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         private string _Pais;
         private string _Organizacao;
         private string _image;
+        private string _bandeira;
         public string Nome
         {
             get
@@ -66,10 +69,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                 label3.Text = value;
             }
         }
-        public void dvd(string msg)
-        {
-           
-        }
+       
         public string Pais
         {
             get
@@ -97,7 +97,22 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                 _image = value;
             }
         }
-        private void Panel_Load(object sender, EventArgs e)
+        public string bandeira
+        {
+            get
+            {
+                return _bandeira;
+            }
+            set
+            {
+                if (File.Exists(value))
+                    pictureBox2.Image = System.Drawing.Image.FromFile(value);
+                _bandeira = value;
+            }
+        }
+     
+
+    private void Panel_Load(object sender, EventArgs e)
         {
         }
 
@@ -105,20 +120,26 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         {
 
         }
+        protected virtual void OnButtonClick(EventArgs e)
+        {
+            var handler = ButtonClick;
+            if (handler != null)
+                handler(this, e);
+        }
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            if (ButtonClick != null)
-            {
-                VOLUNTARIADO_CLICK vc = new VOLUNTARIADO_CLICK();
-                vc.BringToFront();
-                ButtonClick(this, e);
-               
-            }
-            else
-            {
+            OnButtonClick(EventArgs.Empty);
+            //if (ButtonClick != null)
+            //{
+            //    VOLUNTARIADO_CLICK vc = new VOLUNTARIADO_CLICK();
+            //    vc.BringToFront();
+            //    ButtonClick(this, e);
+            //}
+            //else
+            //{
 
-            }
+            //}
         }
         private void Label2_Click(object sender, EventArgs e)
         {
@@ -136,6 +157,26 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         }
 
         private void RichTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label4_Click(object sender, EventArgs e)
         {
 
         }

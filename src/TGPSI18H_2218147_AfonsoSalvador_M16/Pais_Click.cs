@@ -33,18 +33,21 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         public void populateItems()
         {
             conn.Open();
-            cmd = new MySqlCommand("SELECT nome, imagem, Categorias_id_Categoria, Organizacao_idOrganizacao, Pais_idPais FROM voluntariado where nome like '"+ textBox1.Text +"%' order by nome", conn);
+            cmd = new MySqlCommand("SELECT c.nome categoriaNome, v.imagem imagemvol, v.nome nomev, p.nome pnome, p.imagem imagempais, o.nome OrganizacaoNome, v.Descricao , v.Idade, v.Lingua, v.Escolaridade, v.data, v.duracao, v.alojamento, v.alimentacao, v.transfers, v.seguro, v.acompanhamento, v.localidade , v.adicional FROM voluntariado v JOIN categorias c ON  v.Categorias_id_Categoria = c.id_Categoria JOIN pais p ON p.idPais = v.pais_idPais JOIN organizacao o ON o.idOrganizacao = v.Organizacao_idOrganizacao ORDER BY c.nome", conn);
             MySqlDataReader dt;
             dt = cmd.ExecuteReader();
             while (dt.Read())
             {
                 Panels p = new Panels();
-                p.Nome = dt["nome"].ToString();
-                p.Categoria = dt["Categorias_id_Categoria"].ToString();
-                p.Organizacao = dt["Organizacao_idOrganizacao"].ToString();
-                p.image = $"{ConfigurationManager.AppSettings["filesBasePath"]}{ dt["imagem"]}";
-                p.Pais = dt["Pais_idPais"].ToString();
-                //p.ButtonClick += new EventHandler(p_ButtonClick);
+                p.Nome = dt["nomev"].ToString();
+                p.Categoria = dt["categoriaNome"].ToString();
+                p.Organizacao = dt["OrganizacaoNome"].ToString();
+                p.image = $"{ConfigurationManager.AppSettings["filesBasePath"]}{ dt["imagemvol"]}";
+                p.bandeira = $"{ConfigurationManager.AppSettings["filesBasePath"]}{ dt["imagempais"]}";
+                p.Pais = dt["pnome"].ToString();
+                p.ButtonClick += new EventHandler(p_ButtonClick);
+                VOLUNTARIADO_CLICK vc = new VOLUNTARIADO_CLICK();
+                
                 
 
 
@@ -52,14 +55,16 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             }
             conn.Close();
         }
+      
         private void p_ButtonClick(object sender, EventArgs e)
         {
-            voluntariadO_CLICK1.BringToFront();
+            //voluntariadO_CLICK1.BringToFront();
         }
         public Pais_Click()
         {
             InitializeComponent();
-            voluntariadO_CLICK1.Hide();
+            //voluntariadO_CLICK1.Hide();
+            panels1.Hide();
         }
         private void Pais_Click_Load(object sender, EventArgs e)
         {
@@ -74,6 +79,11 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         }
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FlowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

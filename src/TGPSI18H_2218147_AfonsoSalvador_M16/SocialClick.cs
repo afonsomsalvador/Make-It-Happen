@@ -65,5 +65,10 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         {
 
         }
+
+        private void PictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

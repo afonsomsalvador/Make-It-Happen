@@ -100,6 +100,7 @@
             this.groupBox1.Size = new System.Drawing.Size(486, 297);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Enter += new System.EventHandler(this.GroupBox1_Enter);
             // 
             // label18
             // 
@@ -141,6 +142,7 @@
             this.label8.Size = new System.Drawing.Size(48, 20);
             this.label8.TabIndex = 31;
             this.label8.Text = "Data";
+            this.label8.Click += new System.EventHandler(this.Label8_Click);
             // 
             // label4
             // 
@@ -151,6 +153,7 @@
             this.label4.Size = new System.Drawing.Size(99, 20);
             this.label4.TabIndex = 33;
             this.label4.Text = "Alojamento";
+            this.label4.Click += new System.EventHandler(this.Label4_Click);
             // 
             // label5
             // 
@@ -161,6 +164,7 @@
             this.label5.Size = new System.Drawing.Size(77, 20);
             this.label5.TabIndex = 35;
             this.label5.Text = "Duracao";
+            this.label5.Click += new System.EventHandler(this.Label5_Click);
             // 
             // label6
             // 
@@ -171,6 +175,7 @@
             this.label6.Size = new System.Drawing.Size(108, 20);
             this.label6.TabIndex = 37;
             this.label6.Text = "Alimentacao";
+            this.label6.Click += new System.EventHandler(this.Label6_Click);
             // 
             // label7
             // 
@@ -181,6 +186,7 @@
             this.label7.Size = new System.Drawing.Size(85, 20);
             this.label7.TabIndex = 39;
             this.label7.Text = "Transfers";
+            this.label7.Click += new System.EventHandler(this.Label7_Click);
             // 
             // label9
             // 
@@ -201,6 +207,7 @@
             this.label10.Size = new System.Drawing.Size(67, 20);
             this.label10.TabIndex = 42;
             this.label10.Text = "Seguro";
+            this.label10.Click += new System.EventHandler(this.Label10_Click);
             // 
             // label11
             // 
@@ -211,6 +218,7 @@
             this.label11.Size = new System.Drawing.Size(82, 20);
             this.label11.TabIndex = 44;
             this.label11.Text = "Adicional";
+            this.label11.Click += new System.EventHandler(this.Label11_Click);
             // 
             // label16
             // 
@@ -231,6 +239,7 @@
             this.label12.Size = new System.Drawing.Size(63, 20);
             this.label12.TabIndex = 47;
             this.label12.Text = "Lingua";
+            this.label12.Click += new System.EventHandler(this.Label12_Click);
             // 
             // label13
             // 
@@ -241,6 +250,7 @@
             this.label13.Size = new System.Drawing.Size(113, 20);
             this.label13.TabIndex = 49;
             this.label13.Text = "Escolaridade";
+            this.label13.Click += new System.EventHandler(this.Label13_Click);
             // 
             // label14
             // 
@@ -251,6 +261,7 @@
             this.label14.Size = new System.Drawing.Size(55, 20);
             this.label14.TabIndex = 51;
             this.label14.Text = "Idade";
+            this.label14.Click += new System.EventHandler(this.Label14_Click);
             // 
             // label15
             // 
@@ -261,6 +272,7 @@
             this.label15.Size = new System.Drawing.Size(102, 20);
             this.label15.TabIndex = 53;
             this.label15.Text = "Experiencia";
+            this.label15.Click += new System.EventHandler(this.Label15_Click);
             // 
             // label17
             // 
@@ -271,6 +283,7 @@
             this.label17.Size = new System.Drawing.Size(154, 20);
             this.label17.TabIndex = 55;
             this.label17.Text = "Acompanhamento";
+            this.label17.Click += new System.EventHandler(this.Label17_Click);
             // 
             // pictureBox16
             // 
@@ -432,7 +445,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.PictureBox1_Click);
             // 
             // VOLUNTARIADO_CLICK
             // 
@@ -477,8 +489,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Location = new System.Drawing.Point(166, 28);
             this.Name = "VOLUNTARIADO_CLICK";
-            this.Size = new System.Drawing.Size(1153, 1301);
-            this.Load += new System.EventHandler(this.VOLUNTARIADO_CLICK_Load);
+            this.Size = new System.Drawing.Size(1153, 1250);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
