@@ -219,14 +219,33 @@
             // 
             // voluntariadO_CLICK1
             // 
+            this.voluntariadO_CLICK1.Acompanhamento = null;
+            this.voluntariadO_CLICK1.Adicional = null;
+            this.voluntariadO_CLICK1.Alimentacao = null;
+            this.voluntariadO_CLICK1.Alojamento = null;
+            this.voluntariadO_CLICK1.AutoScroll = true;
             this.voluntariadO_CLICK1.AutoSize = true;
+            this.voluntariadO_CLICK1.Categoria = null;
+            this.voluntariadO_CLICK1.Data = null;
+            this.voluntariadO_CLICK1.Descricao = null;
+            this.voluntariadO_CLICK1.Duracao = null;
+            this.voluntariadO_CLICK1.Escolaridade = null;
+            this.voluntariadO_CLICK1.Idade = null;
+            this.voluntariadO_CLICK1.image = null;
+            this.voluntariadO_CLICK1.Lingua = null;
+            this.voluntariadO_CLICK1.Localidade = null;
             this.voluntariadO_CLICK1.Location = new System.Drawing.Point(166, 28);
             this.voluntariadO_CLICK1.Name = "voluntariadO_CLICK1";
-            this.voluntariadO_CLICK1.Size = new System.Drawing.Size(1153, 1114);
+            this.voluntariadO_CLICK1.Nome = null;
+            this.voluntariadO_CLICK1.Organizacao = null;
+            this.voluntariadO_CLICK1.Seguro = null;
+            this.voluntariadO_CLICK1.Size = new System.Drawing.Size(1153, 1212);
             this.voluntariadO_CLICK1.TabIndex = 37;
+            this.voluntariadO_CLICK1.Transfers = null;
             // 
             // categoria1
             // 
+            this.categoria1.AutoScroll = true;
             this.categoria1.Location = new System.Drawing.Point(166, 28);
             this.categoria1.Name = "categoria1";
             this.categoria1.Size = new System.Drawing.Size(1153, 558);
@@ -241,6 +260,7 @@
             // 
             // socialClick1
             // 
+            this.socialClick1.AutoScroll = true;
             this.socialClick1.Location = new System.Drawing.Point(166, 28);
             this.socialClick1.Name = "socialClick1";
             this.socialClick1.Size = new System.Drawing.Size(1153, 558);

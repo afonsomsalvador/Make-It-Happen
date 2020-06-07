@@ -122,9 +122,10 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         }
         protected virtual void OnButtonClick(EventArgs e)
         {
-            var handler = ButtonClick;
-            if (handler != null)
-                handler(this, e);
+            ButtonClick?.Invoke(this, e);
+            //var handler = ButtonClick;
+            //if (handler != null)
+            //    handler(this, e);
         }
 
         private void Button1_Click(object sender, EventArgs e)

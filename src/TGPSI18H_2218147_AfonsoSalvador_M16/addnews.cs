@@ -35,7 +35,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             bunifuImageButton1.BackgroundImage.Save($"{ConfigurationManager.AppSettings["filesBasePath"]}{FileName}", System.Drawing.Imaging.ImageFormat.Jpeg);
             //byte[] arrImage = ms.GetBuffer();
 
-            string sql = "INSERT INTO noticias(Titulo,Corpo,Imagem) VALUES(@param1, @param2, @param3)";
+            string sql = "INSERT INTO pais(Titulo, Corpo, Imagem) VALUES(@param1, @param2, @param3)";
             using (MySqlCommand cmd = new MySqlCommand(sql, conn))
             {
                 conn.Open();

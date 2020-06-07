@@ -35,6 +35,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             InitializeComponent();
             SidePanel.Height = button1.Height;
             SidePanel.Top = button1.Top;
+            voluntariadO_CLICK1.Hide();
         }
         public Pais_Click pais;
   
@@ -168,6 +169,11 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             LoginForm lg = new LoginForm();
             this.Hide();
             lg.ShowDialog();
+        }
+
+        private void VoluntariadO_CLICK2_Load(object sender, EventArgs e)
+        {
+
         }
     }
 

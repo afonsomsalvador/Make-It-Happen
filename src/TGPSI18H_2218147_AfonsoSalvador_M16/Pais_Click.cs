@@ -45,11 +45,28 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                 p.image = $"{ConfigurationManager.AppSettings["filesBasePath"]}{ dt["imagemvol"]}";
                 p.bandeira = $"{ConfigurationManager.AppSettings["filesBasePath"]}{ dt["imagempais"]}";
                 p.Pais = dt["pnome"].ToString();
-                p.ButtonClick += new EventHandler(p_ButtonClick);
-                VOLUNTARIADO_CLICK vc = new VOLUNTARIADO_CLICK();
-                
-                
+                p.ButtonClick += p_ButtonClick;
+                //while ()
+                //{
+                    VOLUNTARIADO_CLICK vc = new VOLUNTARIADO_CLICK();
+                    vc.BringToFront();
+                    vc.Nome = dt["nomev"].ToString();
+                    vc.Descricao = dt["nomev"].ToString();
+                    vc.image = $"{ConfigurationManager.AppSettings["filesBasePath"]}{ dt["imagemvol"]}"; ;
+                    vc.Idade = dt["nomev"].ToString();
+                    vc.Lingua = dt["nomev"].ToString();
+                    vc.Escolaridade = dt["nomev"].ToString();
+                    vc.Data = dt["nomev"].ToString();
+                    vc.Duracao = dt["nomev"].ToString();
+                    vc.Alojamento = dt["nomev"].ToString();
+                    vc.Alimentacao = dt["nomev"].ToString();
+                    vc.Transfers = dt["nomev"].ToString();
+                    vc.Seguro = dt["nomev"].ToString();
+                    vc.Acompanhamento = dt["nomev"].ToString();
+                    vc.Localidade = dt["nomev"].ToString();
+                    vc.Adicional = dt["nomev"].ToString();
 
+                //}
 
                 flowLayoutPanel1.Controls.Add(p);
             }
@@ -58,17 +75,17 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
       
         private void p_ButtonClick(object sender, EventArgs e)
         {
-            //voluntariadO_CLICK1.BringToFront();
+            voluntariadO_CLICK1.BringToFront();
         }
         public Pais_Click()
         {
             InitializeComponent();
-            //voluntariadO_CLICK1.Hide();
-            panels1.Hide();
+            voluntariadO_CLICK1.Hide();
         }
         private void Pais_Click_Load(object sender, EventArgs e)
         {
             label1.Text = texto;
+
             populateItems();
             VerticalScroll.Enabled = true;
         }
