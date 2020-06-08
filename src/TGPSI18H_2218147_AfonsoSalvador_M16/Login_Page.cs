@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
 using System.IO;
-using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using MySql.Data.MySqlClient;
 
@@ -25,10 +24,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         public LoginForm()
         {
             InitializeComponent();
-            label4.Hide();
-            label5.Hide();
-            pictureBox5.Hide();
-            pictureBox6.Hide();
+
 
             label7.Hide();
             pictureBox8.Hide();
@@ -70,14 +66,11 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         private void TextBox1_KeyDown(object sender, KeyEventArgs e)
         {
            
-            label5.Hide();
-            pictureBox6.Hide();
         }
 
         private void TxtPassword_KeyDown(object sender, KeyEventArgs e)
         {
-            label4.Hide();
-            pictureBox5.Hide();
+           
 
         }
         private void PictureBox3_Click(object sender, EventArgs e)
@@ -242,6 +235,12 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             da.Fill(dt);
             if (dt.Rows.Count == 1)
             {
+                if(txtPassword.Text == "admin" || textBox1.Text == "admin")
+                {
+                    this.Hide();
+                    admin a = new admin();
+                    a.ShowDialog();
+                }
                 current_user = textBox1.Text;
                 this.Hide();
                 SplashScreen ss = new SplashScreen();
@@ -253,20 +252,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                 label7.Show();
                 pictureBox8.Show();
             }
-            //if (textBox1.Text.Trim() != null && txtPassword.Text.Trim() != null)
-            //{
-            //    label5.Show();
-            //    pictureBox6.Show();
-            //    label4.Show();
-            //    pictureBox5.Show();
-            //}
-        
-            //else
-            //{
-               
-            //}
-
-           
         }
 
         private void PictureBox4_Click_1(object sender, EventArgs e)

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
+using System.Configuration;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.IO;
@@ -36,8 +37,18 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             SidePanel.Height = button1.Height;
             SidePanel.Top = button1.Top;
             voluntariadO_CLICK1.Hide();
+            panels1.Hide();
         }
         public Pais_Click pais;
+        public void PaisClick()
+        {
+            this.panels1.ButtonClick += new EventHandler(evento);
+        }
+        public void evento(object sender, EventArgs e)
+        {
+            VOLUNTARIADO_CLICK vc = new VOLUNTARIADO_CLICK();
+            vc.BringToFront();
+        }
   
         private void Button3_Click(object sender, EventArgs e)
         {
@@ -107,6 +118,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 
      
         }
+   
         public void GeoMap1_LandClick(object arg1, LiveCharts.Maps.MapData arg2)
         {
 
@@ -124,17 +136,23 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 
                 //}
             }
-            if (arg2.Id == ("BR"))
+                if (arg2.Id == ("BR"))
             {
            
                 pais_Click2.Show();
                 pais_Click2.BringToFront();
                 pais_Click2.texto = "Projecto de voluntariado do Brasil";
                 //string sql = "SELECT localidade from detalhes where localidade = Brasil  ";
-                //using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                //using (MySqlCommand cmd = new MySqlCommand(sql, conn)) 
                 //{
 
                 //}
+            }
+            if (arg2.Id == ("ES"))
+            {
+                pais_Click2.Show();
+                pais_Click2.BringToFront();
+                pais_Click2.texto = "Projecto de voluntariado de Espanha";
             }
         }
 
@@ -172,6 +190,11 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         }
 
         private void VoluntariadO_CLICK2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Pais_Click1_Load(object sender, EventArgs e)
         {
 
         }

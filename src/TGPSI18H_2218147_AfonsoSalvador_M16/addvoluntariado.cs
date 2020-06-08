@@ -36,8 +36,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                     // Define a fonte de dados
                     cmb_categoria.ValueMember = "id_Categoria";
                     cmb_categoria.DataSource = dt;
-                    cmb_categoria.SelectedText = "Selecione uma categoria";
-
                 }
                 catch (Exception erro)
                 {
@@ -68,8 +66,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                     // Define a fonte de dados
                     cmb_organizacao.ValueMember = "idOrganizacao";
                     cmb_organizacao.DataSource = dt;
-                    cmb_organizacao.SelectedText = "Selecione uma organização";
-
                 }
                 catch (Exception erro)
                 {
@@ -100,8 +96,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                     // Define a fonte de dados
                     cmb_Experiencia.ValueMember = "idExperiencia";
                     cmb_Experiencia.DataSource = dt;
-                    cmb_Experiencia.SelectedText = "Selecione o tipo de experiencia";
-
                 }
                 catch (Exception erro)
                 {
@@ -134,8 +128,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                     // Define a fonte de dados
                     cmb_pais.ValueMember = "idPais";
                     cmb_pais.DataSource = dt;
-                    cmb_pais.SelectedText = "Selecione uma nacionalidade";
-
                 }
                 catch (Exception erro)
                 {
@@ -150,6 +142,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         }
         void add()
         {
+           
             string FileName = $"{Guid.NewGuid().ToString()}.jpg";
 
             //MemoryStream ms = new MemoryStream();

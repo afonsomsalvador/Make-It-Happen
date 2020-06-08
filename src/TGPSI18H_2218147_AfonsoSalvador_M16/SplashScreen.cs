@@ -24,7 +24,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         {
             InitializeComponent();
             LoginForm lf = new LoginForm();
-            lf.current_user = label2.Text.ToString().Trim();
+            lf.current_user = label2.Text.ToString();
         }
         private void PictureBox1_Click(object sender, EventArgs e)
         {

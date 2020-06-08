@@ -16,7 +16,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 {
     public partial class Register_Page : Form
     {
-        String imageLocation = "";
         MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=psi18_afonsosalvador;");
 
         void combobox()
@@ -40,7 +39,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                     // Define a fonte de dados
                     cmb_nacionalidade.ValueMember = "idPais";
                     cmb_nacionalidade.DataSource = dt;
-                    cmb_nacionalidade.SelectedText = "Selecione uma nacionalidade";
 
                 }
                 catch (Exception erro)
@@ -57,6 +55,8 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         public Register_Page()
         {
             InitializeComponent();
+            pictureBox16.Hide();
+            label21.Hide();
             combobox();
             // Email
             label14.Hide();
@@ -76,6 +76,9 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             // Nome Completo
             label18.Hide();
             pictureBox8.Hide();
+            //cmb
+            label19.Hide();
+            pictureBox9.Hide();
             // Conta Existe
             label20.Hide();
             pictureBox14.Hide();
@@ -83,32 +86,116 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         }
         private void Button1_Click(object sender, EventArgs e)
         {
-             
-            string sql = ("INSERT INTO login(user, Password, nome, email, Pais_idPais, foto) VALUES(@param1, @param2, @param3, @param4, @param5, @param6) ");
-
-
-            if (txt_password.Text == txt_conpass.Text)
+            if (String.IsNullOrEmpty(txt_email.Text) || String.IsNullOrEmpty(txt_user.Text) || String.IsNullOrEmpty(txt_password.Text)||String.IsNullOrEmpty(txt_conpass.Text)|| String.IsNullOrEmpty(txt_nome.Text)||String.IsNullOrEmpty(cmb_nacionalidade.Text))
             {
-                using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                label14.Show();
+                pictureBox6.Show();
+                label15.Show();
+                pictureBox4.Show();
+                label16.Show();
+                pictureBox5.Show();
+                label17.Show();
+                pictureBox7.Show();
+                label18.Show();
+                pictureBox8.Show();
+                label19.Show();
+                pictureBox9.Show();
+            }
+            else if (String.IsNullOrEmpty(txt_user.Text))
+            {
+                label15.Show();
+                pictureBox4.Show();
+            }
+            else if (String.IsNullOrEmpty(txt_password.Text))
+            {
+                label16.Show();
+                pictureBox5.Show();
+            }
+            else if (String.IsNullOrEmpty(txt_conpass.Text))
+            {
+                label17.Show();
+                pictureBox7.Show();
+            }
+            else if (String.IsNullOrEmpty(txt_nome.Text))
+            {
+                label18.Show();
+                pictureBox8.Show();
+            }
+            else if (String.IsNullOrEmpty(cmb_nacionalidade.Text))
+            {
+                label19.Show();
+                pictureBox9.Show();
+            }
+            else
+            {
+                // Email
+                label14.Hide();
+                pictureBox6.Hide();
+                // User
+                label15.Hide();
+                pictureBox4.Hide();
+                // Password
+                label16.Hide();
+                pictureBox5.Hide();
+                // Confirmar Password
+                label17.Hide();
+                pictureBox7.Hide();
+                // Nacionalidade
+                label19.Hide();
+                pictureBox9.Hide();
+                // Nome Completo
+                label18.Hide();
+                pictureBox8.Hide();
+                //cmb
+                label19.Hide();
+                pictureBox9.Hide();
+                // Conta Existe
+                label20.Hide();
+                pictureBox14.Hide();
+                string sql = ("INSERT INTO login(user, Password, nome, email, Pais_idPais, foto) VALUES(@param1, @param2, @param3, @param4, @param5, @param6) ");
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (txt_password.Text == txt_conpass.Text)
                 {
-                    MemoryStream ms = new MemoryStream();
-                    pictureBox1.BackgroundImage.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                    byte[] arrImage = ms.GetBuffer();
+                    pictureBox16.Hide();
+                    label21.Hide();
 
-                    conn.Open();
-                    cmd.Parameters.AddWithValue("@param1", txt_user.Text);
-                    cmd.Parameters.AddWithValue("@param2", Encrypt(txt_password.Text.Trim()));
-                    cmd.Parameters.AddWithValue("@param3", txt_nome.Text);
-                    cmd.Parameters.AddWithValue("@param4", txt_email.Text);
-                    cmd.Parameters.AddWithValue("@param5", cmb_nacionalidade.SelectedValue);
-                    cmd.Parameters.AddWithValue("@param6", arrImage);
-                    cmd.ExecuteNonQuery();
-                    conn.Close();
+                    if (dt.Rows.Count == 0)
+                    {
+                        label20.Hide();
+                        pictureBox14.Hide();
+                        using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                        {
+                            MemoryStream ms = new MemoryStream();
+                            pictureBox1.BackgroundImage.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                            byte[] arrImage = ms.GetBuffer();
+
+                            conn.Open();
+                            cmd.Parameters.AddWithValue("@param1", txt_user.Text);
+                            cmd.Parameters.AddWithValue("@param2", Encrypt(txt_password.Text.Trim()));
+                            cmd.Parameters.AddWithValue("@param3", txt_nome.Text);
+                            cmd.Parameters.AddWithValue("@param4", txt_email.Text);
+                            cmd.Parameters.AddWithValue("@param5", cmb_nacionalidade.SelectedValue);
+                            cmd.Parameters.AddWithValue("@param6", arrImage);
+                            cmd.ExecuteNonQuery();
+                            conn.Close();
+                        }
+                    }
+                    else
+                    {
+                        label20.Show();
+                        pictureBox14.Show();
+                    }
+                }
+                else
+                {
+                    pictureBox16.Show();
+                    label21.Show();
                 }
             }
-        
-            
-      
+          
+
         }
         public static class Global
         {

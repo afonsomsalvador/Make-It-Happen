@@ -40,12 +40,15 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.panels2 = new TGPSI18H_2218147_AfonsoSalvador_M16.Panels();
+            this.pais_Click1 = new TGPSI18H_2218147_AfonsoSalvador_M16.Pais_Click();
+            this.panels1 = new TGPSI18H_2218147_AfonsoSalvador_M16.Panels();
             this.pais_Click2 = new TGPSI18H_2218147_AfonsoSalvador_M16.Pais_Click();
             this.voluntariadO_CLICK1 = new TGPSI18H_2218147_AfonsoSalvador_M16.VOLUNTARIADO_CLICK();
             this.categoria1 = new TGPSI18H_2218147_AfonsoSalvador_M16.Categoria();
             this.organizacao1 = new TGPSI18H_2218147_AfonsoSalvador_M16.Organizacao();
             this.socialClick1 = new TGPSI18H_2218147_AfonsoSalvador_M16.SocialClick();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -173,7 +176,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(166, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1153, 30);
+            this.panel2.Size = new System.Drawing.Size(1153, 27);
             this.panel2.TabIndex = 32;
             this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel2_MouseDown);
             // 
@@ -206,6 +209,55 @@
             this.pictureBox4.TabIndex = 3;
             this.pictureBox4.TabStop = false;
             this.pictureBox4.Click += new System.EventHandler(this.PictureBox4_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(45, 128);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(48, 49);
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            // 
+            // panels2
+            // 
+            this.panels2.BackColor = System.Drawing.SystemColors.Control;
+            this.panels2.bandeira = null;
+            this.panels2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panels2.Categoria = null;
+            this.panels2.image = null;
+            this.panels2.Location = new System.Drawing.Point(172, 64);
+            this.panels2.Name = "panels2";
+            this.panels2.Nome = null;
+            this.panels2.Organizacao = null;
+            this.panels2.Pais = null;
+            this.panels2.Size = new System.Drawing.Size(987, 244);
+            this.panels2.TabIndex = 41;
+            // 
+            // pais_Click1
+            // 
+            this.pais_Click1.AutoScroll = true;
+            this.pais_Click1.Location = new System.Drawing.Point(166, 28);
+            this.pais_Click1.Name = "pais_Click1";
+            this.pais_Click1.Size = new System.Drawing.Size(1154, 558);
+            this.pais_Click1.TabIndex = 40;
+            this.pais_Click1.texto = "";
+            this.pais_Click1.Load += new System.EventHandler(this.Pais_Click1_Load);
+            // 
+            // panels1
+            // 
+            this.panels1.BackColor = System.Drawing.SystemColors.Control;
+            this.panels1.bandeira = null;
+            this.panels1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panels1.Categoria = null;
+            this.panels1.image = null;
+            this.panels1.Location = new System.Drawing.Point(166, 28);
+            this.panels1.Name = "panels1";
+            this.panels1.Nome = null;
+            this.panels1.Organizacao = null;
+            this.panels1.Pais = null;
+            this.panels1.Size = new System.Drawing.Size(987, 244);
+            this.panels1.TabIndex = 39;
             // 
             // pais_Click2
             // 
@@ -266,21 +318,15 @@
             this.socialClick1.Size = new System.Drawing.Size(1153, 558);
             this.socialClick1.TabIndex = 33;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(45, 128);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(48, 49);
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            // 
             // Map_Page
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1319, 586);
+            this.Controls.Add(this.panels2);
+            this.Controls.Add(this.pais_Click1);
+            this.Controls.Add(this.panels1);
             this.Controls.Add(this.pais_Click2);
             this.Controls.Add(this.voluntariadO_CLICK1);
             this.Controls.Add(this.categoria1);
@@ -323,6 +369,9 @@
         private System.Windows.Forms.Button button2;
         private Pais_Click pais_Click2;
         private System.Windows.Forms.Button button5;
+        private Panels panels1;
+        private Pais_Click pais_Click1;
+        private Panels panels2;
     }
 }
 

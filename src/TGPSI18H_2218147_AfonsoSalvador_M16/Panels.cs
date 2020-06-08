@@ -23,9 +23,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             button1.Click += Button1_Click;
         }
 
-        [Category("_ Control _")]
-        [Description("Dispara para notificar o boss!")]
-        public event EventHandler ButtonClick;
+      
 
         private string _nome;
         private string _Categoria;
@@ -128,19 +126,13 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             //    handler(this, e);
         }
 
+        public event EventHandler ButtonClick;
         private void Button1_Click(object sender, EventArgs e)
         {
-            OnButtonClick(EventArgs.Empty);
-            //if (ButtonClick != null)
-            //{
-            //    VOLUNTARIADO_CLICK vc = new VOLUNTARIADO_CLICK();
-            //    vc.BringToFront();
-            //    ButtonClick(this, e);
-            //}
-            //else
-            //{
+          
+            if (this.ButtonClick != null)
+                this.ButtonClick(this, new EventArgs());
 
-            //}
         }
         private void Label2_Click(object sender, EventArgs e)
         {

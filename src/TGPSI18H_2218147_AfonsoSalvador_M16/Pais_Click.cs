@@ -38,6 +38,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             dt = cmd.ExecuteReader();
             while (dt.Read())
             {
+              
                 Panels p = new Panels();
                 p.Nome = dt["nomev"].ToString();
                 p.Categoria = dt["categoriaNome"].ToString();
@@ -48,31 +49,30 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                 p.ButtonClick += p_ButtonClick;
                 //while ()
                 //{
-                    VOLUNTARIADO_CLICK vc = new VOLUNTARIADO_CLICK();
-                    vc.BringToFront();
-                    vc.Nome = dt["nomev"].ToString();
-                    vc.Descricao = dt["nomev"].ToString();
-                    vc.image = $"{ConfigurationManager.AppSettings["filesBasePath"]}{ dt["imagemvol"]}"; ;
-                    vc.Idade = dt["nomev"].ToString();
-                    vc.Lingua = dt["nomev"].ToString();
-                    vc.Escolaridade = dt["nomev"].ToString();
-                    vc.Data = dt["nomev"].ToString();
-                    vc.Duracao = dt["nomev"].ToString();
-                    vc.Alojamento = dt["nomev"].ToString();
-                    vc.Alimentacao = dt["nomev"].ToString();
-                    vc.Transfers = dt["nomev"].ToString();
-                    vc.Seguro = dt["nomev"].ToString();
-                    vc.Acompanhamento = dt["nomev"].ToString();
-                    vc.Localidade = dt["nomev"].ToString();
-                    vc.Adicional = dt["nomev"].ToString();
+                VOLUNTARIADO_CLICK vc = new VOLUNTARIADO_CLICK();
+                vc.BringToFront();
+                vc.Nome = dt["nomev"].ToString();
+                vc.Descricao = dt["nomev"].ToString();
+                vc.image = $"{ConfigurationManager.AppSettings["filesBasePath"]}{ dt["imagemvol"]}"; ;
+                vc.Idade = dt["nomev"].ToString();
+                vc.Lingua = dt["nomev"].ToString();
+                vc.Escolaridade = dt["nomev"].ToString();
+                vc.Data = dt["nomev"].ToString();
+                vc.Duracao = dt["nomev"].ToString();
+                vc.Alojamento = dt["nomev"].ToString();
+                vc.Alimentacao = dt["nomev"].ToString();
+                vc.Transfers = dt["nomev"].ToString();
+                vc.Seguro = dt["nomev"].ToString();
+                vc.Acompanhamento = dt["nomev"].ToString();
+                vc.Localidade = dt["nomev"].ToString();
+                vc.Adicional = dt["nomev"].ToString();
 
                 //}
-
                 flowLayoutPanel1.Controls.Add(p);
             }
             conn.Close();
         }
-      
+
         private void p_ButtonClick(object sender, EventArgs e)
         {
             voluntariadO_CLICK1.BringToFront();
@@ -101,6 +101,11 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         }
 
         private void FlowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void VoluntariadO_CLICK1_Load(object sender, EventArgs e)
         {
 
         }
