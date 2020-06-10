@@ -14,9 +14,11 @@ using System.IO;
 
 namespace TGPSI18H_2218147_AfonsoSalvador_M16
 {
-
+    
     public partial class Map_Page : Form
     {
+        private VOLUNTARIADO_CLICK vc;
+
         MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=psi18_afonsosalvador;");
         MySqlCommand cmd = new MySqlCommand();
 
@@ -40,10 +42,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             panels1.Hide();
         }
         public Pais_Click pais;
-        public void PaisClick()
-        {
-            this.panels1.ButtonClick += new EventHandler(evento);
-        }
+ 
         public void evento(object sender, EventArgs e)
         {
             VOLUNTARIADO_CLICK vc = new VOLUNTARIADO_CLICK();
@@ -126,27 +125,28 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
            
             if (arg2.Id == ("PT"))
             {
+                
                 pais_Click2.Show();
                 pais_Click2.BringToFront();
                 pais_Click2.texto = "Projecto de voluntariado de Portugal";
 
-                //string sql = "SELECT localidade from detalhes where localidade = Portugal";
-                //using (MySqlCommand cmd = new MySqlCommand(sql, conn))
-                //{
-
-                //}
+                string sql = "SELECT localidade from detalhes where localidade = Portugal";
+                using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                {
+                    Panels p = new Panels();
+                }
             }
-                if (arg2.Id == ("BR"))
+            if (arg2.Id == ("BR"))
             {
            
                 pais_Click2.Show();
                 pais_Click2.BringToFront();
                 pais_Click2.texto = "Projecto de voluntariado do Brasil";
-                //string sql = "SELECT localidade from detalhes where localidade = Brasil  ";
-                //using (MySqlCommand cmd = new MySqlCommand(sql, conn)) 
-                //{
+                string sql = "SELECT localidade from detalhes where localidade = Brasil  ";
+                using (MySqlCommand cmd = new MySqlCommand(sql, conn)) 
+                {
 
-                //}
+                }
             }
             if (arg2.Id == ("ES"))
             {
@@ -195,6 +195,11 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         }
 
         private void Pais_Click1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }

@@ -7,12 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using MySql.Data.MySqlClient;
+using System.Configuration;
 using System.Windows.Forms;
 
 namespace TGPSI18H_2218147_AfonsoSalvador_M16
 {
     public partial class VOLUNTARIADO_CLICK : UserControl
     {
+
+        MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=psi18_afonsosalvador");
+        MySqlCommand cmd = new MySqlCommand();
+
         public VOLUNTARIADO_CLICK()
         {
             InitializeComponent();
@@ -243,6 +249,62 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             }
         }
 
+
+        public void CarregarDados(int id)
+        {
+            conn.Open();
+            cmd = new MySqlCommand(@"SELECT 
+                                        c.nome categoriaNome,
+                                        v.idVoluntariado idVoluntariado,
+                                        v.imagem imagemvol,
+                                        v.nome nomev,
+                                        p.nome pnome,
+                                        p.imagem imagempais,
+                                        o.nome OrganizacaoNome,
+                                        v.Descricao descricao,
+                                        v.Idade idade,
+                                        v.Lingua lingua,
+                                        v.Escolaridade escola,
+                                        v.data data,
+                                        v.duracao duracao,
+                                        v.alojamento alojamento,
+                                        v.alimentacao alimentacao,
+                                        v.transfers transfers,
+                                        v.seguro seguro,
+                                        v.acompanhamento acompanhamento,
+                                        v.localidade localidade,
+                                        v.adicional adicional
+                                    FROM
+                                        voluntariado v
+                                        JOIN categorias c ON  v.Categorias_id_Categoria = c.id_Categoria
+                                        JOIN pais p ON p.idPais = v.pais_idPais
+                                        JOIN organizacao o ON o.idOrganizacao = v.Organizacao_idOrganizacao ORDER BY c.nome", conn);
+            MySqlDataReader dt;
+            dt = cmd.ExecuteReader();
+            while (dt.Read())
+            {
+                VOLUNTARIADO_CLICK vc = new VOLUNTARIADO_CLICK();
+                label1.Text = dt["nomev"].ToString();
+                label18.Text = dt["categoriaNome"].ToString();
+                label2.Text = dt["OrganizacaoNome"].ToString();
+                pictureBox1.Image = Image.FromFile($"{ConfigurationManager.AppSettings["filesBasePath"]}{ dt["imagemvol"]}");
+                groupBox1.Text = dt["descricao"].ToString();
+                label14.Text = dt["idade"].ToString();
+                label12.Text = dt["lingua"].ToString();
+                label13.Text = dt["escola"].ToString();
+                label8.Text = dt["data"].ToString();
+                label5.Text = dt["duracao"].ToString();
+                label4.Text = dt["alojamento"].ToString();
+                label6.Text = dt["alimentacao"].ToString();
+                label7.Text = dt["transfers"].ToString();
+                label10.Text = dt["seguro"].ToString();
+                label17.Text = dt["acompanhamento"].ToString();
+                label3.Text = dt["localidade"].ToString();
+                label11.Text = dt["adicional"].ToString();
+            }
+            conn.Close();
+        }
+
         private void GroupBox1_Enter(object sender, EventArgs e)
         {
 
@@ -314,6 +376,11 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         }
 
         private void Label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void VOLUNTARIADO_CLICK_Load(object sender, EventArgs e)
         {
 
         }

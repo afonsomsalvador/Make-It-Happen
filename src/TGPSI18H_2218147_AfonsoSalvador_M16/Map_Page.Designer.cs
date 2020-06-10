@@ -178,10 +178,12 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1153, 27);
             this.panel2.TabIndex = 32;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel2_Paint);
             this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel2_MouseDown);
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(1044, 0);
             this.pictureBox1.Name = "pictureBox1";
@@ -192,6 +194,7 @@
             // 
             // pictureBox3
             // 
+            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(1082, -1);
             this.pictureBox3.Name = "pictureBox3";
@@ -202,6 +205,7 @@
             // 
             // pictureBox4
             // 
+            this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.Location = new System.Drawing.Point(1119, 0);
             this.pictureBox4.Name = "pictureBox4";
@@ -225,6 +229,7 @@
             this.panels2.bandeira = null;
             this.panels2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panels2.Categoria = null;
+            this.panels2.ChavePesquisaID = 0;
             this.panels2.image = null;
             this.panels2.Location = new System.Drawing.Point(172, 64);
             this.panels2.Name = "panels2";
@@ -236,6 +241,7 @@
             // 
             // pais_Click1
             // 
+            this.pais_Click1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pais_Click1.AutoScroll = true;
             this.pais_Click1.Location = new System.Drawing.Point(166, 28);
             this.pais_Click1.Name = "pais_Click1";
@@ -250,6 +256,7 @@
             this.panels1.bandeira = null;
             this.panels1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panels1.Categoria = null;
+            this.panels1.ChavePesquisaID = 0;
             this.panels1.image = null;
             this.panels1.Location = new System.Drawing.Point(166, 28);
             this.panels1.Name = "panels1";

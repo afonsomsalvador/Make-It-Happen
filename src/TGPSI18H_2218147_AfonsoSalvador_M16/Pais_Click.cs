@@ -15,7 +15,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 {
     public partial class Pais_Click : UserControl
     {
-        
+       
         MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=psi18_afonsosalvador");
         MySqlCommand cmd = new MySqlCommand();
         
@@ -30,16 +30,53 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                 label1.Text = value;
             }
         }
-        public void populateItems()
+        public void populateItems(int categoriaId = -1)
         {
             conn.Open();
-            cmd = new MySqlCommand("SELECT c.nome categoriaNome, v.imagem imagemvol, v.nome nomev, p.nome pnome, p.imagem imagempais, o.nome OrganizacaoNome, v.Descricao , v.Idade, v.Lingua, v.Escolaridade, v.data, v.duracao, v.alojamento, v.alimentacao, v.transfers, v.seguro, v.acompanhamento, v.localidade , v.adicional FROM voluntariado v JOIN categorias c ON  v.Categorias_id_Categoria = c.id_Categoria JOIN pais p ON p.idPais = v.pais_idPais JOIN organizacao o ON o.idOrganizacao = v.Organizacao_idOrganizacao ORDER BY c.nome", conn);
+
+            string sqlBase = @"SELECT 
+                                        c.nome categoriaNome, 
+                                        v.idVoluntariado idVoluntariado,
+                                        v.imagem imagemvol, 
+                                        v.nome nomev, 
+                                        p.nome pnome, 
+                                        p.imagem imagempais, 
+                                        o.nome OrganizacaoNome, 
+                                        v.Descricao , 
+                                        v.Idade, 
+                                        v.Lingua, 
+                                        v.Escolaridade, 
+                                        v.data, 
+                                        v.duracao,
+                                        v.alojamento,
+                                        v.alimentacao, 
+                                        v.transfers, 
+                                        v.seguro, 
+                                        v.acompanhamento, 
+                                        v.localidade , 
+                                        v.adicional 
+                                    FROM 
+                                        voluntariado v 
+                                        JOIN categorias c ON  v.Categorias_id_Categoria = c.id_Categoria 
+                                        JOIN pais p ON p.idPais = v.pais_idPais 
+                                        JOIN organizacao o ON o.idOrganizacao = v.Organizacao_idOrganizacao";
+
+
+            string sqlWhere = "";
+
+            if (categoriaId != -1)
+            {
+                sqlWhere = $" WHERE c.id_Categoria = {categoriaId}";
+            }
+
+            cmd = new MySqlCommand($"{sqlBase} {sqlWhere} ORDER BY c.nome", conn);
             MySqlDataReader dt;
             dt = cmd.ExecuteReader();
             while (dt.Read())
             {
               
                 Panels p = new Panels();
+                p.ChavePesquisaID = dt["idVoluntariado"].GetHashCode(); ; //dt[]
                 p.Nome = dt["nomev"].ToString();
                 p.Categoria = dt["categoriaNome"].ToString();
                 p.Organizacao = dt["OrganizacaoNome"].ToString();
@@ -47,27 +84,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                 p.bandeira = $"{ConfigurationManager.AppSettings["filesBasePath"]}{ dt["imagempais"]}";
                 p.Pais = dt["pnome"].ToString();
                 p.ButtonClick += p_ButtonClick;
-                //while ()
-                //{
-                VOLUNTARIADO_CLICK vc = new VOLUNTARIADO_CLICK();
-                vc.BringToFront();
-                vc.Nome = dt["nomev"].ToString();
-                vc.Descricao = dt["nomev"].ToString();
-                vc.image = $"{ConfigurationManager.AppSettings["filesBasePath"]}{ dt["imagemvol"]}"; ;
-                vc.Idade = dt["nomev"].ToString();
-                vc.Lingua = dt["nomev"].ToString();
-                vc.Escolaridade = dt["nomev"].ToString();
-                vc.Data = dt["nomev"].ToString();
-                vc.Duracao = dt["nomev"].ToString();
-                vc.Alojamento = dt["nomev"].ToString();
-                vc.Alimentacao = dt["nomev"].ToString();
-                vc.Transfers = dt["nomev"].ToString();
-                vc.Seguro = dt["nomev"].ToString();
-                vc.Acompanhamento = dt["nomev"].ToString();
-                vc.Localidade = dt["nomev"].ToString();
-                vc.Adicional = dt["nomev"].ToString();
-
-                //}
+              
                 flowLayoutPanel1.Controls.Add(p);
             }
             conn.Close();
@@ -75,12 +92,24 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 
         private void p_ButtonClick(object sender, EventArgs e)
         {
+
+
+            voluntariadO_CLICK1.CarregarDados((sender as Panels).ChavePesquisaID); 
             voluntariadO_CLICK1.BringToFront();
+            voluntariadO_CLICK1.Visible = true;
+
+            
         }
         public Pais_Click()
         {
             InitializeComponent();
-            voluntariadO_CLICK1.Hide();
+
+            flowLayoutPanel1.Visible = true;
+            pictureBox1.Visible = true;
+            label2.Visible = true;
+            textBox1.Visible = true;
+            label1.Visible = true;
+           
         }
         private void Pais_Click_Load(object sender, EventArgs e)
         {
@@ -106,6 +135,11 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         }
 
         private void VoluntariadO_CLICK1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void VoluntariadO_CLICK1_Load_1(object sender, EventArgs e)
         {
 
         }

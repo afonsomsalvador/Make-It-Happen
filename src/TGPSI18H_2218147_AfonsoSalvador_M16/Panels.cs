@@ -16,14 +16,19 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
     [System.ComponentModel.DefaultEvent("ButtonClicked")]
     public partial class Panels : UserControl
     {
-        
+
+
+        public event EventHandler ButtonClick;
+
+
         public Panels()
         {
             InitializeComponent();
-            button1.Click += Button1_Click;
         }
 
-      
+
+
+        public int ChavePesquisaID { get; set; }
 
         private string _nome;
         private string _Categoria;
@@ -126,7 +131,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             //    handler(this, e);
         }
 
-        public event EventHandler ButtonClick;
+
         private void Button1_Click(object sender, EventArgs e)
         {
           

@@ -48,6 +48,7 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
+            this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
@@ -64,6 +65,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
@@ -86,7 +88,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("LCD5x8H", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(623, 33);
+            this.label1.Location = new System.Drawing.Point(623, 49);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(132, 25);
             this.label1.TabIndex = 5;
@@ -285,6 +287,16 @@
             this.label17.Text = "Acompanhamento";
             this.label17.Click += new System.EventHandler(this.Label17_Click);
             // 
+            // pictureBox17
+            // 
+            this.pictureBox17.Image = global::TGPSI18H_2218147_AfonsoSalvador_M16.Properties.Resources.back1;
+            this.pictureBox17.Location = new System.Drawing.Point(3, 4);
+            this.pictureBox17.Name = "pictureBox17";
+            this.pictureBox17.Size = new System.Drawing.Size(45, 39);
+            this.pictureBox17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox17.TabIndex = 56;
+            this.pictureBox17.TabStop = false;
+            // 
             // pictureBox16
             // 
             this.pictureBox16.Image = global::TGPSI18H_2218147_AfonsoSalvador_M16.Properties.Resources.people_40px;
@@ -438,10 +450,9 @@
             // pictureBox1
             // 
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Image = global::TGPSI18H_2218147_AfonsoSalvador_M16.Properties.Resources.ensino;
-            this.pictureBox1.Location = new System.Drawing.Point(33, 33);
+            this.pictureBox1.Location = new System.Drawing.Point(33, 49);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(574, 376);
+            this.pictureBox1.Size = new System.Drawing.Size(574, 360);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -452,6 +463,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSize = true;
+            this.Controls.Add(this.pictureBox17);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.pictureBox16);
             this.Controls.Add(this.label15);
@@ -490,6 +502,8 @@
             this.Location = new System.Drawing.Point(166, 28);
             this.Name = "VOLUNTARIADO_CLICK";
             this.Size = new System.Drawing.Size(1153, 1250);
+            this.Load += new System.EventHandler(this.VOLUNTARIADO_CLICK_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
@@ -548,5 +562,6 @@
         private System.Windows.Forms.PictureBox pictureBox15;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.PictureBox pictureBox16;
+        private System.Windows.Forms.PictureBox pictureBox17;
     }
 }

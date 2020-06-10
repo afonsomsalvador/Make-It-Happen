@@ -53,9 +53,9 @@
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.AutoSize = true;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(69, 208);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(17, 240);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1123, 1218);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(910, 337);
             this.flowLayoutPanel1.TabIndex = 1;
             this.flowLayoutPanel1.WrapContents = false;
             this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.FlowLayoutPanel1_Paint);
@@ -64,7 +64,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Ink Free", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(51, 142);
+            this.label2.Location = new System.Drawing.Point(72, 150);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(121, 34);
             this.label2.TabIndex = 2;
@@ -74,7 +74,7 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(206, 142);
+            this.textBox1.Location = new System.Drawing.Point(227, 150);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(281, 34);
@@ -84,7 +84,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(171, 142);
+            this.pictureBox1.Location = new System.Drawing.Point(192, 150);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(29, 34);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -116,21 +116,21 @@
             this.voluntariadO_CLICK1.Size = new System.Drawing.Size(1117, 1212);
             this.voluntariadO_CLICK1.TabIndex = 5;
             this.voluntariadO_CLICK1.Transfers = null;
-            this.voluntariadO_CLICK1.Load += new System.EventHandler(this.VoluntariadO_CLICK1_Load);
+            this.voluntariadO_CLICK1.Visible = false;
             // 
             // Pais_Click
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.Controls.Add(this.voluntariadO_CLICK1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.voluntariadO_CLICK1);
             this.Name = "Pais_Click";
-            this.Size = new System.Drawing.Size(1051, 490);
+            this.Size = new System.Drawing.Size(949, 560);
             this.Load += new System.EventHandler(this.Pais_Click_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

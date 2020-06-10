@@ -14,7 +14,14 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
     public partial class Categoria : UserControl
     {
         MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=123456;database=psi18_afonsosalvador");
-       
+
+
+
+
+
+        public event EventHandler ButtonClick1;
+        public event EventHandler ButtonClick2;
+        public event EventHandler ButtonClick3;
         public Categoria()
         {
             InitializeComponent();
@@ -35,6 +42,8 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 
         private void Button1_Click(object sender, EventArgs e)
         {
+            if (this.ButtonClick1 != null)
+                this.ButtonClick1(this, new EventArgs());
         }
 
         private void Panel2_Paint(object sender, PaintEventArgs e)
@@ -44,12 +53,14 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 
         private void Button2_Click(object sender, EventArgs e)
         {
-          
+            if (this.ButtonClick2 != null)
+                this.ButtonClick2(this, new EventArgs());
         }
 
         private void Button3_Click(object sender, EventArgs e)
         {
-         
+            if (this.ButtonClick3 != null)
+                this.ButtonClick3(this, new EventArgs());
         }
 
         private void Pais_Click1_Load(object sender, EventArgs e)
