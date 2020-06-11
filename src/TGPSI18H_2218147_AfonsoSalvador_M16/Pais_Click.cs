@@ -15,10 +15,10 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 {
     public partial class Pais_Click : UserControl
     {
-       
+
         MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=psi18_afonsosalvador");
         MySqlCommand cmd = new MySqlCommand();
-        
+
         public string texto
         {
             get
@@ -33,7 +33,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         public void populateItems(int categoriaId = -1)
         {
             conn.Open();
-
             string sqlBase = @"SELECT 
                                         c.nome categoriaNome, 
                                         v.idVoluntariado idVoluntariado,
@@ -63,20 +62,23 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 
 
             string sqlWhere = "";
-
+            Categoria c = new Categoria();
+          
             if (categoriaId != -1)
             {
+                c.ButtonClick1 += VidaMarinha;
+                c.ButtonClick2 += Ensino;
+                c.ButtonClick3 += VidaTerrestre;
                 sqlWhere = $" WHERE c.id_Categoria = {categoriaId}";
             }
-
             cmd = new MySqlCommand($"{sqlBase} {sqlWhere} ORDER BY c.nome", conn);
             MySqlDataReader dt;
             dt = cmd.ExecuteReader();
             while (dt.Read())
             {
-              
+
                 Panels p = new Panels();
-                p.ChavePesquisaID = dt["idVoluntariado"].GetHashCode(); ; //dt[]
+                p.ChavePesquisaID = dt["idVoluntariado"].GetHashCode();//dt[]
                 p.Nome = dt["nomev"].ToString();
                 p.Categoria = dt["categoriaNome"].ToString();
                 p.Organizacao = dt["OrganizacaoNome"].ToString();
@@ -84,12 +86,24 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                 p.bandeira = $"{ConfigurationManager.AppSettings["filesBasePath"]}{ dt["imagempais"]}";
                 p.Pais = dt["pnome"].ToString();
                 p.ButtonClick += p_ButtonClick;
-              
+
                 flowLayoutPanel1.Controls.Add(p);
             }
             conn.Close();
         }
 
+        private void VidaMarinha(object sender, EventArgs e)
+        {
+            
+        }
+        private void Ensino(object sender, EventArgs e)
+        {
+
+        }
+        private void VidaTerrestre(object sender, EventArgs e)
+        {
+
+        }
         private void p_ButtonClick(object sender, EventArgs e)
         {
 
@@ -140,6 +154,11 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         }
 
         private void VoluntariadO_CLICK1_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void VoluntariadO_CLICK1_Load_2(object sender, EventArgs e)
         {
 
         }

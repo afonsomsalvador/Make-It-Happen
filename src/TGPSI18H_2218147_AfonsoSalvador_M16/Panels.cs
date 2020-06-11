@@ -28,7 +28,12 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 
 
 
-        public int ChavePesquisaID { get; set; }
+        public int ChavePesquisaID
+        { get
+                ;
+            set
+                ;
+        }
 
         private string _nome;
         private string _Categoria;

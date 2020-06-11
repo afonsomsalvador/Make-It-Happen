@@ -41,6 +41,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pais_Click1 = new TGPSI18H_2218147_AfonsoSalvador_M16.Pais_Click();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -99,6 +100,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.Control;
+            this.panel2.Controls.Add(this.pais_Click1);
             this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.pictureBox2);
@@ -190,6 +192,15 @@
             this.pictureBox3.TabIndex = 1;
             this.pictureBox3.TabStop = false;
             // 
+            // pais_Click1
+            // 
+            this.pais_Click1.AutoScroll = true;
+            this.pais_Click1.Location = new System.Drawing.Point(-55, -223);
+            this.pais_Click1.Name = "pais_Click1";
+            this.pais_Click1.Size = new System.Drawing.Size(1085, 524);
+            this.pais_Click1.TabIndex = 41;
+            this.pais_Click1.texto = "";
+            // 
             // Categoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -199,7 +210,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "Categoria";
-            this.Size = new System.Drawing.Size(1085, 524);
+            this.Size = new System.Drawing.Size(1068, 507);
             this.Load += new System.EventHandler(this.Categoria_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -228,5 +239,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private Pais_Click pais_Click1;
     }
 }

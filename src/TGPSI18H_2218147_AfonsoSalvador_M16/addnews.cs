@@ -20,11 +20,9 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         public addnews()
         {
             InitializeComponent();
-            pictureBox1.Hide();
-            label1.Hide();
-            pictureBox2.Hide();
-            label2.Hide();
+            pictureBox3.Hide();
             pictureBox5.Hide();
+            label3.Hide();
             label4.Hide();
         }
         void add()
@@ -69,48 +67,25 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            //if (textBox13.Text == null || textBox14.Text == null || bunifuImageButton1 == null)
+            //if (textBox13.Text != "" || textBox14.Text != "" || bunifuImageButton1.Image != null)
             //{
+
+            //    pictureBox3.Show();
+            //    label3.Show();
+            //    pictureBox5.Hide();
+            //    label4.Hide();
+            //    textBox13.Text = "";
+            //    textBox14.Text = "";
+            //    bunifuImageButton1.Image = null;
                 add();
-              
-            //}
+            //} 
             //else
             //{
-            //    if (textBox13.Text != null)
-            //    {
-            //        label1.Show();
-            //        pictureBox1.Show();
-            //    }
-            //    else
-            //    {
-            //        label1.Hide();
-            //        pictureBox1.Hide();
-            //    }
-            //    if (textBox14.Text != null)
-            //    {
-            //        label4.Show();
-            //        pictureBox5.Show();
-            //    }
-            //    else
-            //    {
-            //        label4.Hide();
-            //        pictureBox5.Hide();
-            //    }
-            //    if (bunifuImageButton1 != null)
-            //    {
-            //        label2.Show();
-            //        pictureBox2.Show();
-            //    }
-            //    else
-            //    {
-            //        label2.Hide();
-            //        pictureBox2.Hide();
-            //    }
+            //    pictureBox5.Show();
+            //    label4.Show();
+            //    pictureBox3.Hide();
+            //    label3.Hide();
             //}
-             
-         
-            
-           
         }
 
         private void Btnuploadimage_Click(object sender, EventArgs e)

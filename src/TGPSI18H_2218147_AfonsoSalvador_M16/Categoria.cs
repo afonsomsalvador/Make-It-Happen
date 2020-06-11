@@ -20,11 +20,15 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 
 
         public event EventHandler ButtonClick1;
+
         public event EventHandler ButtonClick2;
+
         public event EventHandler ButtonClick3;
+
         public Categoria()
         {
             InitializeComponent();
+            pais_Click1.Hide();
         }
 
         private void Categoria_Load(object sender, EventArgs e)
