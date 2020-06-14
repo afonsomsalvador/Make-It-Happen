@@ -140,8 +140,32 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 
             }
         }
-        void add()
+        void eliminar()
         {
+            textBox1.Text = "";
+            textBox2.Text = "";
+            bunifuImageButton1 = null;
+            cmb_categoria.ResetText();
+            cmb_organizacao.ResetText();
+            cmb_Experiencia.ResetText();
+            _ = dateTimePicker1.Value == null;
+            textBox3.Text = "";
+            textBox4.Text = "";
+            textBox6.Text = "";
+            textBox7.Text = "";
+            textBox8.Text = "";
+            textBox9.Text = "";
+            textBox10.Text = "";
+            textBox5.Text = "";
+            textBox12.Text = "";
+            textBox13.Text = "";
+            textBox14.Text = "";
+            cmb_pais.ResetText();
+            pictureBox3.Show();
+            label42.Show();
+        }
+            void add()
+            {
            
             string FileName = $"{Guid.NewGuid().ToString()}.jpg";
 
@@ -196,6 +220,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         private void Button1_Click(object sender, EventArgs e)
         {
             add();
+            eliminar();
         }
 
 

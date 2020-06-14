@@ -151,6 +151,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(263, 33);
             this.textBox1.TabIndex = 35;
+            this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox1_KeyDown);
             // 
             // label2

@@ -64,28 +64,17 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         {
 
         }
-
+        void eliminar()
+        {
+            textBox13.Text = "";
+            textBox14.Text = "";
+            pictureBox3.Show();
+            label3.Show();
+        }
         private void Button1_Click(object sender, EventArgs e)
         {
-            //if (textBox13.Text != "" || textBox14.Text != "" || bunifuImageButton1.Image != null)
-            //{
-
-            //    pictureBox3.Show();
-            //    label3.Show();
-            //    pictureBox5.Hide();
-            //    label4.Hide();
-            //    textBox13.Text = "";
-            //    textBox14.Text = "";
-            //    bunifuImageButton1.Image = null;
-                add();
-            //} 
-            //else
-            //{
-            //    pictureBox5.Show();
-            //    label4.Show();
-            //    pictureBox3.Hide();
-            //    label3.Hide();
-            //}
+            eliminar(); 
+            add();
         }
 
         private void Btnuploadimage_Click(object sender, EventArgs e)

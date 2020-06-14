@@ -229,7 +229,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         private void Button1_Click_1(object sender, EventArgs e)
         {
             conn.Open();
-            string sql = ("Select * from login where user= '" + textBox1.Text.Trim() + "' and password= '" + (txtPassword.Text.ToString().Trim()) + "'");
+            string sql = ("Select * from login where (user collate utf8_bin) = '" + textBox1.Text.Trim() + "' and (password collate utf8_bin) = '" + (txtPassword.Text.ToString().Trim()) + "'");
             MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -241,11 +241,14 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                     admin a = new admin();
                     a.ShowDialog();
                 }
-                current_user = textBox1.Text;
-                this.Hide();
-                SplashScreen ss = new SplashScreen();
-                ss.ShowDialog();
-                conn.Close();
+                else
+                {
+                    current_user = textBox1.Text;
+                    this.Hide();
+                    SplashScreen ss = new SplashScreen();
+                    ss.ShowDialog();
+                    conn.Close();
+                }
             }
             else
             {
@@ -316,6 +319,11 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             this.Hide();
             Register_Page RP = new Register_Page();
             RP.ShowDialog();
+        }
+
+        private void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -92,7 +92,10 @@
             this.cmb_pais = new System.Windows.Forms.ComboBox();
             this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
+            this.label42 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -740,11 +743,36 @@
             this.vScrollBar1.TabIndex = 17;
             this.vScrollBar1.Value = 1;
             // 
+            // label42
+            // 
+            this.label42.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.ForeColor = System.Drawing.Color.SeaGreen;
+            this.label42.Location = new System.Drawing.Point(945, 842);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(121, 13);
+            this.label42.TabIndex = 74;
+            this.label42.Text = "Voluntariado adicionado";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(917, 839);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(32, 16);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 73;
+            this.pictureBox3.TabStop = false;
+            // 
             // addvoluntariado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.Controls.Add(this.label42);
+            this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.cmb_pais);
             this.Controls.Add(this.label40);
             this.Controls.Add(this.label41);
@@ -813,6 +841,7 @@
             this.Size = new System.Drawing.Size(1153, 954);
             this.Load += new System.EventHandler(this.Addvoluntariado_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -883,5 +912,7 @@
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.ComboBox cmb_pais;
         private System.Windows.Forms.VScrollBar vScrollBar1;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }

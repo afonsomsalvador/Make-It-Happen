@@ -117,7 +117,6 @@
             this.txt_password.Name = "txt_password";
             this.txt_password.Size = new System.Drawing.Size(263, 33);
             this.txt_password.TabIndex = 9;
-            this.txt_password.TextChanged += new System.EventHandler(this.Txt_password_TextChanged);
             // 
             // txt_user
             // 
@@ -179,7 +178,6 @@
             this.txt_email.Name = "txt_email";
             this.txt_email.Size = new System.Drawing.Size(263, 33);
             this.txt_email.TabIndex = 16;
-            this.txt_email.TextChanged += new System.EventHandler(this.Txt_email_TextChanged);
             // 
             // label5
             // 
@@ -200,7 +198,6 @@
             this.txt_nome.Name = "txt_nome";
             this.txt_nome.Size = new System.Drawing.Size(263, 33);
             this.txt_nome.TabIndex = 18;
-            this.txt_nome.TextChanged += new System.EventHandler(this.Txt_nome_TextChanged);
             // 
             // label6
             // 
@@ -327,7 +324,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1154, 32);
             this.panel2.TabIndex = 31;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel2_Paint_1);
             this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel2_MouseDown);
             // 
             // pictureBox2
@@ -368,9 +364,9 @@
             this.label14.ForeColor = System.Drawing.Color.Red;
             this.label14.Location = new System.Drawing.Point(433, 255);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(155, 13);
+            this.label14.Size = new System.Drawing.Size(74, 13);
             this.label14.TabIndex = 47;
-            this.label14.Text = "Campo obrigatório não inserido.";
+            this.label14.Text = "Email inválido.";
             // 
             // label15
             // 
@@ -378,11 +374,12 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.Red;
-            this.label15.Location = new System.Drawing.Point(433, 337);
+            this.label15.Location = new System.Drawing.Point(124, 527);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(155, 13);
+            this.label15.Size = new System.Drawing.Size(174, 13);
             this.label15.TabIndex = 49;
-            this.label15.Text = "Campo obrigatório não inserido.";
+            this.label15.Text = "Campos obrigatórios por preencher.";
+            this.label15.Click += new System.EventHandler(this.Label15_Click);
             // 
             // label16
             // 
@@ -390,7 +387,7 @@
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.Red;
-            this.label16.Location = new System.Drawing.Point(433, 420);
+            this.label16.Location = new System.Drawing.Point(839, 559);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(155, 13);
             this.label16.TabIndex = 51;
@@ -402,7 +399,7 @@
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.Red;
-            this.label17.Location = new System.Drawing.Point(433, 504);
+            this.label17.Location = new System.Drawing.Point(839, 588);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(155, 13);
             this.label17.TabIndex = 53;
@@ -414,7 +411,7 @@
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.Red;
-            this.label18.Location = new System.Drawing.Point(894, 258);
+            this.label18.Location = new System.Drawing.Point(973, 452);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(155, 13);
             this.label18.TabIndex = 55;
@@ -426,7 +423,7 @@
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.Red;
-            this.label19.Location = new System.Drawing.Point(890, 353);
+            this.label19.Location = new System.Drawing.Point(973, 476);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(155, 13);
             this.label19.TabIndex = 57;
@@ -477,6 +474,7 @@
             this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox13.TabIndex = 62;
             this.pictureBox13.TabStop = false;
+            this.pictureBox13.Click += new System.EventHandler(this.PictureBox13_Click);
             // 
             // pictureBox11
             // 
@@ -488,7 +486,6 @@
             this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox11.TabIndex = 60;
             this.pictureBox11.TabStop = false;
-            this.pictureBox11.Click += new System.EventHandler(this.PictureBox11_Click);
             // 
             // pictureBox10
             // 
@@ -505,7 +502,7 @@
             // 
             this.pictureBox9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-            this.pictureBox9.Location = new System.Drawing.Point(861, 350);
+            this.pictureBox9.Location = new System.Drawing.Point(944, 473);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(32, 16);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -516,7 +513,7 @@
             // 
             this.pictureBox8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(865, 255);
+            this.pictureBox8.Location = new System.Drawing.Point(944, 449);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(32, 16);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -527,7 +524,7 @@
             // 
             this.pictureBox7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(404, 501);
+            this.pictureBox7.Location = new System.Drawing.Point(810, 585);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(32, 16);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -538,7 +535,7 @@
             // 
             this.pictureBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(404, 417);
+            this.pictureBox5.Location = new System.Drawing.Point(810, 556);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(32, 16);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -549,7 +546,7 @@
             // 
             this.pictureBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(404, 334);
+            this.pictureBox4.Location = new System.Drawing.Point(95, 524);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(32, 16);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -599,13 +596,12 @@
             this.cmb_nacionalidade.Name = "cmb_nacionalidade";
             this.cmb_nacionalidade.Size = new System.Drawing.Size(263, 28);
             this.cmb_nacionalidade.TabIndex = 20;
-            this.cmb_nacionalidade.SelectedIndexChanged += new System.EventHandler(this.Cmb_nacionalidade_SelectedIndexChanged);
             // 
             // pictureBox16
             // 
             this.pictureBox16.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox16.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox16.Image")));
-            this.pictureBox16.Location = new System.Drawing.Point(95, 524);
+            this.pictureBox16.Location = new System.Drawing.Point(410, 501);
             this.pictureBox16.Name = "pictureBox16";
             this.pictureBox16.Size = new System.Drawing.Size(32, 16);
             this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -618,7 +614,7 @@
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.Color.Red;
-            this.label21.Location = new System.Drawing.Point(124, 527);
+            this.label21.Location = new System.Drawing.Point(439, 504);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(147, 13);
             this.label21.TabIndex = 67;
@@ -679,7 +675,6 @@
             this.Name = "Register_Page";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Register_Page";
-            this.Load += new System.EventHandler(this.Register_Page_Load);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
