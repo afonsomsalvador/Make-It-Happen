@@ -97,108 +97,104 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             // User
             label15.Hide();
             pictureBox4.Hide();
-            // Password
-            label16.Hide();
-            pictureBox5.Hide();
-            // Confirmar Password
-            label17.Hide();
-            pictureBox7.Hide();
-            // Nacionalidade
-            label19.Hide();
-            pictureBox9.Hide();
-            // Nome Completo
-            label18.Hide();
-            pictureBox8.Hide();
-            //cmb
-            label19.Hide();
-            pictureBox9.Hide();
             // Conta Existe
             label20.Hide();
             pictureBox14.Hide();
             txt_password.UseSystemPasswordChar = false;
+            // Conta Criada
+            pictureBox17.Hide(); 
+            label42.Hide();
         }
         private void Button1_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(txt_email.Text) || String.IsNullOrEmpty(txt_user.Text) || String.IsNullOrEmpty(txt_password.Text) || String.IsNullOrEmpty(txt_conpass.Text) || String.IsNullOrEmpty(txt_nome.Text) || String.IsNullOrEmpty(cmb_nacionalidade.Text))
             {
-                label14.Show();
-                pictureBox6.Show();
                 label15.Show();
                 pictureBox4.Show();
-                label16.Show();
-                pictureBox5.Show();
-                label17.Show();
-                pictureBox7.Show();
-                label18.Show();
-                pictureBox8.Show();
-                label19.Show();
-                pictureBox9.Show();
             }
-
-            // Email
-            label14.Hide();
-            pictureBox6.Hide();
-            // User
-            label15.Hide();
-            pictureBox4.Hide();
-            // Password
-            label16.Hide();
-            pictureBox5.Hide();
-            // Confirmar Password
-            label17.Hide();
-            pictureBox7.Hide();
-            // Nacionalidade
-            label19.Hide();
-            pictureBox9.Hide();
-            // Nome Completo
-            label18.Hide();
-            pictureBox8.Hide();
-            //cmb
-            label19.Hide();
-            pictureBox9.Hide();
-            // Conta Existe
-            label20.Hide();
-            pictureBox14.Hide();
-            string sql = ("INSERT INTO login(user, Password, nome, email, Pais_idPais, foto) VALUES(@param1, @param2, @param3, @param4, @param5, @param6) ");
-            MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            if (txt_password.Text == txt_conpass.Text)
+            else
             {
-                pictureBox16.Hide();
-                label21.Hide();
+                label15.Hide();
+                pictureBox4.Hide();
+                //// Email
+                //label14.Hide();
+                //pictureBox6.Hide();
+                //// User
+                //label15.Hide();
+                //pictureBox4.Hide();
+                //// Password
+                //label16.Hide();
+                //pictureBox5.Hide();
+                //// Confirmar Password
+                //label17.Hide();
+                //pictureBox7.Hide();
+                //// Nacionalidade
+                //label19.Hide();
+                //pictureBox9.Hide();
+                //// Nome Completo
+                //label18.Hide();
+                //pictureBox8.Hide();
+                ////cmb
+                //label19.Hide();
+                //pictureBox9.Hide();
+                //// Conta Existe
+                //label20.Hide();
+                //pictureBox14.Hide();
 
-                if (dt.Rows.Count == 0)
+                if (txt_password.Text != txt_conpass.Text)
                 {
-                    label20.Hide();
-                    pictureBox14.Hide();
+                    pictureBox16.Show();
+                    label21.Show();
+                 
+                }
+                else
+                {
+                   
+                    pictureBox16.Hide();
+                    label21.Hide();
+                    string sql = ("INSERT INTO login(user, Password, nome, email, Pais_idPais, foto) VALUES(@param1, @param2, @param3, @param4, @param5, @param6) ");
+                    MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
                     using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                     {
                         MemoryStream ms = new MemoryStream();
                         pictureBox1.BackgroundImage.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
                         byte[] arrImage = ms.GetBuffer();
+                        if (dt.Rows.Count == 1)
+                        {
+                            label20.Show();
+                            pictureBox14.Show();
 
-                        conn.Open();
-                        cmd.Parameters.AddWithValue("@param1", txt_user.Text);
-                        cmd.Parameters.AddWithValue("@param2", Encrypt(txt_password.Text.Trim()));
-                        cmd.Parameters.AddWithValue("@param3", txt_nome.Text);
-                        cmd.Parameters.AddWithValue("@param4", txt_email.Text);
-                        cmd.Parameters.AddWithValue("@param5", cmb_nacionalidade.SelectedValue);
-                        cmd.Parameters.AddWithValue("@param6", arrImage);
-                        cmd.ExecuteNonQuery();
-                        conn.Close();
+                        }
+                        else
+                        {
+                            label20.Hide();
+                            pictureBox14.Hide();
+                            conn.Open();
+                            cmd.Parameters.AddWithValue("@param1", txt_user.Text);
+                            cmd.Parameters.AddWithValue("@param2", Encrypt(txt_password.Text.Trim()));
+                            cmd.Parameters.AddWithValue("@param3", txt_nome.Text);
+                            cmd.Parameters.AddWithValue("@param4", txt_email.Text);
+                            cmd.Parameters.AddWithValue("@param5", cmb_nacionalidade.SelectedValue);
+                            cmd.Parameters.AddWithValue("@param6", arrImage);
+                            cmd.ExecuteNonQuery();
+                            conn.Close();
+                            pictureBox17.Show();
+                            label42.Show();
+                            txt_email.Clear();
+                            txt_user.Clear();
+                            txt_password.Clear();
+                            txt_conpass.Clear();
+                            txt_nome.Clear();
+                            cmb_nacionalidade.ResetText();
+                        }
+                       
+                     
                     }
+                    
+                 
                 }
-                else
-                {
-                    label20.Show();
-                    pictureBox14.Show();
-                }
-            }
-            else
-            {
-                pictureBox16.Show();
-                label21.Show();
             }
         }
 
@@ -241,7 +237,18 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                 MessageBox.Show("Ocorreu um erro !!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        public static bool ValidarEmail(string strEmail)
+        {
+            string mail = "^([0-9a-zA-Z]([-.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
+            if (System.Text.RegularExpressions.Regex.IsMatch(strEmail, mail))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         private void PictureBox3_Click(object sender, EventArgs e)
         {
 
@@ -275,7 +282,27 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             pictureBox12.BringToFront();
             txt_password.UseSystemPasswordChar = true;
         }
+
+        private void Txt_email_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Txt_email_Leave(object sender, EventArgs e)
+        {
+            if (ValidarEmail(txt_email.Text) == false)
+            {
+                label14.Show();
+                pictureBox6.Show();
+            }
+            else
+            {
+                label14.Hide();
+                pictureBox6.Hide();
+            }
+        }
     }
+
     public static class Global
     {
         // set password
@@ -288,75 +315,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         public const Int32 bytePermutation3 = 0x17;
         public const Int32 bytePermutation4 = 0x41;
     }
-    
-
-    //public static class EncryptionHelper
-    //{
-    //    private static byte[] keyAndIvBytes;
-
-    //    static EncryptionHelper()
-    //    {
-    //        // You'll need a more secure way of storing this, I hope this isn't
-    //        // the real key
-    //        keyAndIvBytes = UTF8Encoding.UTF8.GetBytes("tR7nR6wZHGjYMCuV");
-    //    }
-    //    public static string ByteArrayToHexString(byte[] ba)
-    //    {
-    //        return BitConverter.ToString(ba).Replace("-", "");
-    //    }
-
-    //    public static byte[] StringToByteArray(string hex)
-    //    {
-    //        return Enumerable.Range(0, hex.Length)
-    //                         .Where(x => x % 2 == 0)
-    //                         .Select(x => Convert.ToByte(hex.Substring(x, 2), 16))
-    //                         .ToArray();
-    //    }
-    //    public static string EncryptAndEncode(string plaintext)
-    //    {
-    //        return ByteArrayToHexString(AesEncrypt(plaintext));
-    //    }
-
-    //    public static byte[] AesEncrypt(string inputText)
-    //    {
-    //        byte[] inputBytes = UTF8Encoding.UTF8.GetBytes(inputText);//AbHLlc5uLone0D1q
-
-    //        byte[] result = null;
-    //        using (MemoryStream memoryStream = new MemoryStream())
-    //        {
-    //            using (CryptoStream cryptoStream = new CryptoStream(memoryStream, GetCryptoAlgorithm().CreateEncryptor(keyAndIvBytes, keyAndIvBytes), CryptoStreamMode.Write))
-    //            {
-    //                cryptoStream.Write(inputBytes, 0, inputBytes.Length);
-    //                cryptoStream.FlushFinalBlock();
-
-    //                result = memoryStream.ToArray();
-    //            }
-    //        }
-
-    //        return result;
-    //    }
-    //    private static RijndaelManaged GetCryptoAlgorithm()
-    //    {
-    //        RijndaelManaged algorithm = new RijndaelManaged();
-    //        //set the mode, padding and block size
-    //        algorithm.Padding = PaddingMode.PKCS7;
-    //        algorithm.Mode = CipherMode.CBC;
-    //        algorithm.KeySize = 128;
-    //        algorithm.BlockSize = 128;
-    //        return algorithm;
-    //    }
-    //}
-
-
-
-
-
-
-
-
-   
-
-
 
     }
 

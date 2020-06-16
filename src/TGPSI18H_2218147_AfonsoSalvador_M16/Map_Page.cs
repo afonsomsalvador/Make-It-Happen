@@ -40,6 +40,34 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             SidePanel.Top = button1.Top;
             voluntariadO_CLICK1.Hide();
             panels1.Hide();
+            categoria1.ButtonClick1 += VidaMarinha;
+            categoria1.ButtonClick2 += Ensino;
+            categoria1.ButtonClick3 += VidaTerrestre;
+            organizacao1.ButtonClick1 += GlobalVolunteers; 
+        }
+        private void GlobalVolunteers(object sender, EventArgs e)
+        {
+            pais_Click2.texto = "Projecto de voluntariado da Global Volunteers";
+            pais_Click2.BringToFront();
+            pais_Click2.Visible = true;
+        }
+        private void VidaMarinha(object sender, EventArgs e)
+        {
+            pais_Click2.texto = "Projecto de voluntariado da Vida Marinha";
+            pais_Click2.BringToFront();
+            pais_Click2.Visible = true;
+        }
+        private void Ensino(object sender, EventArgs e)
+        {
+            pais_Click2.texto = "Projecto de voluntariado de Ensino";
+            pais_Click2.BringToFront();
+            pais_Click2.Visible = true;
+        }
+        private void VidaTerrestre(object sender, EventArgs e)
+        {
+            pais_Click2.texto = "Projecto de voluntariado da Vida Terrestre";
+            pais_Click2.BringToFront();
+            pais_Click2.Visible = true;
         }
         public Pais_Click pais;
  
@@ -114,8 +142,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             geomap.LandClick += GeoMap1_LandClick;
             geomap.Hoverable = true;
             geomap.BringToFront();
-
-     
         }
    
         public void GeoMap1_LandClick(object arg1, LiveCharts.Maps.MapData arg2)
@@ -125,34 +151,46 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
            
             if (arg2.Id == ("PT"))
             {
-                
+            
                 pais_Click2.Show();
                 pais_Click2.BringToFront();
                 pais_Click2.texto = "Projecto de voluntariado de Portugal";
-
-                string sql = "SELECT localidade from detalhes where localidade = Portugal";
-                using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                conn.Open();
+                cmd = new MySqlCommand("SELECT Pais_idPais from voluntariado where Pais_idPais = 5", conn);
+                MySqlDataReader dt;
+                dt = cmd.ExecuteReader();
+                while (dt.Read())
                 {
-                    Panels p = new Panels();
                 }
             }
-            if (arg2.Id == ("BR"))
-            {
-           
-                pais_Click2.Show();
-                pais_Click2.BringToFront();
-                pais_Click2.texto = "Projecto de voluntariado do Brasil";
-                string sql = "SELECT localidade from detalhes where localidade = Brasil  ";
-                using (MySqlCommand cmd = new MySqlCommand(sql, conn)) 
-                {
-
-                }
-            }
+            //if (arg2.Id == ("BR"))
+            //{
+               
+            //    pais_Click2.Show();
+            //    pais_Click2.BringToFront();
+            //    pais_Click2.texto = "Projecto de voluntariado do Brasil";
+            //    string sql = "SELECT localidade from voluntariado where localidade = Brasil  ";
+            //    using (MySqlCommand cmd = new MySqlCommand(sql, conn)) 
+            //    {
+            //        pais_Click2.populateItems();
+            //    }
+            //}
             if (arg2.Id == ("ES"))
             {
+
                 pais_Click2.Show();
                 pais_Click2.BringToFront();
                 pais_Click2.texto = "Projecto de voluntariado de Espanha";
+                //conn.Open();
+                //cmd = new MySqlCommand("SELECT Pais_idPais from voluntariado where Pais_idPais = 3", conn);
+                //MySqlDataReader dt;
+                //dt = cmd.ExecuteReader();
+                //while (dt.Read())
+                //{
+                //    //pais_Click2.populateItems();
+                //}
+             
+              
             }
         }
 

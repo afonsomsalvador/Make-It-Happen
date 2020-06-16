@@ -41,8 +41,6 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.panels2 = new TGPSI18H_2218147_AfonsoSalvador_M16.Panels();
-            this.pais_Click1 = new TGPSI18H_2218147_AfonsoSalvador_M16.Pais_Click();
             this.panels1 = new TGPSI18H_2218147_AfonsoSalvador_M16.Panels();
             this.pais_Click2 = new TGPSI18H_2218147_AfonsoSalvador_M16.Pais_Click();
             this.voluntariadO_CLICK1 = new TGPSI18H_2218147_AfonsoSalvador_M16.VOLUNTARIADO_CLICK();
@@ -223,33 +221,6 @@
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
-            // panels2
-            // 
-            this.panels2.BackColor = System.Drawing.SystemColors.Control;
-            this.panels2.bandeira = null;
-            this.panels2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panels2.Categoria = null;
-            this.panels2.ChavePesquisaID = 0;
-            this.panels2.image = null;
-            this.panels2.Location = new System.Drawing.Point(172, 64);
-            this.panels2.Name = "panels2";
-            this.panels2.Nome = null;
-            this.panels2.Organizacao = null;
-            this.panels2.Pais = null;
-            this.panels2.Size = new System.Drawing.Size(987, 244);
-            this.panels2.TabIndex = 41;
-            // 
-            // pais_Click1
-            // 
-            this.pais_Click1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pais_Click1.AutoScroll = true;
-            this.pais_Click1.Location = new System.Drawing.Point(166, 28);
-            this.pais_Click1.Name = "pais_Click1";
-            this.pais_Click1.Size = new System.Drawing.Size(1154, 558);
-            this.pais_Click1.TabIndex = 40;
-            this.pais_Click1.texto = "";
-            this.pais_Click1.Load += new System.EventHandler(this.Pais_Click1_Load);
-            // 
             // panels1
             // 
             this.panels1.BackColor = System.Drawing.SystemColors.Control;
@@ -271,7 +242,7 @@
             this.pais_Click2.AutoScroll = true;
             this.pais_Click2.Location = new System.Drawing.Point(166, 28);
             this.pais_Click2.Name = "pais_Click2";
-            this.pais_Click2.Size = new System.Drawing.Size(1153, 555);
+            this.pais_Click2.Size = new System.Drawing.Size(1153, 558);
             this.pais_Click2.TabIndex = 38;
             this.pais_Click2.texto = "";
             this.pais_Click2.Load += new System.EventHandler(this.Pais_Click2_Load);
@@ -290,6 +261,7 @@
             this.voluntariadO_CLICK1.Duracao = null;
             this.voluntariadO_CLICK1.Escolaridade = null;
             this.voluntariadO_CLICK1.Idade = null;
+            this.voluntariadO_CLICK1.IDRegisto = 0;
             this.voluntariadO_CLICK1.image = null;
             this.voluntariadO_CLICK1.Lingua = null;
             this.voluntariadO_CLICK1.Localidade = null;
@@ -331,8 +303,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1319, 586);
-            this.Controls.Add(this.panels2);
-            this.Controls.Add(this.pais_Click1);
             this.Controls.Add(this.panels1);
             this.Controls.Add(this.pais_Click2);
             this.Controls.Add(this.voluntariadO_CLICK1);
@@ -377,8 +347,6 @@
         private Pais_Click pais_Click2;
         private System.Windows.Forms.Button button5;
         private Panels panels1;
-        private Pais_Click pais_Click1;
-        private Panels panels2;
     }
 }
 

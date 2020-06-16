@@ -62,13 +62,9 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 
 
             string sqlWhere = "";
-            Categoria c = new Categoria();
-          
-            if (categoriaId != -1)
+            
+            if (categoriaId == 1)
             {
-                c.ButtonClick1 += VidaMarinha;
-                c.ButtonClick2 += Ensino;
-                c.ButtonClick3 += VidaTerrestre;
                 sqlWhere = $" WHERE c.id_Categoria = {categoriaId}";
             }
             cmd = new MySqlCommand($"{sqlBase} {sqlWhere} ORDER BY c.nome", conn);
@@ -76,9 +72,8 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             dt = cmd.ExecuteReader();
             while (dt.Read())
             {
-
                 Panels p = new Panels();
-                p.ChavePesquisaID = dt["idVoluntariado"].GetHashCode();//dt[]
+                p.ChavePesquisaID = dt["idVoluntariado"].GetHashCode();
                 p.Nome = dt["nomev"].ToString();
                 p.Categoria = dt["categoriaNome"].ToString();
                 p.Organizacao = dt["OrganizacaoNome"].ToString();
@@ -91,30 +86,70 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             }
             conn.Close();
         }
-
-        private void VidaMarinha(object sender, EventArgs e)
+        public void CarregarDados(int id)
         {
-            
-        }
-        private void Ensino(object sender, EventArgs e)
-        {
+            conn.Open();
+            cmd = new MySqlCommand(@"SELECT 
+                                        c.nome categoriaNome,
+                                        v.idVoluntariado idVoluntariado,
+                                        v.imagem imagemvol,
+                                        v.nome nomev,
+                                        p.nome pnome,
+                                        p.imagem imagempais,
+                                        o.nome OrganizacaoNome,
+                                        v.Descricao descricao,
+                                        v.Idade idade,
+                                        v.Lingua lingua,
+                                        v.Escolaridade escola,
+                                        v.data data,
+                                        v.duracao duracao,
+                                        v.alojamento alojamento,
+                                        v.alimentacao alimentacao,
+                                        v.transfers transfers,
+                                        v.seguro seguro,
+                                        v.acompanhamento acompanhamento,
+                                        v.localidade localidade,
+                                        v.adicional adicional
+                                    FROM
+                                        voluntariado v
+                                        JOIN categorias c ON  v.Categorias_id_Categoria = c.id_Categoria
+                                        JOIN pais p ON p.idPais = v.pais_idPais
+                                        JOIN organizacao o ON o.idOrganizacao = v.Organizacao_idOrganizacao 
+                                    WHERE 
+                                        v.idVoluntariado = @idVol
+                                    ORDER BY c.nome", conn);
+            MySqlDataReader dt;
 
-        }
-        private void VidaTerrestre(object sender, EventArgs e)
-        {
+            cmd.Parameters.AddWithValue("@idVol", id);
+            dt = cmd.ExecuteReader();
+            while (dt.Read())
+            {
+                Panels p = new Panels();
+                p.ChavePesquisaID = dt["idVoluntariado"].GetHashCode();
+                p.Nome = dt["nomev"].ToString();
+                p.Categoria = dt["categoriaNome"].ToString();
+                p.Organizacao = dt["OrganizacaoNome"].ToString();
+                p.image = $"{ConfigurationManager.AppSettings["filesBasePath"]}{ dt["imagemvol"]}";
+                p.bandeira = $"{ConfigurationManager.AppSettings["filesBasePath"]}{ dt["imagempais"]}";
+                p.Pais = dt["pnome"].ToString();
+                p.ButtonClick += p_ButtonClick;
 
+                flowLayoutPanel1.Controls.Add(p);
+            }
+            conn.Close();
         }
         private void p_ButtonClick(object sender, EventArgs e)
         {
-
-
             voluntariadO_CLICK1.CarregarDados((sender as Panels).ChavePesquisaID); 
             voluntariadO_CLICK1.BringToFront();
             voluntariadO_CLICK1.Visible = true;
-
-            
         }
-        public Pais_Click()
+        private void back(object sender, EventArgs e)
+        {
+            voluntariadO_CLICK1.SendToBack();
+            voluntariadO_CLICK1.Visible = false;
+        }
+            public Pais_Click()
         {
             InitializeComponent();
 
@@ -123,12 +158,12 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             label2.Visible = true;
             textBox1.Visible = true;
             label1.Visible = true;
-           
+            voluntariadO_CLICK1.btn += back;
+
         }
         private void Pais_Click_Load(object sender, EventArgs e)
         {
             label1.Text = texto;
-
             populateItems();
             VerticalScroll.Enabled = true;
         }
@@ -144,21 +179,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         }
 
         private void FlowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void VoluntariadO_CLICK1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void VoluntariadO_CLICK1_Load_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void VoluntariadO_CLICK1_Load_2(object sender, EventArgs e)
         {
 
         }

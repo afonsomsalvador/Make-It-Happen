@@ -42,7 +42,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("LCD5x8H", 20.25F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(257, 27);
+            this.label1.Location = new System.Drawing.Point(73, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 25);
             this.label1.TabIndex = 0;
@@ -53,9 +53,9 @@
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.AutoSize = true;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(101, 240);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 190);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(910, 337);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(912, 336);
             this.flowLayoutPanel1.TabIndex = 1;
             this.flowLayoutPanel1.WrapContents = false;
             this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.FlowLayoutPanel1_Paint);
@@ -105,6 +105,7 @@
             this.voluntariadO_CLICK1.Duracao = null;
             this.voluntariadO_CLICK1.Escolaridade = null;
             this.voluntariadO_CLICK1.Idade = null;
+            this.voluntariadO_CLICK1.IDRegisto = 0;
             this.voluntariadO_CLICK1.image = null;
             this.voluntariadO_CLICK1.Lingua = null;
             this.voluntariadO_CLICK1.Localidade = null;
@@ -113,11 +114,10 @@
             this.voluntariadO_CLICK1.Nome = null;
             this.voluntariadO_CLICK1.Organizacao = null;
             this.voluntariadO_CLICK1.Seguro = null;
-            this.voluntariadO_CLICK1.Size = new System.Drawing.Size(1117, 1212);
+            this.voluntariadO_CLICK1.Size = new System.Drawing.Size(1117, 1310);
             this.voluntariadO_CLICK1.TabIndex = 5;
             this.voluntariadO_CLICK1.Transfers = null;
             this.voluntariadO_CLICK1.Visible = false;
-            this.voluntariadO_CLICK1.Load += new System.EventHandler(this.VoluntariadO_CLICK1_Load_2);
             // 
             // Pais_Click
             // 
@@ -131,7 +131,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.voluntariadO_CLICK1);
             this.Name = "Pais_Click";
-            this.Size = new System.Drawing.Size(932, 543);
+            this.Size = new System.Drawing.Size(898, 509);
             this.Load += new System.EventHandler(this.Pais_Click_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

@@ -21,6 +21,12 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             InitializeComponent();
           
         }
+        public event EventHandler ButtonClick1;
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            if (this.ButtonClick1 != null)
+                this.ButtonClick1(this, new EventArgs());
+        }
 
         private void Panel3_Paint(object sender, PaintEventArgs e)
         {
@@ -39,11 +45,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         private void Button4_Click(object sender, EventArgs e)
         {
            
-
-        }
-
-        private void Button1_Click(object sender, EventArgs e)
-        {
 
         }
 

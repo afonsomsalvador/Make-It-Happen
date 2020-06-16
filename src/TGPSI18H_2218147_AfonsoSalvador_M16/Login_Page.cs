@@ -228,33 +228,44 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         //}
         private void Button1_Click_1(object sender, EventArgs e)
         {
-            conn.Open();
-            string sql = ("Select * from login where (user collate utf8_bin) = '" + textBox1.Text.Trim() + "' and (password collate utf8_bin) = '" + (txtPassword.Text.ToString().Trim()) + "'");
-            MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            if (dt.Rows.Count == 1)
-            {
-                if(txtPassword.Text == "admin" || textBox1.Text == "admin")
-                {
-                    this.Hide();
-                    admin a = new admin();
-                    a.ShowDialog();
-                }
-                else
-                {
-                    current_user = textBox1.Text;
-                    this.Hide();
-                    SplashScreen ss = new SplashScreen();
-                    ss.ShowDialog();
-                    conn.Close();
-                }
-            }
-            else
+            if (String.IsNullOrEmpty(txtPassword.Text) || String.IsNullOrEmpty(textBox1.Text))
             {
                 label7.Show();
                 pictureBox8.Show();
             }
+            else
+            {
+
+                conn.Open();
+                string sql = ("Select * from login where (user collate utf8_bin) = '" + textBox1.Text.Trim() + "' and (password collate utf8_bin) = '" + (txtPassword.Text.ToString().Trim()) + "'");
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count == 0)
+                {
+                    label7.Show();
+                    pictureBox8.Show();
+                   
+                }
+                else
+                {
+                    if (txtPassword.Text == "admin" || textBox1.Text == "admin")
+                    {
+                        this.Hide();
+                        admin a = new admin();
+                        a.ShowDialog();
+                    }
+                    else
+                    {
+                        current_user = textBox1.Text;
+                        this.Hide();
+                        SplashScreen ss = new SplashScreen();
+                        ss.ShowDialog();
+                        conn.Close();
+                    }
+                }
+            }
+           
         }
 
         private void PictureBox4_Click_1(object sender, EventArgs e)

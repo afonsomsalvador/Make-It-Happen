@@ -25,6 +25,9 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 
 
         }
+
+        public int IDRegisto { get; set; }
+
         private string _nome;
         private string _Categoria;
         private string _Organizacao;
@@ -278,12 +281,18 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                                         voluntariado v
                                         JOIN categorias c ON  v.Categorias_id_Categoria = c.id_Categoria
                                         JOIN pais p ON p.idPais = v.pais_idPais
-                                        JOIN organizacao o ON o.idOrganizacao = v.Organizacao_idOrganizacao ORDER BY c.nome", conn);
+                                        JOIN organizacao o ON o.idOrganizacao = v.Organizacao_idOrganizacao 
+                                    WHERE 
+                                        v.idVoluntariado = @idVol
+                                    ORDER BY c.nome", conn);
             MySqlDataReader dt;
+
+            cmd.Parameters.AddWithValue("@idVol", id);
             dt = cmd.ExecuteReader();
             while (dt.Read())
             {
                 VOLUNTARIADO_CLICK vc = new VOLUNTARIADO_CLICK();
+                vc.IDRegisto = dt.GetInt32("idVoluntariado");
                 label1.Text = dt["nomev"].ToString();
                 label18.Text = dt["categoriaNome"].ToString();
                 label2.Text = dt["OrganizacaoNome"].ToString();
@@ -383,6 +392,14 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         private void VOLUNTARIADO_CLICK_Load(object sender, EventArgs e)
         {
 
+        }
+
+        public event EventHandler btn;
+
+        private void PictureBox17_Click(object sender, EventArgs e)
+        {
+            if (this.btn != null)
+                this.btn(this, new EventArgs());
         }
     }
 }

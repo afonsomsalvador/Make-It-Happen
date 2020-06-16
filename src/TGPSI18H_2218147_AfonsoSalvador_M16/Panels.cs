@@ -41,6 +41,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         private string _Organizacao;
         private string _image;
         private string _bandeira;
+        
         public string Nome
         {
             get
@@ -128,14 +129,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         {
 
         }
-        protected virtual void OnButtonClick(EventArgs e)
-        {
-            ButtonClick?.Invoke(this, e);
-            //var handler = ButtonClick;
-            //if (handler != null)
-            //    handler(this, e);
-        }
-
 
         private void Button1_Click(object sender, EventArgs e)
         {

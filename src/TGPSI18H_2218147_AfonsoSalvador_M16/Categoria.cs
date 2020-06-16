@@ -15,10 +15,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
     {
         MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=123456;database=psi18_afonsosalvador");
 
-
-
-
-
         public event EventHandler ButtonClick1;
 
         public event EventHandler ButtonClick2;
@@ -46,6 +42,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 
         private void Button1_Click(object sender, EventArgs e)
         {
+
             if (this.ButtonClick1 != null)
                 this.ButtonClick1(this, new EventArgs());
         }
