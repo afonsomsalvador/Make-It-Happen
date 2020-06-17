@@ -29,10 +29,8 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         {
             string FileName = $"{Guid.NewGuid().ToString()}.jpg";
 
-            //MemoryStream ms = new MemoryStream();
             bunifuImageButton1.BackgroundImage.Save($"{ConfigurationManager.AppSettings["filesBasePath"]}{FileName}", System.Drawing.Imaging.ImageFormat.Jpeg);
-            //byte[] arrImage = ms.GetBuffer();
-
+ 
             string sql = "INSERT INTO noticias(Titulo, Corpo, Imagem) VALUES(@param1, @param2, @param3)";
             using (MySqlCommand cmd = new MySqlCommand(sql, conn))
             {
@@ -70,11 +68,24 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             textBox14.Text = "";
             pictureBox3.Show();
             label3.Show();
+            label4.Hide();
+            pictureBox5.Hide();
         }
         private void Button1_Click(object sender, EventArgs e)
         {
-            eliminar(); 
-            add();
+            if (String.IsNullOrEmpty(textBox13.Text) || String.IsNullOrEmpty(textBox14.Text))
+            {
+                pictureBox5.Show();
+                label4.Show();
+                pictureBox3.Hide();
+                label3.Hide();
+            }
+            else
+            {
+                add();
+                eliminar();
+            }
+         
         }
 
         private void Btnuploadimage_Click(object sender, EventArgs e)

@@ -94,8 +94,11 @@
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.label42 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.label43 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -766,11 +769,36 @@
             this.pictureBox3.TabIndex = 73;
             this.pictureBox3.TabStop = false;
             // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(916, 922);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(32, 16);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 76;
+            this.pictureBox5.TabStop = false;
+            // 
+            // label43
+            // 
+            this.label43.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label43.AutoSize = true;
+            this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label43.ForeColor = System.Drawing.Color.Red;
+            this.label43.Location = new System.Drawing.Point(945, 925);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(92, 13);
+            this.label43.TabIndex = 75;
+            this.label43.Text = "Campos inválidos.";
+            // 
             // addvoluntariado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.Controls.Add(this.pictureBox5);
+            this.Controls.Add(this.label43);
             this.Controls.Add(this.label42);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.cmb_pais);
@@ -842,6 +870,7 @@
             this.Load += new System.EventHandler(this.Addvoluntariado_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -914,5 +943,7 @@
         private System.Windows.Forms.VScrollBar vScrollBar1;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Label label43;
     }
 }

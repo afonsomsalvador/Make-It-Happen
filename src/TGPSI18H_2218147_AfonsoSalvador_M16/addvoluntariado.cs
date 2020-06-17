@@ -161,8 +161,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             textBox13.Text = "";
             textBox14.Text = "";
             cmb_pais.ResetText();
-            pictureBox3.Show();
-            label42.Show();
         }
             void add()
             {
@@ -183,7 +181,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                 cmd.Parameters.AddWithValue("@param4", cmb_categoria.SelectedValue);
                 cmd.Parameters.AddWithValue("@param5", cmb_organizacao.SelectedValue);
                 cmd.Parameters.AddWithValue("@param6", cmb_Experiencia.SelectedValue);
-                cmd.Parameters.AddWithValue("@param7", dateTimePicker1.Value);
+                cmd.Parameters.AddWithValue("@param7", dateTimePicker1.Text);
                 cmd.Parameters.AddWithValue("@param8", textBox3.Text);
                 cmd.Parameters.AddWithValue("@param9", textBox4.Text);
                 cmd.Parameters.AddWithValue("@param10", textBox6.Text);
@@ -198,6 +196,10 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                 cmd.Parameters.AddWithValue("@param19", cmb_pais.SelectedValue);
                 cmd.ExecuteNonQuery();
                 conn.Close();
+                pictureBox3.Show();
+                label42.Show();
+                pictureBox5.Hide();
+                label43.Hide();
             }
             
          
@@ -205,6 +207,10 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         public addvoluntariado()
         {
             InitializeComponent();
+            pictureBox3.Hide();
+            label42.Hide();
+            pictureBox5.Hide();
+            label43.Hide();
             combobox();
             combobox1();
             combobox2();
@@ -219,8 +225,19 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         
         private void Button1_Click(object sender, EventArgs e)
         {
-            add();
-            eliminar();
+            if (String.IsNullOrEmpty(textBox1.Text) || String.IsNullOrEmpty(textBox2.Text) || String.IsNullOrEmpty(cmb_categoria.Text) || String.IsNullOrEmpty(cmb_organizacao.Text) || String.IsNullOrEmpty(cmb_Experiencia.Text) || String.IsNullOrEmpty(textBox3.Text) || String.IsNullOrEmpty(textBox4.Text) || String.IsNullOrEmpty(textBox6.Text) || String.IsNullOrEmpty(textBox7.Text) || String.IsNullOrEmpty(textBox8.Text) || String.IsNullOrEmpty(textBox9.Text) || String.IsNullOrEmpty(textBox10.Text) || String.IsNullOrEmpty(textBox5.Text) || String.IsNullOrEmpty(textBox12.Text) || String.IsNullOrEmpty(textBox13.Text) || String.IsNullOrEmpty(textBox14.Text) || String.IsNullOrEmpty(cmb_pais.Text))
+            {
+                pictureBox3.Hide();
+                label42.Hide();
+                pictureBox5.Show();
+                label43.Show();
+            }
+            else
+            {
+                add();
+                eliminar();
+            }
+           
         }
 
 

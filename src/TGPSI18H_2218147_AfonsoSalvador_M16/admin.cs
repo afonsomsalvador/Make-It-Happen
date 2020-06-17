@@ -112,12 +112,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void PictureBox1_Click(object sender, EventArgs e)
-        {
-
-            this.WindowState = FormWindowState.Maximized;
-        }
-
         private void PictureBox3_Click(object sender, EventArgs e)
         {
             Application.Exit();

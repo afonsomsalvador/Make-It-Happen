@@ -18,7 +18,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 
         MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=psi18_afonsosalvador");
         MySqlCommand cmd = new MySqlCommand();
-
+        public string _sql;
         public string texto
         {
             get
@@ -30,10 +30,21 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                 label1.Text = value;
             }
         }
+        public string sql
+        {
+            get
+            {
+                return _sql;
+            }
+            set
+            {
+                _sql = value;
+            }
+        }
         public void populateItems(int categoriaId = -1)
         {
             conn.Open();
-            string sqlBase = @"SELECT 
+            string sqlBase = /*sql*/@"SELECT 
                                         c.nome categoriaNome, 
                                         v.idVoluntariado idVoluntariado,
                                         v.imagem imagemvol, 
@@ -117,6 +128,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                                         JOIN organizacao o ON o.idOrganizacao = v.Organizacao_idOrganizacao 
                                     WHERE 
                                         v.idVoluntariado = @idVol
+                                         v.pais_idPais = 3
                                     ORDER BY c.nome", conn);
             MySqlDataReader dt;
 
@@ -179,6 +191,11 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         }
 
         private void FlowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void VoluntariadO_CLICK1_Load(object sender, EventArgs e)
         {
 
         }

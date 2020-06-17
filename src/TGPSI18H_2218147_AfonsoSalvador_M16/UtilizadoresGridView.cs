@@ -156,7 +156,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 
         private void TxtSearch_TextChanged(object sender, EventArgs e)
         {
-
+            pesquisar(txtSearch.Text);
         }
 
         private void TextBox1_TextChanged(object sender, EventArgs e)

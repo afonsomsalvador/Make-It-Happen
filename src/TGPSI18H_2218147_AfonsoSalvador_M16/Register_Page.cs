@@ -23,33 +23,33 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
-        public static string Encrypt(string strData)
-        {
+        //public static string Encrypt(string strData)
+        //{
 
-            return Convert.ToBase64String(Encrypt(Encoding.UTF8.GetBytes(strData)));
+        //    return Convert.ToBase64String(Encrypt(Encoding.UTF8.GetBytes(strData)));
 
-        }
-        public static byte[] Encrypt(byte[] strData)
-        {
-            PasswordDeriveBytes passbytes =
-            new PasswordDeriveBytes(Global.strPermutation,
-            new byte[] { Global.bytePermutation1,
-                         Global.bytePermutation2,
-                         Global.bytePermutation3,
-                         Global.bytePermutation4
-            });
+        //}
+        //public static byte[] Encrypt(byte[] strData)
+        //{
+        //    PasswordDeriveBytes passbytes =
+        //    new PasswordDeriveBytes(Global.strPermutation,
+        //    new byte[] { Global.bytePermutation1,
+        //                 Global.bytePermutation2,
+        //                 Global.bytePermutation3,
+        //                 Global.bytePermutation4
+        //    });
 
-            MemoryStream memstream = new MemoryStream();
-            Aes aes = new AesManaged();
-            aes.Key = passbytes.GetBytes(aes.KeySize / 8);
-            aes.IV = passbytes.GetBytes(aes.BlockSize / 8);
+        //    MemoryStream memstream = new MemoryStream();
+        //    Aes aes = new AesManaged();
+        //    aes.Key = passbytes.GetBytes(aes.KeySize / 8);
+        //    aes.IV = passbytes.GetBytes(aes.BlockSize / 8);
 
-            CryptoStream cryptostream = new CryptoStream(memstream,
-            aes.CreateEncryptor(), CryptoStreamMode.Write);
-            cryptostream.Write(strData, 0, strData.Length);
-            cryptostream.Close();
-            return memstream.ToArray();
-        }
+        //    CryptoStream cryptostream = new CryptoStream(memstream,
+        //    aes.CreateEncryptor(), CryptoStreamMode.Write);
+        //    cryptostream.Write(strData, 0, strData.Length);
+        //    cryptostream.Close();
+        //    return memstream.ToArray();
+        //}
 
         void combobox()
         {
@@ -149,7 +149,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                 }
                 else
                 {
-                   
                     pictureBox16.Hide();
                     label21.Hide();
                     string sql = ("INSERT INTO login(user, Password, nome, email, Pais_idPais, foto) VALUES(@param1, @param2, @param3, @param4, @param5, @param6) ");
@@ -159,21 +158,15 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                     using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                     {
                         MemoryStream ms = new MemoryStream();
-                        pictureBox1.BackgroundImage.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                        bunifuImageButton1.BackgroundImage.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
                         byte[] arrImage = ms.GetBuffer();
-                        if (dt.Rows.Count == 1)
-                        {
-                            label20.Show();
-                            pictureBox14.Show();
-
-                        }
-                        else
+                        if (dt.Rows.Count == 0)
                         {
                             label20.Hide();
                             pictureBox14.Hide();
                             conn.Open();
                             cmd.Parameters.AddWithValue("@param1", txt_user.Text);
-                            cmd.Parameters.AddWithValue("@param2", Encrypt(txt_password.Text.Trim()));
+                            cmd.Parameters.AddWithValue("@param2", txt_password.Text.Trim());
                             cmd.Parameters.AddWithValue("@param3", txt_nome.Text);
                             cmd.Parameters.AddWithValue("@param4", txt_email.Text);
                             cmd.Parameters.AddWithValue("@param5", cmb_nacionalidade.SelectedValue);
@@ -189,8 +182,11 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                             txt_nome.Clear();
                             cmb_nacionalidade.ResetText();
                         }
-                       
-                     
+                        else
+                        {
+                            label20.Show();
+                            pictureBox14.Show();
+                        }
                     }
                     
                  
@@ -229,7 +225,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                     imageLocation = dialog.FileName;
 
                     bunifuImageButton1.ImageLocation = imageLocation;
-                    pictureBox1.BackgroundImage = Image.FromFile(dialog.FileName);
+                    bunifuImageButton1.BackgroundImage = Image.FromFile(dialog.FileName);
                 }
             }
             catch (Exception)
@@ -251,7 +247,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         }
         private void PictureBox3_Click(object sender, EventArgs e)
         {
-
             Application.Exit();
         }
 
@@ -300,6 +295,11 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                 label14.Hide();
                 pictureBox6.Hide();
             }
+        }
+
+        private void Txt_user_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 

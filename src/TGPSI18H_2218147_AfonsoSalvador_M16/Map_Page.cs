@@ -48,6 +48,36 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         private void GlobalVolunteers(object sender, EventArgs e)
         {
             pais_Click2.texto = "Projecto de voluntariado da Global Volunteers";
+            //pais_Click2.sql = @"SELECT 
+            //                            c.nome categoriaNome, 
+            //                            v.idVoluntariado idVoluntariado,
+            //                            v.imagem imagemvol, 
+            //                            v.nome nomev, 
+            //                            p.nome pnome, 
+            //                            p.imagem imagempais, 
+            //                            o.nome OrganizacaoNome, 
+            //                            v.Descricao , 
+            //                            v.Idade, 
+            //                            v.Lingua, 
+            //                            v.Escolaridade, 
+            //                            v.data, 
+            //                            v.duracao,
+            //                            v.alojamento,
+            //                            v.alimentacao, 
+            //                            v.transfers, 
+            //                            v.seguro, 
+            //                            v.acompanhamento, 
+            //                            v.localidade , 
+            //                            v.adicional 
+            //                        FROM 
+            //                            voluntariado v 
+            //                            JOIN categorias c ON  v.Categorias_id_Categoria = c.id_Categoria 
+            //                            JOIN pais p ON p.idPais = v.pais_idPais 
+            //                            JOIN organizacao o ON o.idOrganizacao = v.Organizacao_idOrganizacao
+            //                        WHERE 
+            //                            v.idVoluntariado = @idVol
+            //                             v.pais_idPais = 3
+            //                        ORDER BY c.nome";
             pais_Click2.BringToFront();
             pais_Click2.Visible = true;
         }
@@ -68,6 +98,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             pais_Click2.texto = "Projecto de voluntariado da Vida Terrestre";
             pais_Click2.BringToFront();
             pais_Click2.Visible = true;
+          
         }
         public Pais_Click pais;
  
@@ -142,6 +173,8 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             geomap.LandClick += GeoMap1_LandClick;
             geomap.Hoverable = true;
             geomap.BringToFront();
+            geomap.EnableZoomingAndPanning = true;
+
         }
    
         public void GeoMap1_LandClick(object arg1, LiveCharts.Maps.MapData arg2)
@@ -151,17 +184,9 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
            
             if (arg2.Id == ("PT"))
             {
-            
                 pais_Click2.Show();
                 pais_Click2.BringToFront();
                 pais_Click2.texto = "Projecto de voluntariado de Portugal";
-                conn.Open();
-                cmd = new MySqlCommand("SELECT Pais_idPais from voluntariado where Pais_idPais = 5", conn);
-                MySqlDataReader dt;
-                dt = cmd.ExecuteReader();
-                while (dt.Read())
-                {
-                }
             }
             //if (arg2.Id == ("BR"))
             //{
@@ -177,7 +202,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             //}
             if (arg2.Id == ("ES"))
             {
-
                 pais_Click2.Show();
                 pais_Click2.BringToFront();
                 pais_Click2.texto = "Projecto de voluntariado de Espanha";
@@ -187,22 +211,16 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                 //dt = cmd.ExecuteReader();
                 //while (dt.Read())
                 //{
-                //    //pais_Click2.populateItems();
+
                 //}
-             
-              
+
+
             }
         }
 
         private void PictureBox4_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void PictureBox3_Click_1(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized;
-
         }
 
         private void PictureBox1_Click(object sender, EventArgs e)

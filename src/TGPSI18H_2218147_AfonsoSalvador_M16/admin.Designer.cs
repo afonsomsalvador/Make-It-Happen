@@ -38,17 +38,15 @@
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.utilizadoresGridView2 = new TGPSI18H_2218147_AfonsoSalvador_M16.UtilizadoresGridView();
             this.gestaoNews2 = new TGPSI18H_2218147_AfonsoSalvador_M16.GestaoNews();
             this.gestaoVol1 = new TGPSI18H_2218147_AfonsoSalvador_M16.GestaoVol();
             this.addvoluntariado1 = new TGPSI18H_2218147_AfonsoSalvador_M16.addvoluntariado();
             this.addnews1 = new TGPSI18H_2218147_AfonsoSalvador_M16.addnews();
-            this.utilizadoresGridView2 = new TGPSI18H_2218147_AfonsoSalvador_M16.UtilizadoresGridView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -168,7 +166,6 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.panel2.Controls.Add(this.pictureBox2);
-            this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.pictureBox3);
             this.panel2.Cursor = System.Windows.Forms.Cursors.Default;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -182,22 +179,12 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(1044, 0);
+            this.pictureBox2.Location = new System.Drawing.Point(1087, 0);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(32, 34);
             this.pictureBox2.TabIndex = 32;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.PictureBox2_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(1082, -1);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(31, 33);
-            this.pictureBox1.TabIndex = 32;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.PictureBox1_Click);
             // 
             // pictureBox3
             // 
@@ -209,6 +196,15 @@
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Click += new System.EventHandler(this.PictureBox3_Click);
             // 
+            // utilizadoresGridView2
+            // 
+            this.utilizadoresGridView2.AutoScroll = true;
+            this.utilizadoresGridView2.Location = new System.Drawing.Point(166, 28);
+            this.utilizadoresGridView2.Name = "utilizadoresGridView2";
+            this.utilizadoresGridView2.Size = new System.Drawing.Size(1154, 558);
+            this.utilizadoresGridView2.TabIndex = 46;
+            this.utilizadoresGridView2.Load += new System.EventHandler(this.UtilizadoresGridView2_Load);
+            // 
             // gestaoNews2
             // 
             this.gestaoNews2.Location = new System.Drawing.Point(166, 28);
@@ -218,6 +214,7 @@
             // 
             // gestaoVol1
             // 
+            this.gestaoVol1.AutoScroll = true;
             this.gestaoVol1.Location = new System.Drawing.Point(166, 28);
             this.gestaoVol1.Name = "gestaoVol1";
             this.gestaoVol1.Size = new System.Drawing.Size(1153, 558);
@@ -238,15 +235,6 @@
             this.addnews1.Size = new System.Drawing.Size(1153, 558);
             this.addnews1.TabIndex = 41;
             // 
-            // utilizadoresGridView2
-            // 
-            this.utilizadoresGridView2.AutoScroll = true;
-            this.utilizadoresGridView2.Location = new System.Drawing.Point(166, 28);
-            this.utilizadoresGridView2.Name = "utilizadoresGridView2";
-            this.utilizadoresGridView2.Size = new System.Drawing.Size(1154, 558);
-            this.utilizadoresGridView2.TabIndex = 46;
-            this.utilizadoresGridView2.Load += new System.EventHandler(this.UtilizadoresGridView2_Load);
-            // 
             // admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -261,13 +249,13 @@
             this.Controls.Add(this.panel1);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "admin";
-            this.Text = "admin";
+            this.Text = "Make It Happen";
             this.Load += new System.EventHandler(this.Admin_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
@@ -280,7 +268,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button4;

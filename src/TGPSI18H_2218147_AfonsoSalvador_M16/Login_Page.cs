@@ -19,7 +19,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
     {
         MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=psi18_afonsosalvador");
 
-        private string _current;
+        public string _current = "";
         private string _image;
         public LoginForm()
         {
@@ -49,15 +49,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         {
            
         }
-
-   
-       
-        private void PictureBox1_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized;
-            
-        }
-
         private void PictureBox2_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
@@ -80,7 +71,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 
         private void Panel2_MouseDown_1(object sender, MouseEventArgs e)
         {
-
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
@@ -106,7 +96,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             set
             {
                 if (File.Exists(value))
-                    pictureBox1.Image = System.Drawing.Image.FromFile(value);
+                    //pictureBox1.Image = System.Drawing.Image.FromFile(value);
 
                 _image = value;
             }
@@ -228,6 +218,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         //}
         private void Button1_Click_1(object sender, EventArgs e)
         {
+
             if (String.IsNullOrEmpty(txtPassword.Text) || String.IsNullOrEmpty(textBox1.Text))
             {
                 label7.Show();
@@ -257,15 +248,16 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                     }
                     else
                     {
-                        current_user = textBox1.Text;
+                   
+                        textBox1.Text = _current;
                         this.Hide();
                         SplashScreen ss = new SplashScreen();
                         ss.ShowDialog();
-                        conn.Close();
                     }
+                   
                 }
+                conn.Close();
             }
-           
         }
 
         private void PictureBox4_Click_1(object sender, EventArgs e)
