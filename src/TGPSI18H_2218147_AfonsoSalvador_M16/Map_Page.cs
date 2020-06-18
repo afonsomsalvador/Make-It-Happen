@@ -34,6 +34,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         public Map_Page()
         {
             InitializeComponent();
+            label2.Text = Class1.USER;
             SidePanel.Height = button1.Height;
             SidePanel.Top = button1.Top;
             voluntariadO_CLICK1.Hide();
@@ -210,6 +211,11 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         }
 
         private void Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Label1_Click(object sender, EventArgs e)
         {
 
         }

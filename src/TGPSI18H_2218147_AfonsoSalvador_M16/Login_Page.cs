@@ -102,120 +102,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             }
         }
 
-        // definir uma cchavemestre
-        // a password do utilizador adicionar a chave mestre
-        // codificar com um algoritmo de HASH (SHA256 ou semelhante)
-        // guardar a password na bd desta forma
-        // quando for para comparar, fazer os calculos entre o que utilizador coloca como password e o que está na BD.
-
-
-
-        //public static class Global
-        //{
-        //    // set password
-        //    public const string strPassword = "LetMeIn99$";
-
-        //    // set permutations
-        //    public const String strPermutation = "ouiveyxaqtd";
-        //    public const Int32 bytePermutation1 = 0x19;
-        //    public const Int32 bytePermutation2 = 0x59;
-        //    public const Int32 bytePermutation3 = 0x17;
-        //    public const Int32 bytePermutation4 = 0x41;
-        //}
-
-        //public static string Decrypt(string strData)
-        //{
-        //    byte[] bytePass = Encoding.ASCII.GetBytes(strData);
-        //    return Encoding.UTF8.GetString(DecryptByte(bytePass));
-
-        //}
-        //public static byte[] DecryptByte(byte[] strData)
-        //{
-        //    PasswordDeriveBytes passbytes =
-        //    new PasswordDeriveBytes(Global.strPermutation,
-        //    new byte[] { Global.bytePermutation1,
-        //                 Global.bytePermutation2,
-        //                 Global.bytePermutation3,
-        //                 Global.bytePermutation4
-        //    });
-
-        //    MemoryStream memstream = new MemoryStream();
-        //    Aes aes = new AesManaged();
-        //    aes.Key = passbytes.GetBytes(aes.KeySize / 8);
-        //    aes.IV = passbytes.GetBytes(aes.BlockSize / 8);
-
-        //    CryptoStream cryptostream = new CryptoStream(memstream,
-        //    aes.CreateDecryptor(), CryptoStreamMode.Write);
-        //    cryptostream.Write(strData, 0, strData.Length);
-        //    cryptostream.Close();
-        //    return memstream.ToArray();
-        //}
-        //FIMMMM
-        //public static class EncryptionHelper
-        //{
-        //    private static byte[] keyAndIvBytes;
-
-        //    static EncryptionHelper()
-        //    {
-        //        // You'll need a more secure way of storing this, I hope this isn't
-        //        // the real key
-        //        keyAndIvBytes = UTF8Encoding.UTF8.GetBytes("tR7nR6wZHGjYMCuV");
-        //    }
-
-        //    public static string ByteArrayToHexString(byte[] ba)
-        //    {
-        //        return BitConverter.ToString(ba).Replace("-", "");
-        //    }
-
-        //    public static byte[] StringToByteArray(string hex)
-        //    {
-        //        return Enumerable.Range(0, hex.Length)
-        //                         .Where(x => x % 2 == 0)
-        //                         .Select(x => Convert.ToByte(hex.Substring(x, 2), 16))
-        //                         .ToArray();
-        //    }
-
-        //    public static string DecodeAndDecrypt(string cipherText)
-        //    {
-        //        string DecodeAndDecrypt = AesDecrypt(StringToByteArray(cipherText));
-        //        return (DecodeAndDecrypt);
-        //    }
-
-
-
-        //    public static string AesDecrypt(Byte[] inputBytes)
-        //    {
-        //        Byte[] outputBytes = inputBytes;
-
-        //        string plaintext = string.Empty;
-
-        //        using (MemoryStream memoryStream = new MemoryStream(outputBytes))
-        //        {
-        //            using (CryptoStream cryptoStream = new CryptoStream(memoryStream, GetCryptoAlgorithm().CreateDecryptor(keyAndIvBytes, keyAndIvBytes), CryptoStreamMode.Read))
-        //            {
-        //                using (StreamReader srDecrypt = new StreamReader(cryptoStream))
-        //                {
-        //                    plaintext = srDecrypt.ReadToEnd();
-        //                }
-        //            }
-        //        }
-
-        //        return plaintext;
-        //    }
-
-
-
-        //    private static RijndaelManaged GetCryptoAlgorithm()
-        //    {
-        //        RijndaelManaged algorithm = new RijndaelManaged();
-        //        //set the mode, padding and block size
-        //        algorithm.Padding = PaddingMode.PKCS7;
-        //        algorithm.Mode = CipherMode.CBC;
-        //        algorithm.KeySize = 128;
-        //        algorithm.BlockSize = 128;
-        //        return algorithm;
-        //    }
-        //}
         private void Button1_Click_1(object sender, EventArgs e)
         {
 
@@ -248,9 +134,8 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                     }
                     else
                     {
-                   
-                        textBox1.Text = _current;
-                        this.Hide();
+                      Class1.USER =textBox1.Text ;
+                        this.Hide(); 
                         SplashScreen ss = new SplashScreen();
                         ss.ShowDialog();
                     }

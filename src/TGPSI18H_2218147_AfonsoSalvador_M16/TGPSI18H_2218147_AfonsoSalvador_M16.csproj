@@ -150,6 +150,7 @@
     <Compile Include="Categoria.Designer.cs">
       <DependentUpon>Categoria.cs</DependentUpon>
     </Compile>
+    <Compile Include="Class1.cs" />
     <Compile Include="GestaoNOt.cs">
       <SubType>UserControl</SubType>
     </Compile>

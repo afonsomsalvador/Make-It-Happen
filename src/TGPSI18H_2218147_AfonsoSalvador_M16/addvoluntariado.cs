@@ -145,7 +145,10 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         {
             textBox1.Text = "";
             textBox2.Text = "";
-            bunifuImageButton1.Image = (Image)Properties.Resources.ResourceManager.GetObject("download.png");
+            bunifuImageButton1.Image = null;
+            bunifuImageButton1.Update();
+            bunifuImageButton1.Image = new Bitmap(Properties.Resources.download);
+            bunifuImageButton1.Update();
             cmb_categoria.ResetText();
             cmb_organizacao.ResetText();
             cmb_Experiencia.ResetText();
@@ -169,7 +172,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             string FileName = $"{Guid.NewGuid().ToString()}.jpg";
 
             //MemoryStream ms = new MemoryStream();
-            bunifuImageButton1.BackgroundImage.Save($"{ConfigurationManager.AppSettings["filesBasePath"]}{FileName}", System.Drawing.Imaging.ImageFormat.Jpeg);
+            bunifuImageButton1.Image.Save($"{ConfigurationManager.AppSettings["filesBasePath"]}{FileName}", System.Drawing.Imaging.ImageFormat.Jpeg);
             //byte[] arrImage = ms.GetBuffer();
 
             string sql = "INSERT INTO voluntariado(nome, descricao, imagem, Categorias_id_Categoria, Organizacao_idOrganizacao, Experiencia_idExperiencia, data, duracao, alojamento, alimentacao, transfers, seguro, acompanhamento, adicional, localidade, Idade, Lingua, escolaridade, Pais_idPais) VALUES(@param1, @param2, @param3, @param4, @param5, @param6, @param7, @param8, @param9, @param10, @param11, @param12, @param13, @param14, @param15, @param16, @param17, @param18, @param19)";
@@ -276,7 +279,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                     imageLocation = dialog.FileName;
 
                     bunifuImageButton1.ImageLocation = imageLocation;
-                    bunifuImageButton1.BackgroundImage = Image.FromFile(dialog.FileName);
+                    bunifuImageButton1.Image = Image.FromFile(dialog.FileName);
                     loadedImage = true;
                 }
             }

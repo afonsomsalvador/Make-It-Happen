@@ -20,36 +20,10 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
 
+        private bool loadedImage = false;
+
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-
-        //public static string Encrypt(string strData)
-        //{
-
-        //    return Convert.ToBase64String(Encrypt(Encoding.UTF8.GetBytes(strData)));
-
-        //}
-        //public static byte[] Encrypt(byte[] strData)
-        //{
-        //    PasswordDeriveBytes passbytes =
-        //    new PasswordDeriveBytes(Global.strPermutation,
-        //    new byte[] { Global.bytePermutation1,
-        //                 Global.bytePermutation2,
-        //                 Global.bytePermutation3,
-        //                 Global.bytePermutation4
-        //    });
-
-        //    MemoryStream memstream = new MemoryStream();
-        //    Aes aes = new AesManaged();
-        //    aes.Key = passbytes.GetBytes(aes.KeySize / 8);
-        //    aes.IV = passbytes.GetBytes(aes.BlockSize / 8);
-
-        //    CryptoStream cryptostream = new CryptoStream(memstream,
-        //    aes.CreateEncryptor(), CryptoStreamMode.Write);
-        //    cryptostream.Write(strData, 0, strData.Length);
-        //    cryptostream.Close();
-        //    return memstream.ToArray();
-        //}
 
         void combobox()
         {
@@ -88,6 +62,8 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         public Register_Page()
         {
             InitializeComponent();
+            txt_password.UseSystemPasswordChar = false;
+            txt_conpass.UseSystemPasswordChar = false;
             pictureBox16.Hide();
             label21.Hide();
             combobox();
@@ -107,7 +83,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         }
         private void Button1_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(txt_email.Text) || String.IsNullOrEmpty(txt_user.Text) || String.IsNullOrEmpty(txt_password.Text) || String.IsNullOrEmpty(txt_conpass.Text) || String.IsNullOrEmpty(txt_nome.Text) || String.IsNullOrEmpty(cmb_nacionalidade.Text))
+            if ((!loadedImage) || String.IsNullOrEmpty(txt_email.Text) || String.IsNullOrEmpty(txt_user.Text) || String.IsNullOrEmpty(txt_password.Text) || String.IsNullOrEmpty(txt_conpass.Text) || String.IsNullOrEmpty(txt_nome.Text) || String.IsNullOrEmpty(cmb_nacionalidade.Text))
             {
                 label15.Show();
                 pictureBox4.Show();
@@ -154,16 +130,14 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                 {
                     pictureBox16.Hide();
                     label21.Hide();
-  /* foto, @param6*/string sql = ("INSERT INTO login(user, Password, nome, email, Pais_idPais) VALUES(@param1, @param2, @param3, @param4, @param5) ");
-                    //MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                    string sql = ("INSERT INTO login(user, Password, nome, email, Pais_idPais, foto) VALUES(@param1, @param2, @param3, @param4, @param5, @param6) ");
                     DataTable dt = new DataTable();
                     MySqlCommand cmd = new MySqlCommand(sql, conn);
-                    //using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                     using (MySqlDataAdapter da = new MySqlDataAdapter(cmd))
                     {
-                        //MemoryStream ms = new MemoryStream();
-                        //bunifuImageButton1.BackgroundImage.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                        //byte[] arrImage = ms.GetBuffer();
+                        MemoryStream ms = new MemoryStream();
+                        bunifuImageButton1.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                        byte[] arrImage = ms.GetBuffer();
                         try
                         {
                             if (dt.Rows.Count == 0)
@@ -176,9 +150,12 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                                 cmd.Parameters.AddWithValue("@param3", txt_nome.Text);
                                 cmd.Parameters.AddWithValue("@param4", txt_email.Text);
                                 cmd.Parameters.AddWithValue("@param5", cmb_nacionalidade.SelectedValue);
-                                //cmd.Parameters.AddWithValue("@param6", arrImage);
-                                //cmd.ExecuteNonQuery();
+                                cmd.Parameters.AddWithValue("@param6", arrImage);
                                 da.Fill(dt);
+                                bunifuImageButton1.Image = null;
+                                bunifuImageButton1.Update();
+                                bunifuImageButton1.Image = new Bitmap(Properties.Resources.download);
+                                bunifuImageButton1.Update();
                                 pictureBox17.Show();
                                 label42.Show();
                                 txt_email.Clear();
@@ -241,7 +218,8 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                     imageLocation = dialog.FileName;
 
                     bunifuImageButton1.ImageLocation = imageLocation;
-                    bunifuImageButton1.BackgroundImage = Image.FromFile(dialog.FileName);
+                    bunifuImageButton1.Image = Image.FromFile(dialog.FileName);
+                    loadedImage = true;
                 }
             }
             catch (Exception)
@@ -282,23 +260,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void PictureBox12_Click(object sender, EventArgs e)
-        {
-            pictureBox11.BringToFront();
-            txt_password.UseSystemPasswordChar = false;
-        }
-
-        private void PictureBox13_Click(object sender, EventArgs e)
-        {
-            pictureBox12.BringToFront();
-            txt_password.UseSystemPasswordChar = true;
-        }
-
-        private void Txt_email_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void Txt_email_Leave(object sender, EventArgs e)
         {
             if (ValidarEmail(txt_email.Text) == false)
@@ -312,7 +273,31 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                 pictureBox6.Hide();
             }
         }
+    
 
+        private void PictureBox7_Click_1(object sender, EventArgs e)
+        {
+            pictureBox4.BringToFront();
+            txt_password.UseSystemPasswordChar = true;
+        }
+
+        private void PictureBox1_Click_2(object sender, EventArgs e)
+        {
+            pictureBox7.BringToFront();
+            txt_password.UseSystemPasswordChar = false;
+        }
+
+        private void PictureBox5_Click(object sender, EventArgs e)
+        {
+            pictureBox8.BringToFront();
+            txt_conpass.UseSystemPasswordChar = true;
+        }
+
+        private void PictureBox8_Click(object sender, EventArgs e)
+        {
+            pictureBox5.BringToFront();
+            txt_conpass.UseSystemPasswordChar = false;
+        }
     }
     }
 

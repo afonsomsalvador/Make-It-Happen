@@ -5,14 +5,19 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using MySql.Data.MySqlClient;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using System.Configuration;
 
 namespace TGPSI18H_2218147_AfonsoSalvador_M16
 {
     public partial class SplashScreen : Form
     {
+        MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=psi18_afonsosalvador");
+        MySqlCommand cmd;
+       
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
 
@@ -23,8 +28,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         public SplashScreen()
         {
             InitializeComponent();
-            LoginForm lf = new LoginForm();
-            lf.current_user = label2.Text.ToString();
+            label2.Text = Class1.USER; 
         }
         private void PictureBox1_Click(object sender, EventArgs e)
         {
@@ -85,6 +89,11 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         }
 
         private void Label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void User1_Load(object sender, EventArgs e)
         {
 
         }

@@ -264,6 +264,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                                         p.nome pnome,
                                         p.imagem imagempais,
                                         o.nome OrganizacaoNome,
+                                        e.tipo_experiencia exp,
                                         v.Descricao descricao,
                                         v.Idade idade,
                                         v.Lingua lingua,
@@ -276,12 +277,13 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                                         v.seguro seguro,
                                         v.acompanhamento acompanhamento,
                                         v.localidade localidade,
-                                        v.adicional adicional
+                                        v.adicional adicional  
                                     FROM
                                         voluntariado v
                                         JOIN categorias c ON  v.Categorias_id_Categoria = c.id_Categoria
                                         JOIN pais p ON p.idPais = v.pais_idPais
-                                        JOIN organizacao o ON o.idOrganizacao = v.Organizacao_idOrganizacao 
+                                        JOIN organizacao o ON o.idOrganizacao = v.Organizacao_idOrganizacao
+                                        JOIN experiencia e ON e.idExperiencia = v.Experiencia_idExperiencia 
                                     WHERE 
                                         v.idVoluntariado = @idVol
                                     ORDER BY c.nome", conn);
@@ -310,6 +312,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                 label17.Text = dt["acompanhamento"].ToString();
                 label3.Text = dt["localidade"].ToString();
                 label11.Text = dt["adicional"].ToString();
+                label15.Text = dt["exp"].ToString();
             }
             conn.Close();
         }
