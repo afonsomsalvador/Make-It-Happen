@@ -111,6 +111,8 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             {
                 label15.Show();
                 pictureBox4.Show();
+                pictureBox17.Hide();
+                label42.Hide();
             }
             else
             {
@@ -145,48 +147,62 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                 {
                     pictureBox16.Show();
                     label21.Show();
-                 
+                    pictureBox17.Hide();
+                    label42.Hide();
                 }
                 else
                 {
                     pictureBox16.Hide();
                     label21.Hide();
-                    string sql = ("INSERT INTO login(user, Password, nome, email, Pais_idPais, foto) VALUES(@param1, @param2, @param3, @param4, @param5, @param6) ");
-                    MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+  /* foto, @param6*/string sql = ("INSERT INTO login(user, Password, nome, email, Pais_idPais) VALUES(@param1, @param2, @param3, @param4, @param5) ");
+                    //MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
                     DataTable dt = new DataTable();
-                    da.Fill(dt);
-                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                    MySqlCommand cmd = new MySqlCommand(sql, conn);
+                    //using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                    using (MySqlDataAdapter da = new MySqlDataAdapter(cmd))
                     {
-                        MemoryStream ms = new MemoryStream();
-                        bunifuImageButton1.BackgroundImage.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                        byte[] arrImage = ms.GetBuffer();
-                        if (dt.Rows.Count == 0)
+                        //MemoryStream ms = new MemoryStream();
+                        //bunifuImageButton1.BackgroundImage.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                        //byte[] arrImage = ms.GetBuffer();
+                        try
                         {
-                            label20.Hide();
-                            pictureBox14.Hide();
-                            conn.Open();
-                            cmd.Parameters.AddWithValue("@param1", txt_user.Text);
-                            cmd.Parameters.AddWithValue("@param2", txt_password.Text.Trim());
-                            cmd.Parameters.AddWithValue("@param3", txt_nome.Text);
-                            cmd.Parameters.AddWithValue("@param4", txt_email.Text);
-                            cmd.Parameters.AddWithValue("@param5", cmb_nacionalidade.SelectedValue);
-                            cmd.Parameters.AddWithValue("@param6", arrImage);
-                            cmd.ExecuteNonQuery();
+                            if (dt.Rows.Count == 0)
+                            {
+                                label20.Hide();
+                                pictureBox14.Hide();
+                                conn.Open();
+                                cmd.Parameters.AddWithValue("@param1", txt_user.Text);
+                                cmd.Parameters.AddWithValue("@param2", txt_password.Text.Trim());
+                                cmd.Parameters.AddWithValue("@param3", txt_nome.Text);
+                                cmd.Parameters.AddWithValue("@param4", txt_email.Text);
+                                cmd.Parameters.AddWithValue("@param5", cmb_nacionalidade.SelectedValue);
+                                //cmd.Parameters.AddWithValue("@param6", arrImage);
+                                //cmd.ExecuteNonQuery();
+                                da.Fill(dt);
+                                pictureBox17.Show();
+                                label42.Show();
+                                txt_email.Clear();
+                                txt_user.Clear();
+                                txt_password.Clear();
+                                txt_conpass.Clear();
+                                txt_nome.Clear();
+                                cmb_nacionalidade.ResetText();
+                            }
+                            else
+                            {
+                                label20.Show();
+                                pictureBox14.Show();
+                            }
+                        }
+                        catch (Exception erro)
+                        {
+                            MessageBox.Show("Username já existe");
+                        }
+                        finally
+                        {
                             conn.Close();
-                            pictureBox17.Show();
-                            label42.Show();
-                            txt_email.Clear();
-                            txt_user.Clear();
-                            txt_password.Clear();
-                            txt_conpass.Clear();
-                            txt_nome.Clear();
-                            cmb_nacionalidade.ResetText();
                         }
-                        else
-                        {
-                            label20.Show();
-                            pictureBox14.Show();
-                        }
+                 
                     }
                     
                  
@@ -297,24 +313,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             }
         }
 
-        private void Txt_user_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
-
-    public static class Global
-    {
-        // set password
-        public const string strPassword = "LetMeIn99$";
-
-        // set permutations
-        public const String strPermutation = "ouiveyxaqtd";
-        public const Int32 bytePermutation1 = 0x19;
-        public const Int32 bytePermutation2 = 0x59;
-        public const Int32 bytePermutation3 = 0x17;
-        public const Int32 bytePermutation4 = 0x41;
-    }
-
     }
 

@@ -18,7 +18,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 
         MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=psi18_afonsosalvador");
         MySqlCommand cmd = new MySqlCommand();
-        public string _sql;
+      
         public string texto
         {
             get
@@ -30,21 +30,10 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                 label1.Text = value;
             }
         }
-        public string sql
-        {
-            get
-            {
-                return _sql;
-            }
-            set
-            {
-                _sql = value;
-            }
-        }
-        public void populateItems(int categoriaId = -1)
+        public void populateItems(int categoriaId = -1, int paisId = -1, int organizacaoId = -1)
         {
             conn.Open();
-            string sqlBase = /*sql*/@"SELECT 
+            string sqlBase = @"SELECT 
                                         c.nome categoriaNome, 
                                         v.idVoluntariado idVoluntariado,
                                         v.imagem imagemvol, 
@@ -69,20 +58,77 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                                         voluntariado v 
                                         JOIN categorias c ON  v.Categorias_id_Categoria = c.id_Categoria 
                                         JOIN pais p ON p.idPais = v.pais_idPais 
-                                        JOIN organizacao o ON o.idOrganizacao = v.Organizacao_idOrganizacao";
-
-
-            string sqlWhere = "";
-            
-            if (categoriaId == 1)
+                                        JOIN organizacao o ON o.idOrganizacao = v.Organizacao_idOrganizacao  
+                                    WHERE";
+            switch (organizacaoId)
             {
-                sqlWhere = $" WHERE c.id_Categoria = {categoriaId}";
+                case 1:
+                    {
+                        sqlBase += " o.idOrganizacao = @orgID order by c.nome ";
+                        break;
+                    }
+                default:
+                    {
+
+                        break;
+                    }
+
             }
-            cmd = new MySqlCommand($"{sqlBase} {sqlWhere} ORDER BY c.nome", conn);
-            MySqlDataReader dt;
-            dt = cmd.ExecuteReader();
+            switch (categoriaId)
+            {
+                case 1:
+                    {
+                        sqlBase += " c.id_Categoria = @catID order by c.nome ";
+                        break;
+                    }
+                case 2:
+                    {
+                        sqlBase += " c.id_Categoria = @catID order by c.nome ";
+                        break;
+                    }
+                case 3:
+                    {
+                        sqlBase += " c.id_Categoria = @catID order by c.nome ";
+                        break;
+                    }
+                default:
+                    {
+
+                        break;
+                    }
+                       
+            }
+            switch (paisId)
+            {
+                case 3:
+                    {
+                        sqlBase += " p.idPais = @paisID order by c.nome ";
+                        break;
+                    }
+                case 5:
+                    {
+                        sqlBase += " p.idPais = @paisID order by c.nome ";
+                        break;
+                    }
+                default:
+                    {
+                        break;
+                    }
+
+            }
+
+            flowLayoutPanel1.Controls.Clear();
+
+            cmd = new MySqlCommand(sqlBase, conn);
+            cmd.Parameters.AddWithValue("@catID", categoriaId);
+            cmd.Parameters.AddWithValue("@orgID", organizacaoId);
+            cmd.Parameters.AddWithValue("@paisID", paisId);
+
+            MySqlDataReader dt = cmd.ExecuteReader();
             while (dt.Read())
             {
+                voluntariadO_CLICK1.SendToBack();
+                voluntariadO_CLICK1.Visible = false;
                 Panels p = new Panels();
                 p.ChavePesquisaID = dt["idVoluntariado"].GetHashCode();
                 p.Nome = dt["nomev"].ToString();
@@ -136,6 +182,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             dt = cmd.ExecuteReader();
             while (dt.Read())
             {
+
                 Panels p = new Panels();
                 p.ChavePesquisaID = dt["idVoluntariado"].GetHashCode();
                 p.Nome = dt["nomev"].ToString();
@@ -166,9 +213,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             InitializeComponent();
 
             flowLayoutPanel1.Visible = true;
-            pictureBox1.Visible = true;
-            label2.Visible = true;
-            textBox1.Visible = true;
             label1.Visible = true;
             voluntariadO_CLICK1.btn += back;
 
@@ -176,7 +220,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         private void Pais_Click_Load(object sender, EventArgs e)
         {
             label1.Text = texto;
-            populateItems();
             VerticalScroll.Enabled = true;
         }
 

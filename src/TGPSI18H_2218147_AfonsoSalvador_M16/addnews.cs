@@ -16,6 +16,8 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
     public partial class addnews : UserControl
     {
 
+        private bool loadedImage = false;
+
         MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=psi18_afonsosalvador");
         public addnews()
         {
@@ -29,7 +31,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         {
             string FileName = $"{Guid.NewGuid().ToString()}.jpg";
 
-            bunifuImageButton1.BackgroundImage.Save($"{ConfigurationManager.AppSettings["filesBasePath"]}{FileName}", System.Drawing.Imaging.ImageFormat.Jpeg);
+            bunifuImageButton1.Image.Save($"{ConfigurationManager.AppSettings["filesBasePath"]}{FileName}", System.Drawing.Imaging.ImageFormat.Jpeg);
  
             string sql = "INSERT INTO noticias(Titulo, Corpo, Imagem) VALUES(@param1, @param2, @param3)";
             using (MySqlCommand cmd = new MySqlCommand(sql, conn))
@@ -64,6 +66,11 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         }
         void eliminar()
         {
+            bunifuImageButton1.Image = null;
+            
+            bunifuImageButton1.Update();
+            bunifuImageButton1.Image = new Bitmap(Properties.Resources.download);
+            bunifuImageButton1.Update();
             textBox13.Text = "";
             textBox14.Text = "";
             pictureBox3.Show();
@@ -73,7 +80,9 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         }
         private void Button1_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(textBox13.Text) || String.IsNullOrEmpty(textBox14.Text))
+            if (String.IsNullOrEmpty(textBox13.Text) || 
+                String.IsNullOrEmpty(textBox14.Text) ||
+                (!loadedImage))
             {
                 pictureBox5.Show();
                 label4.Show();
@@ -102,7 +111,8 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                     imageLocation = dialog.FileName;
 
                     bunifuImageButton1.ImageLocation = imageLocation;
-                    bunifuImageButton1.BackgroundImage = Image.FromFile(dialog.FileName);
+                    bunifuImageButton1.Image = Image.FromFile(dialog.FileName);
+                    loadedImage = true;
                 }
             }
             catch (Exception)

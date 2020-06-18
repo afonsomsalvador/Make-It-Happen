@@ -160,7 +160,7 @@
             // bunifuImageButton1
             // 
             this.bunifuImageButton1.BackColor = System.Drawing.Color.White;
-            this.bunifuImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton1.Image")));
+            this.bunifuImageButton1.Image = global::TGPSI18H_2218147_AfonsoSalvador_M16.Properties.Resources.download;
             this.bunifuImageButton1.ImageActive = null;
             this.bunifuImageButton1.Location = new System.Drawing.Point(133, 118);
             this.bunifuImageButton1.Name = "bunifuImageButton1";

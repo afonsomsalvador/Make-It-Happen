@@ -132,7 +132,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 
         private void Button1_Click(object sender, EventArgs e)
         {
-          
             if (this.ButtonClick != null)
                 this.ButtonClick(this, new EventArgs());
 

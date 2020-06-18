@@ -17,8 +17,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
     
     public partial class Map_Page : Form
     {
-        private VOLUNTARIADO_CLICK vc;
-
         MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=psi18_afonsosalvador;");
         MySqlCommand cmd = new MySqlCommand();
 
@@ -48,54 +46,28 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         private void GlobalVolunteers(object sender, EventArgs e)
         {
             pais_Click2.texto = "Projecto de voluntariado da Global Volunteers";
-            //pais_Click2.sql = @"SELECT 
-            //                            c.nome categoriaNome, 
-            //                            v.idVoluntariado idVoluntariado,
-            //                            v.imagem imagemvol, 
-            //                            v.nome nomev, 
-            //                            p.nome pnome, 
-            //                            p.imagem imagempais, 
-            //                            o.nome OrganizacaoNome, 
-            //                            v.Descricao , 
-            //                            v.Idade, 
-            //                            v.Lingua, 
-            //                            v.Escolaridade, 
-            //                            v.data, 
-            //                            v.duracao,
-            //                            v.alojamento,
-            //                            v.alimentacao, 
-            //                            v.transfers, 
-            //                            v.seguro, 
-            //                            v.acompanhamento, 
-            //                            v.localidade , 
-            //                            v.adicional 
-            //                        FROM 
-            //                            voluntariado v 
-            //                            JOIN categorias c ON  v.Categorias_id_Categoria = c.id_Categoria 
-            //                            JOIN pais p ON p.idPais = v.pais_idPais 
-            //                            JOIN organizacao o ON o.idOrganizacao = v.Organizacao_idOrganizacao
-            //                        WHERE 
-            //                            v.idVoluntariado = @idVol
-            //                             v.pais_idPais = 3
-            //                        ORDER BY c.nome";
+            pais_Click2.populateItems(categoriaId: -1,organizacaoId: 1,paisId:-1);
             pais_Click2.BringToFront();
             pais_Click2.Visible = true;
         }
         private void VidaMarinha(object sender, EventArgs e)
         {
             pais_Click2.texto = "Projecto de voluntariado da Vida Marinha";
+            pais_Click2.populateItems(categoriaId: 1, organizacaoId: -1, paisId: -1);
             pais_Click2.BringToFront();
             pais_Click2.Visible = true;
         }
         private void Ensino(object sender, EventArgs e)
         {
             pais_Click2.texto = "Projecto de voluntariado de Ensino";
+            pais_Click2.populateItems(categoriaId: 2, organizacaoId: -1, paisId: -1);
             pais_Click2.BringToFront();
             pais_Click2.Visible = true;
         }
         private void VidaTerrestre(object sender, EventArgs e)
         {
             pais_Click2.texto = "Projecto de voluntariado da Vida Terrestre";
+            pais_Click2.populateItems(categoriaId: 3, organizacaoId: -1, paisId: -1);
             pais_Click2.BringToFront();
             pais_Click2.Visible = true;
           
@@ -184,37 +156,19 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
            
             if (arg2.Id == ("PT"))
             {
+                pais_Click2.populateItems(categoriaId: -1, organizacaoId: -1, paisId: 5);
                 pais_Click2.Show();
                 pais_Click2.BringToFront();
                 pais_Click2.texto = "Projecto de voluntariado de Portugal";
             }
-            //if (arg2.Id == ("BR"))
-            //{
-               
-            //    pais_Click2.Show();
-            //    pais_Click2.BringToFront();
-            //    pais_Click2.texto = "Projecto de voluntariado do Brasil";
-            //    string sql = "SELECT localidade from voluntariado where localidade = Brasil  ";
-            //    using (MySqlCommand cmd = new MySqlCommand(sql, conn)) 
-            //    {
-            //        pais_Click2.populateItems();
-            //    }
-            //}
+           
             if (arg2.Id == ("ES"))
             {
+                pais_Click2.populateItems(categoriaId: -1, organizacaoId: -1, paisId: 3);
                 pais_Click2.Show();
                 pais_Click2.BringToFront();
                 pais_Click2.texto = "Projecto de voluntariado de Espanha";
-                //conn.Open();
-                //cmd = new MySqlCommand("SELECT Pais_idPais from voluntariado where Pais_idPais = 3", conn);
-                //MySqlDataReader dt;
-                //dt = cmd.ExecuteReader();
-                //while (dt.Read())
-                //{
-
-                //}
-
-
+               
             }
         }
 

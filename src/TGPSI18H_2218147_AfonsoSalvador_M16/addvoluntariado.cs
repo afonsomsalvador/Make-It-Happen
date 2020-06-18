@@ -17,6 +17,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
     {
         MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=psi18_afonsosalvador");
 
+        private bool loadedImage = false;
         void combobox()
         {
             string Query = ("SELECT * FROM categorias ORDER BY nome ASC;"); /*.. where p.idPais = l.Pais_idPais and p.nome = p.idPais*/
@@ -144,7 +145,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         {
             textBox1.Text = "";
             textBox2.Text = "";
-            bunifuImageButton1 = null;
+            bunifuImageButton1.Image = (Image)Properties.Resources.ResourceManager.GetObject("download.png");
             cmb_categoria.ResetText();
             cmb_organizacao.ResetText();
             cmb_Experiencia.ResetText();
@@ -181,7 +182,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                 cmd.Parameters.AddWithValue("@param4", cmb_categoria.SelectedValue);
                 cmd.Parameters.AddWithValue("@param5", cmb_organizacao.SelectedValue);
                 cmd.Parameters.AddWithValue("@param6", cmb_Experiencia.SelectedValue);
-                cmd.Parameters.AddWithValue("@param7", dateTimePicker1.Text);
+                cmd.Parameters.AddWithValue("@param7", dateTimePicker1.Value.ToString("yyyy-MM-dd"));
                 cmd.Parameters.AddWithValue("@param8", textBox3.Text);
                 cmd.Parameters.AddWithValue("@param9", textBox4.Text);
                 cmd.Parameters.AddWithValue("@param10", textBox6.Text);
@@ -225,7 +226,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         
         private void Button1_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(textBox1.Text) || String.IsNullOrEmpty(textBox2.Text) || String.IsNullOrEmpty(cmb_categoria.Text) || String.IsNullOrEmpty(cmb_organizacao.Text) || String.IsNullOrEmpty(cmb_Experiencia.Text) || String.IsNullOrEmpty(textBox3.Text) || String.IsNullOrEmpty(textBox4.Text) || String.IsNullOrEmpty(textBox6.Text) || String.IsNullOrEmpty(textBox7.Text) || String.IsNullOrEmpty(textBox8.Text) || String.IsNullOrEmpty(textBox9.Text) || String.IsNullOrEmpty(textBox10.Text) || String.IsNullOrEmpty(textBox5.Text) || String.IsNullOrEmpty(textBox12.Text) || String.IsNullOrEmpty(textBox13.Text) || String.IsNullOrEmpty(textBox14.Text) || String.IsNullOrEmpty(cmb_pais.Text))
+            if ((!loadedImage) || String.IsNullOrEmpty(textBox1.Text) || String.IsNullOrEmpty(textBox2.Text) || String.IsNullOrEmpty(cmb_categoria.Text) || String.IsNullOrEmpty(cmb_organizacao.Text) || String.IsNullOrEmpty(cmb_Experiencia.Text) || String.IsNullOrEmpty(textBox3.Text) || String.IsNullOrEmpty(textBox4.Text) || String.IsNullOrEmpty(textBox6.Text) || String.IsNullOrEmpty(textBox7.Text) || String.IsNullOrEmpty(textBox8.Text) || String.IsNullOrEmpty(textBox9.Text) || String.IsNullOrEmpty(textBox10.Text) || String.IsNullOrEmpty(textBox5.Text) || String.IsNullOrEmpty(textBox12.Text) || String.IsNullOrEmpty(textBox13.Text) || String.IsNullOrEmpty(textBox14.Text) || String.IsNullOrEmpty(cmb_pais.Text))
             {
                 pictureBox3.Hide();
                 label42.Hide();
@@ -276,6 +277,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 
                     bunifuImageButton1.ImageLocation = imageLocation;
                     bunifuImageButton1.BackgroundImage = Image.FromFile(dialog.FileName);
+                    loadedImage = true;
                 }
             }
             catch (Exception)

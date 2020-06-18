@@ -148,13 +148,18 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                 "',Categorias_id_Categoria = '" + int.Parse(textBox3.Text) + "',Organizacao_idOrganizacao = '" + int.Parse(textBox5.Text) +
                 "',Experiencia_idExperiencia = '" + int.Parse(textBox6.Text) + "',Pais_idPais = '" + int.Parse(textBox13.Text) +
                 "',Idade = '" + textBox16.Text + "',Lingua = '" + textBox17.Text +
-                "',Escolaridade = '" + textBox19.Text + "',data = '" + textBox7.Text +
+                "',Escolaridade = '" + textBox19.Text + "',data = '" + DateTime.Parse(textBox7.Text).ToString("yyyy-MM-dd") +
                 "',duracao = '" + textBox8.Text + "',alojamento = '" + textBox9.Text +
                 "',alimentacao = '" + textBox10.Text + "',transfers = '" + textBox11.Text +
                 "',seguro = '" + textBox12.Text + "',acompanhamento = '" + textBox15.Text +
                 "',localidade = '" + textBox14.Text + "',adicional = '" + textBox18.Text + "' WHERE idVoluntariado = " + int.Parse(textBox4.Text);
             executeMyQuery(updateQuery);
             populateDGV();
+        }
+
+        private void TextBox7_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
