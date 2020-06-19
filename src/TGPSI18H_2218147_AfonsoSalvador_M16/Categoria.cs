@@ -13,8 +13,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 {
     public partial class Categoria : UserControl
     {
-        MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=123456;database=psi18_afonsosalvador");
-
         public event EventHandler ButtonClick1;
 
         public event EventHandler ButtonClick2;
@@ -72,6 +70,11 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         private void Panel3_Paint(object sender, PaintEventArgs e)
         {
             ControlPaint.DrawBorder(e.Graphics, panel1.DisplayRectangle, Color.FromArgb(0, 192, 192), ButtonBorderStyle.Dashed);
+        }
+
+        private void Pais_Click1_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

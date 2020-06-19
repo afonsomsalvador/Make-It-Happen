@@ -48,9 +48,9 @@
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.AutoSize = true;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 135);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 96);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(861, 323);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(963, 323);
             this.flowLayoutPanel1.TabIndex = 1;
             this.flowLayoutPanel1.WrapContents = false;
             this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.FlowLayoutPanel1_Paint);
@@ -78,7 +78,7 @@
             this.voluntariadO_CLICK1.Nome = null;
             this.voluntariadO_CLICK1.Organizacao = null;
             this.voluntariadO_CLICK1.Seguro = null;
-            this.voluntariadO_CLICK1.Size = new System.Drawing.Size(1117, 1310);
+            this.voluntariadO_CLICK1.Size = new System.Drawing.Size(1117, 1232);
             this.voluntariadO_CLICK1.TabIndex = 5;
             this.voluntariadO_CLICK1.Transfers = null;
             this.voluntariadO_CLICK1.Visible = false;
@@ -93,7 +93,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.voluntariadO_CLICK1);
             this.Name = "Pais_Click";
-            this.Size = new System.Drawing.Size(847, 458);
+            this.Size = new System.Drawing.Size(813, 424);
             this.Load += new System.EventHandler(this.Pais_Click_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

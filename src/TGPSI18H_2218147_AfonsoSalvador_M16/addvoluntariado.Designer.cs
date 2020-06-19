@@ -451,6 +451,7 @@
             this.textBox14.Name = "textBox14";
             this.textBox14.Size = new System.Drawing.Size(263, 29);
             this.textBox14.TabIndex = 38;
+            this.textBox14.TextChanged += new System.EventHandler(this.TextBox14_TextChanged);
             // 
             // button1
             // 
@@ -472,6 +473,7 @@
             this.label21.Size = new System.Drawing.Size(46, 20);
             this.label21.TabIndex = 40;
             this.label21.Text = "Foto";
+            this.label21.Click += new System.EventHandler(this.Label21_Click);
             // 
             // btnuploadimage
             // 

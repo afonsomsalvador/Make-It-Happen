@@ -15,15 +15,33 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 {
     public partial class VOLUNTARIADO_CLICK : UserControl
     {
+        private static string _connection = "datasource=localhost;port=3306;username=root;password=;database=psi18_afonsosalvador";
+        private static MySqlConnection conn = new MySqlConnection(_connection);
+        public void connect()
+        {
+            try
+            {
+                if (conn.State == ConnectionState.Open)
+                    conn.Open();
+                  
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Não foi possivel ligar à base de dados. Erro: " + ex);
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Aconteceu um erro não identificado. Erro: " + erro);
+            }
+           
+        }
 
-        MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=psi18_afonsosalvador");
         MySqlCommand cmd = new MySqlCommand();
 
         public VOLUNTARIADO_CLICK()
         {
             InitializeComponent();
-
-
+            connect();
         }
 
         public int IDRegisto { get; set; }
@@ -255,8 +273,10 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 
         public void CarregarDados(int id)
         {
-            conn.Open();
-            cmd = new MySqlCommand(@"SELECT 
+            try
+            {
+                conn.Open();
+                cmd = new MySqlCommand(@"SELECT 
                                         c.nome categoriaNome,
                                         v.idVoluntariado idVoluntariado,
                                         v.imagem imagemvol,
@@ -287,34 +307,44 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                                     WHERE 
                                         v.idVoluntariado = @idVol
                                     ORDER BY c.nome", conn);
-            MySqlDataReader dt;
+                MySqlDataReader dt;
 
-            cmd.Parameters.AddWithValue("@idVol", id);
-            dt = cmd.ExecuteReader();
-            while (dt.Read())
-            {
-                VOLUNTARIADO_CLICK vc = new VOLUNTARIADO_CLICK();
-                vc.IDRegisto = dt.GetInt32("idVoluntariado");
-                label1.Text = dt["nomev"].ToString();
-                label18.Text = dt["categoriaNome"].ToString();
-                label2.Text = dt["OrganizacaoNome"].ToString();
-                pictureBox1.Image = Image.FromFile($"{ConfigurationManager.AppSettings["filesBasePath"]}{ dt["imagemvol"]}");
-                groupBox1.Text = dt["descricao"].ToString();
-                label14.Text = dt["idade"].ToString();
-                label12.Text = dt["lingua"].ToString();
-                label13.Text = dt["escola"].ToString();
-                label8.Text = dt["data"].ToString();
-                label5.Text = dt["duracao"].ToString();
-                label4.Text = dt["alojamento"].ToString();
-                label6.Text = dt["alimentacao"].ToString();
-                label7.Text = dt["transfers"].ToString();
-                label10.Text = dt["seguro"].ToString();
-                label17.Text = dt["acompanhamento"].ToString();
-                label3.Text = dt["localidade"].ToString();
-                label11.Text = dt["adicional"].ToString();
-                label15.Text = dt["exp"].ToString();
+                cmd.Parameters.AddWithValue("@idVol", id);
+                dt = cmd.ExecuteReader();
+                while (dt.Read())
+                {
+                    VOLUNTARIADO_CLICK vc = new VOLUNTARIADO_CLICK();
+                    vc.IDRegisto = dt.GetInt32("idVoluntariado");
+                    label1.Text = dt["nomev"].ToString();
+                    label18.Text = dt["categoriaNome"].ToString();
+                    label2.Text = dt["OrganizacaoNome"].ToString();
+                    pictureBox1.Image = Image.FromFile($"{ConfigurationManager.AppSettings["filesBasePath"]}{ dt["imagemvol"]}");
+                    groupBox1.Text = dt["descricao"].ToString();
+                    label14.Text = dt["idade"].ToString();
+                    label12.Text = dt["lingua"].ToString();
+                    label13.Text = dt["escola"].ToString();
+                    label8.Text = dt["data"].ToString();
+                    label5.Text = dt["duracao"].ToString();
+                    label4.Text = dt["alojamento"].ToString();
+                    label6.Text = dt["alimentacao"].ToString();
+                    label7.Text = dt["transfers"].ToString();
+                    label10.Text = dt["seguro"].ToString();
+                    label17.Text = dt["acompanhamento"].ToString();
+                    label3.Text = dt["localidade"].ToString();
+                    label11.Text = dt["adicional"].ToString();
+                    label15.Text = dt["exp"].ToString();
+                }
+                conn.Close();
             }
-            conn.Close();
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Erro ao executar operação na base de dados. Erro: " + ex);
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Aconteceu um erro não identificado. Erro: " + erro);
+            }
+            
         }
 
         private void GroupBox1_Enter(object sender, EventArgs e)
@@ -403,6 +433,11 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         {
             if (this.btn != null)
                 this.btn(this, new EventArgs());
+        }
+
+        private void PictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

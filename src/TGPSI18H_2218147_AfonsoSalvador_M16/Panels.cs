@@ -13,7 +13,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 {
     public delegate void MyEventHandler();
 
-    [System.ComponentModel.DefaultEvent("ButtonClicked")]
     public partial class Panels : UserControl
     {
 

@@ -17,15 +17,29 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 {
     public partial class LoginForm : Form
     {
-        MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=psi18_afonsosalvador");
-
+        private static string _connection = "datasource=localhost;port=3306;username=root;password=;database=psi18_afonsosalvador";
+        private static MySqlConnection conn = new MySqlConnection(_connection);
+        public void connect()
+        {
+            try
+            {
+                if (conn.State == ConnectionState.Open)
+                    conn.Open();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Não foi possivel ligar à base de dados. Erro: " + ex);
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Aconteceu um erro não identificado. Erro: " + erro);
+            }
+        }
         public string _current = "";
-        private string _image;
         public LoginForm()
         {
             InitializeComponent();
-
-
+            connect();
             label7.Hide();
             pictureBox8.Hide();
             pictureBox7.BringToFront();
@@ -74,34 +88,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
-       
-        public string current_user
-        {
-            get
-            {
-                return textBox1.Text;
-            }
-            set
-            {
-                _current = value;
-                textBox1.Text = value;
-            }
-        }
-        public string image
-        {
-            get
-            {
-                return _image;
-            }
-            set
-            {
-                if (File.Exists(value))
-                    //pictureBox1.Image = System.Drawing.Image.FromFile(value);
-
-                _image = value;
-            }
-        }
-
         private void Button1_Click_1(object sender, EventArgs e)
         {
 
@@ -112,37 +98,49 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             }
             else
             {
-
-                conn.Open();
-                string sql = ("Select * from login where (user collate utf8_bin) = '" + textBox1.Text.Trim() + "' and (password collate utf8_bin) = '" + (txtPassword.Text.ToString().Trim()) + "'");
-                MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                if (dt.Rows.Count == 0)
+                try
                 {
-                    label7.Show();
-                    pictureBox8.Show();
-                   
-                }
-                else
-                {
-                    if (txtPassword.Text == "admin" || textBox1.Text == "admin")
+                    conn.Open();
+                    string sql = ("Select * from login where (user collate utf8_bin) = '" + textBox1.Text.Trim() + "' and (password collate utf8_bin) = '" + (txtPassword.Text.ToString().Trim()) + "'");
+                    MySqlDataAdapter da = new MySqlDataAdapter(sql, conn);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    if (dt.Rows.Count == 0)
                     {
-                        this.Hide();
-                        admin a = new admin();
-                        a.ShowDialog();
+                        label7.Show();
+                        pictureBox8.Show();
+
                     }
                     else
                     {
-                      Class1.USER =textBox1.Text ;
-                        this.Hide(); 
-                        SplashScreen ss = new SplashScreen();
-                        ss.ShowDialog();
+                        if (txtPassword.Text == "admin" || textBox1.Text == "admin")
+                        {
+                            this.Hide();
+                            admin a = new admin();
+                            a.ShowDialog();
+                        }
+                        else
+                        {
+                            Class1.USER = textBox1.Text;
+                            this.Hide();
+                            SplashScreen ss = new SplashScreen();
+                            ss.ShowDialog();
+                        }
+
                     }
-                   
+                    conn.Close();
+
                 }
-                conn.Close();
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show("Erro ao executar operação na base de dados. Erro: " + ex);
+                }
+                catch (Exception erro)
+                {
+                    MessageBox.Show("Aconteceu um erro não identificado. Erro: " + erro);
+                }
             }
+                
         }
 
         private void PictureBox4_Click_1(object sender, EventArgs e)
@@ -210,6 +208,11 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         }
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label1_Click(object sender, EventArgs e)
         {
 
         }

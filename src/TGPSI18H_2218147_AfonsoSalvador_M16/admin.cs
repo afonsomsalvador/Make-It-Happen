@@ -164,10 +164,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             addnews1.SendToBack();
             gestaoNews2.SendToBack();
         }
-        private void Button5_Click(object sender, EventArgs e)
-        {
-            
-        }
 
         private void GestaoNews2_Load(object sender, EventArgs e)
         {
@@ -198,6 +194,13 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         private void Panel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void Button6_Click(object sender, EventArgs e)
+        {
+            LoginForm lg = new LoginForm();
+            this.Hide();
+            lg.ShowDialog();
         }
     }
 }

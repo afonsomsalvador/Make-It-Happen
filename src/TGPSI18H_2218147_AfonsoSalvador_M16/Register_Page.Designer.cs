@@ -546,11 +546,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(1154, 635);
+            this.Controls.Add(this.pictureBox7);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.txt_conpass);
-            this.Controls.Add(this.pictureBox7);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txt_password);
             this.Controls.Add(this.label42);
             this.Controls.Add(this.pictureBox17);
@@ -589,6 +589,7 @@
             this.Name = "Register_Page";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Make It Happen";
+            this.Load += new System.EventHandler(this.Register_Page_Load);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

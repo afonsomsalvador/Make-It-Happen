@@ -14,72 +14,86 @@ using System.Security.Cryptography;
 
 namespace TGPSI18H_2218147_AfonsoSalvador_M16
 {
+
     public partial class UtilizadoresGridView : UserControl
     {
-        MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=psi18_afonsosalvador");
         MySqlCommand cmd;
+        private static string _connection = "datasource=localhost;port=3306;username=root;password=;database=psi18_afonsosalvador";
+        private static MySqlConnection conn = new MySqlConnection(_connection);
+       public void connect()
+        {
+            try
+            {
+                if (conn.State == ConnectionState.Open)
+                    conn.Open();
+            }
+            catch(MySqlException ex)
+            {
+                MessageBox.Show("Não foi possivel ligar à base de dados. Erro: " + ex);
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Aconteceu um erro não identificado. Erro: " + erro);
+            }
+        }
+
         public UtilizadoresGridView()
         {
             InitializeComponent();
-
-            conn.Open();
-            string query = "SELECT * FROM login ";
-            MySqlCommand cmd = new MySqlCommand(query, conn);
-            MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-            DataTable table = new DataTable();
-            adapter.Fill(table);
-            dataGridView1.DataSource = table;
-            conn.Close();
+            connect();
+            try
+            {
+                conn.Open();
+                string query = "SELECT * FROM login ";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+                dataGridView1.DataSource = table;
+                conn.Close();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Erro ao executar operação na base de dados. Erro: " + ex);
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Aconteceu um erro não identificado. Erro: " + erro);
+            }
+           
 
         }
-        
+
         private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             
         }
         public void populateDGV()
         {
-            // populate the datagridview
-            string selectQuery = "SELECT* FROM login ";
-            DataTable table = new DataTable();
-            MySqlDataAdapter adapter = new MySqlDataAdapter(selectQuery, conn);
-            adapter.Fill(table);
-            dataGridView1.DataSource = table;
+
+            try
+            { // populate the datagridview
+                string selectQuery = "SELECT* FROM login ";
+                DataTable table = new DataTable();
+                MySqlDataAdapter adapter = new MySqlDataAdapter(selectQuery, conn);
+                adapter.Fill(table);
+                dataGridView1.DataSource = table;
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Erro ao executar operação na base de dados. Erro: " + ex);
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Aconteceu um erro não identificado. Erro: " + erro);
+            }
+           
         }
 
         private void UtilizadoresGridView_Load(object sender, EventArgs e)
         {
             populateDGV();
-            //MySqlCommand cmd = conn.CreateCommand();
-            //cmd.CommandType = CommandType.Text;
-            //string s = "Select * from login";
-            //MySqlDataReader reader = cmd.ExecuteReader();
-            //dataGridView1.DataSource = reader;
-            //MySqlDataAdapter dataadapter = new MySqlDataAdapter(s, conn);
-            //DataSet ds = new DataSet();
-            //conn.Open();
-            //dataadapter.Fill(ds, "login");
-            //conn.Close();
-            //dataGridView1.DataSource = ds;
-            //dataGridView1.DataMember = "login";
-
-
-
-            //dataGridView1.ColumnCount = 3;
-            //dataGridView1.Columns[0].Name = "Product ID";
-            //dataGridView1.Columns[1].Name = "Product Name";
-            //dataGridView1.Columns[2].Name = "Product Price";
-
-            //string[] row = new string[] { "1", "Product 1", "1000" };
-            //dataGridView1.Rows.Add(row);
-            //row = new string[] { "2", "Product 2", "2000" };
-            //dataGridView1.Rows.Add(row);
-            //row = new string[] { "3", "Product 3", "3000" };
-            //dataGridView1.Rows.Add(row);
-            //row = new string[] { "4", "Product 4", "4000" };
-            //dataGridView1.Rows.Add(row);
-
-            //dataGridView1.Rows[1].ReadOnly = true;
+            
         }
 
         private void DataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
@@ -98,12 +112,23 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         }
         public void pesquisar(string pesquisa)
         {
-
-            string pesquisarQuery = "SELECT * FROM login WHERE CONCAT( id_user, user) LIKE '%" + pesquisa + "%'";
-            MySqlDataAdapter adapter = new MySqlDataAdapter(pesquisarQuery, conn);
-            DataTable table = new DataTable();
-            adapter.Fill(table);
-            dataGridView1.DataSource = table;
+            try
+            {
+                string pesquisarQuery = "SELECT * FROM login WHERE CONCAT( id_user, user) LIKE '%" + pesquisa + "%'";
+                MySqlDataAdapter adapter = new MySqlDataAdapter(pesquisarQuery, conn);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+                dataGridView1.DataSource = table;
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Erro ao executar operação na base de dados. Erro: " + ex);
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Aconteceu um erro não identificado. Erro: " + erro);
+            }
+           
 
         }
         public void openConnection()
@@ -149,9 +174,27 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         }
         private void Button1_Click(object sender, EventArgs e)
         {
-            string deleteQuery = "DELETE FROM login WHERE id_user = " + int.Parse(textBox1.Text);
-            executeMyQuery(deleteQuery);
-            populateDGV();
+            try
+            {
+                string deleteQuery = "DELETE FROM login WHERE id_user = " + int.Parse(textBox1.Text);
+                executeMyQuery(deleteQuery);
+                populateDGV();
+                textBox4.Text = "";
+                textBox2.Text = "";
+                textBox6.Text = "";
+                textBox3.Text = "";
+                textBox5.Text = "";
+                textBox1.Text = "";
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Erro ao executar operação na base de dados. Erro: " + ex);
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Aconteceu um erro não identificado. Erro: " + erro);
+            }
+            
         }
 
         private void TxtSearch_TextChanged(object sender, EventArgs e)
@@ -167,6 +210,36 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         private void DataGridView1_MouseClick(object sender, MouseEventArgs e)
         {
             textBox1.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            textBox4.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            textBox2.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            textBox6.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            textBox3.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+            textBox5.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string updateQuery = "UPDATE login SET user = '" + textBox4.Text + "',Password = '" + textBox2.Text + "',nome = '" + textBox6.Text + "',email = '" + textBox3.Text + "',Pais_idPais = '" + textBox5.Text + "' WHERE id_user = " + int.Parse(textBox1.Text);
+                executeMyQuery(updateQuery);
+                populateDGV();
+                textBox4.Text = "";
+                textBox2.Text = "";
+                textBox6.Text = "";
+                textBox3.Text = "";
+                textBox5.Text = "";
+                textBox1.Text = "";
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Erro ao executar operação na base de dados. Erro: " + ex);
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Aconteceu um erro não identificado. Erro: " + erro);
+            }
+         
         }
     }
 }

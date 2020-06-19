@@ -16,7 +16,25 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 {
     public partial class Register_Page : Form
     {
-        MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=psi18_afonsosalvador;");
+        private static string _connection = "datasource=localhost;port=3306;username=root;password=;database=psi18_afonsosalvador";
+        private static MySqlConnection conn = new MySqlConnection(_connection);
+        public void connect()
+        {
+            try
+            {
+                if (conn.State == ConnectionState.Open)
+                    conn.Open();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Não foi possivel ligar à base de dados. Erro: " + ex);
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Aconteceu um erro não identificado. Erro: " + erro);
+            }
+        }
+
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
 
@@ -27,41 +45,56 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 
         void combobox()
         {
-            string Query = ("SELECT * FROM pais ORDER BY nome ASC;"); /*.. where p.idPais = l.Pais_idPais and p.nome = p.idPais*/
-
-            using (MySqlCommand mysqlcommand = new MySqlCommand(Query, conn))
+            try
             {
-                MySqlDataReader myReader;
-                try
+                string Query = ("SELECT * FROM pais ORDER BY nome ASC;"); /*.. where p.idPais = l.Pais_idPais and p.nome = p.idPais*/
+
+                using (MySqlCommand mysqlcommand = new MySqlCommand(Query, conn))
                 {
+                    MySqlDataReader myReader;
+                    try
+                    {
 
-                    conn.Open();
-                    myReader = mysqlcommand.ExecuteReader();
+                        conn.Open();
+                        myReader = mysqlcommand.ExecuteReader();
 
-                    DataTable dt = new DataTable();
-                    dt.Load(myReader); // Carrega os dados para o DataTable 
-                                       // Define qual coluna será manipulada via código
+                        DataTable dt = new DataTable();
+                        dt.Load(myReader); // Carrega os dados para o DataTable 
+                                           // Define qual coluna será manipulada via código
 
-                    cmb_nacionalidade.DisplayMember = "nome";
-                    // Define a fonte de dados
-                    cmb_nacionalidade.ValueMember = "idPais";
-                    cmb_nacionalidade.DataSource = dt;
+                        cmb_nacionalidade.DisplayMember = "nome";
+                        // Define a fonte de dados
+                        cmb_nacionalidade.ValueMember = "idPais";
+                        cmb_nacionalidade.DataSource = dt;
+
+                    }
+                    catch (Exception erro)
+                    {
+                        MessageBox.Show("Erro:" + erro.Message);
+                    }
+                    finally
+                    {
+                        conn.Close();// Fecha a conexão com o BD
+                    }
 
                 }
-                catch (Exception erro)
-                {
-                    MessageBox.Show("Erro:" + erro.Message);
-                }
-                finally
-                {
-                    conn.Close();// Fecha a conexão com o BD
-                }
-
             }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Erro ao executar operação na base de dados. Erro: " + ex);
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Aconteceu um erro não identificado. Erro: " + erro);
+            }
+            
+
+            
         }
         public Register_Page()
         {
             InitializeComponent();
+            connect();
             txt_password.UseSystemPasswordChar = false;
             txt_conpass.UseSystemPasswordChar = false;
             pictureBox16.Hide();
@@ -94,31 +127,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             {
                 label15.Hide();
                 pictureBox4.Hide();
-                //// Email
-                //label14.Hide();
-                //pictureBox6.Hide();
-                //// User
-                //label15.Hide();
-                //pictureBox4.Hide();
-                //// Password
-                //label16.Hide();
-                //pictureBox5.Hide();
-                //// Confirmar Password
-                //label17.Hide();
-                //pictureBox7.Hide();
-                //// Nacionalidade
-                //label19.Hide();
-                //pictureBox9.Hide();
-                //// Nome Completo
-                //label18.Hide();
-                //pictureBox8.Hide();
-                ////cmb
-                //label19.Hide();
-                //pictureBox9.Hide();
-                //// Conta Existe
-                //label20.Hide();
-                //pictureBox14.Hide();
-
                 if (txt_password.Text != txt_conpass.Text)
                 {
                     pictureBox16.Show();
@@ -128,64 +136,78 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                 }
                 else
                 {
-                    pictureBox16.Hide();
-                    label21.Hide();
-                    string sql = ("INSERT INTO login(user, Password, nome, email, Pais_idPais, foto) VALUES(@param1, @param2, @param3, @param4, @param5, @param6) ");
-                    DataTable dt = new DataTable();
-                    MySqlCommand cmd = new MySqlCommand(sql, conn);
-                    using (MySqlDataAdapter da = new MySqlDataAdapter(cmd))
+                    try
                     {
-                        MemoryStream ms = new MemoryStream();
-                        bunifuImageButton1.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                        byte[] arrImage = ms.GetBuffer();
-                        try
+                        pictureBox16.Hide();
+                        label21.Hide();
+                        string sql = ("INSERT INTO login(user, Password, nome, email, Pais_idPais, foto) VALUES(@param1, @param2, @param3, @param4, @param5, @param6) ");
+                        DataTable dt = new DataTable();
+                        MySqlCommand cmd = new MySqlCommand(sql, conn);
+                        using (MySqlDataAdapter da = new MySqlDataAdapter(cmd))
                         {
-                            if (dt.Rows.Count == 0)
+                            MemoryStream ms = new MemoryStream();
+                            bunifuImageButton1.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                            byte[] arrImage = ms.GetBuffer();
+                            try
                             {
-                                label20.Hide();
-                                pictureBox14.Hide();
-                                conn.Open();
-                                cmd.Parameters.AddWithValue("@param1", txt_user.Text);
-                                cmd.Parameters.AddWithValue("@param2", txt_password.Text.Trim());
-                                cmd.Parameters.AddWithValue("@param3", txt_nome.Text);
-                                cmd.Parameters.AddWithValue("@param4", txt_email.Text);
-                                cmd.Parameters.AddWithValue("@param5", cmb_nacionalidade.SelectedValue);
-                                cmd.Parameters.AddWithValue("@param6", arrImage);
-                                da.Fill(dt);
-                                bunifuImageButton1.Image = null;
-                                bunifuImageButton1.Update();
-                                bunifuImageButton1.Image = new Bitmap(Properties.Resources.download);
-                                bunifuImageButton1.Update();
-                                pictureBox17.Show();
-                                label42.Show();
-                                txt_email.Clear();
-                                txt_user.Clear();
-                                txt_password.Clear();
-                                txt_conpass.Clear();
-                                txt_nome.Clear();
-                                cmb_nacionalidade.ResetText();
+                                if (dt.Rows.Count == 0)
+                                {
+                                    label20.Hide();
+                                    pictureBox14.Hide();
+                                    conn.Open();
+                                    cmd.Parameters.AddWithValue("@param1", txt_user.Text);
+                                    cmd.Parameters.AddWithValue("@param2", txt_password.Text.Trim());
+                                    cmd.Parameters.AddWithValue("@param3", txt_nome.Text);
+                                    cmd.Parameters.AddWithValue("@param4", txt_email.Text);
+                                    cmd.Parameters.AddWithValue("@param5", cmb_nacionalidade.SelectedValue);
+                                    cmd.Parameters.AddWithValue("@param6", arrImage);
+                                    da.Fill(dt);
+                                    bunifuImageButton1.Image = null;
+                                    bunifuImageButton1.Update();
+                                    bunifuImageButton1.Image = new Bitmap(Properties.Resources.download);
+                                    bunifuImageButton1.Update();
+                                    pictureBox17.Show();
+                                    label42.Show();
+                                    txt_email.Clear();
+                                    txt_user.Clear();
+                                    txt_password.Clear();
+                                    txt_conpass.Clear();
+                                    txt_nome.Clear();
+                                    cmb_nacionalidade.ResetText();
+                                }
+                                else
+                                {
+                                    label20.Show();
+                                    pictureBox14.Show();
+                                }
                             }
-                            else
+                            catch (Exception)
                             {
-                                label20.Show();
-                                pictureBox14.Show();
+                                MessageBox.Show("Username já existe");
+                            }
+                            finally
+                            {
+                                conn.Close();
                             }
                         }
-                        catch (Exception erro)
-                        {
-                            MessageBox.Show("Username já existe");
-                        }
-                        finally
-                        {
-                            conn.Close();
-                        }
+                    
+                    }
+                    catch (MySqlException ex)
+                    {
+                        MessageBox.Show("Erro ao executar operação na base de dados. Erro: " + ex);
+                    }
+                    catch (Exception erro)
+                    {
+                        MessageBox.Show("Aconteceu um erro não identificado. Erro: " + erro);
+                    }
+                   
                  
                     }
                     
                  
                 }
             }
-        }
+        
 
         private void Label15_Click(object sender, EventArgs e)
         {
@@ -277,7 +299,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 
         private void PictureBox7_Click_1(object sender, EventArgs e)
         {
-            pictureBox4.BringToFront();
+            pictureBox1.BringToFront();
             txt_password.UseSystemPasswordChar = true;
         }
 
@@ -297,6 +319,11 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         {
             pictureBox5.BringToFront();
             txt_conpass.UseSystemPasswordChar = false;
+        }
+
+        private void Register_Page_Load(object sender, EventArgs e)
+        {
+
         }
     }
     }

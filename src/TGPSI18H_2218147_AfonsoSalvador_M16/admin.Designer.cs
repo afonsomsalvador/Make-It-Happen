@@ -44,6 +44,7 @@
             this.gestaoVol1 = new TGPSI18H_2218147_AfonsoSalvador_M16.GestaoVol();
             this.addvoluntariado1 = new TGPSI18H_2218147_AfonsoSalvador_M16.addvoluntariado();
             this.addnews1 = new TGPSI18H_2218147_AfonsoSalvador_M16.addnews();
+            this.button6 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -53,6 +54,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.panel1.Controls.Add(this.button6);
             this.panel1.Controls.Add(this.button5);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.button2);
@@ -73,7 +75,7 @@
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.White;
             this.button5.Image = global::TGPSI18H_2218147_AfonsoSalvador_M16.Properties.Resources.database_administrator_40px;
-            this.button5.Location = new System.Drawing.Point(12, 424);
+            this.button5.Location = new System.Drawing.Point(12, 381);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(154, 79);
             this.button5.TabIndex = 8;
@@ -91,7 +93,7 @@
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.White;
             this.button4.Image = global::TGPSI18H_2218147_AfonsoSalvador_M16.Properties.Resources.database_administrator_40px;
-            this.button4.Location = new System.Drawing.Point(12, 158);
+            this.button4.Location = new System.Drawing.Point(12, 115);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(154, 90);
             this.button4.TabIndex = 7;
@@ -108,7 +110,7 @@
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(12, 339);
+            this.button2.Location = new System.Drawing.Point(12, 296);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(154, 79);
             this.button2.TabIndex = 6;
@@ -121,7 +123,7 @@
             // SidePanel
             // 
             this.SidePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.SidePanel.Location = new System.Drawing.Point(3, 71);
+            this.SidePanel.Location = new System.Drawing.Point(3, 28);
             this.SidePanel.Name = "SidePanel";
             this.SidePanel.Size = new System.Drawing.Size(10, 90);
             this.SidePanel.TabIndex = 5;
@@ -134,7 +136,7 @@
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.White;
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(12, 254);
+            this.button3.Location = new System.Drawing.Point(12, 211);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(154, 79);
             this.button3.TabIndex = 1;
@@ -152,7 +154,7 @@
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Wheat;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(12, 71);
+            this.button1.Location = new System.Drawing.Point(12, 28);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(154, 90);
             this.button1.TabIndex = 1;
@@ -235,6 +237,23 @@
             this.addnews1.Size = new System.Drawing.Size(1153, 558);
             this.addnews1.TabIndex = 41;
             // 
+            // button6
+            // 
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.ForeColor = System.Drawing.Color.White;
+            this.button6.Image = global::TGPSI18H_2218147_AfonsoSalvador_M16.Properties.Resources.logout;
+            this.button6.Location = new System.Drawing.Point(12, 466);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(154, 67);
+            this.button6.TabIndex = 9;
+            this.button6.Text = "Sair";
+            this.button6.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.Button6_Click);
+            // 
             // admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -277,5 +296,6 @@
         private GestaoVol gestaoVol1;
         private GestaoNews gestaoNews2;
         private UtilizadoresGridView utilizadoresGridView2;
+        private System.Windows.Forms.Button button6;
     }
 }

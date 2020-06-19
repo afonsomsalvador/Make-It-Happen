@@ -34,6 +34,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pais_Click1 = new TGPSI18H_2218147_AfonsoSalvador_M16.Pais_Click();
             this.button2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -41,7 +42,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pais_Click1 = new TGPSI18H_2218147_AfonsoSalvador_M16.Pais_Click();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -110,6 +110,16 @@
             this.panel2.Size = new System.Drawing.Size(1048, 171);
             this.panel2.TabIndex = 39;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel2_Paint);
+            // 
+            // pais_Click1
+            // 
+            this.pais_Click1.AutoScroll = true;
+            this.pais_Click1.Location = new System.Drawing.Point(-55, -223);
+            this.pais_Click1.Name = "pais_Click1";
+            this.pais_Click1.Size = new System.Drawing.Size(1085, 524);
+            this.pais_Click1.TabIndex = 41;
+            this.pais_Click1.texto = "";
+            this.pais_Click1.Load += new System.EventHandler(this.Pais_Click1_Load_1);
             // 
             // button2
             // 
@@ -192,15 +202,6 @@
             this.pictureBox3.TabIndex = 1;
             this.pictureBox3.TabStop = false;
             // 
-            // pais_Click1
-            // 
-            this.pais_Click1.AutoScroll = true;
-            this.pais_Click1.Location = new System.Drawing.Point(-55, -223);
-            this.pais_Click1.Name = "pais_Click1";
-            this.pais_Click1.Size = new System.Drawing.Size(1085, 524);
-            this.pais_Click1.TabIndex = 41;
-            this.pais_Click1.texto = "";
-            // 
             // Categoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -210,7 +211,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "Categoria";
-            this.Size = new System.Drawing.Size(1068, 507);
+            this.Size = new System.Drawing.Size(1051, 490);
             this.Load += new System.EventHandler(this.Categoria_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

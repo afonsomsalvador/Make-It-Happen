@@ -15,130 +15,192 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 {
     public partial class addvoluntariado : UserControl
     {
-        MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=psi18_afonsosalvador");
-
+        private static string _connection = "datasource=localhost;port=3306;username=root;password=;database=psi18_afonsosalvador";
+        private static MySqlConnection conn = new MySqlConnection(_connection);
+        public void connect()
+        {
+            try
+            {
+                if (conn.State == ConnectionState.Open)
+                    conn.Open();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Não foi possivel ligar à base de dados. Erro: " + ex);
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Aconteceu um erro não identificado. Erro: " + erro);
+            }
+        }
         private bool loadedImage = false;
         void combobox()
         {
-            string Query = ("SELECT * FROM categorias ORDER BY nome ASC;"); /*.. where p.idPais = l.Pais_idPais and p.nome = p.idPais*/
-
-            using (MySqlCommand mysqlcommand = new MySqlCommand(Query, conn))
+            try
             {
-                MySqlDataReader myReader;
-                try
-                {
-                    conn.Open();
-                    myReader = mysqlcommand.ExecuteReader();
+                string Query = ("SELECT * FROM categorias ORDER BY nome ASC;"); /*.. where p.idPais = l.Pais_idPais and p.nome = p.idPais*/
 
-                    DataTable dt = new DataTable();
-                    dt.Load(myReader); // Carrega os dados para o DataTable 
-                                       // Define qual coluna será manipulada via código
-                    cmb_categoria.DisplayMember = "nome";
-                    // Define a fonte de dados
-                    cmb_categoria.ValueMember = "id_Categoria";
-                    cmb_categoria.DataSource = dt;
-                }
-                catch (Exception erro)
+                using (MySqlCommand mysqlcommand = new MySqlCommand(Query, conn))
                 {
-                    MessageBox.Show("Erro:" + erro.Message);
-                }
-                finally
-                {
-                    conn.Close();// Fecha a conexão com o BD
-                }
+                    MySqlDataReader myReader;
+                    try
+                    {
+                        conn.Open();
+                        myReader = mysqlcommand.ExecuteReader();
 
+                        DataTable dt = new DataTable();
+                        dt.Load(myReader); // Carrega os dados para o DataTable 
+                                           // Define qual coluna será manipulada via código
+                        cmb_categoria.DisplayMember = "nome";
+                        // Define a fonte de dados
+                        cmb_categoria.ValueMember = "id_Categoria";
+                        cmb_categoria.DataSource = dt;
+                    }
+                    catch (Exception erro)
+                    {
+                        MessageBox.Show("Erro:" + erro.Message);
+                    }
+                    finally
+                    {
+                        conn.Close();// Fecha a conexão com o BD
+                    }
+
+                }
             }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Erro ao executar operação na base de dados. Erro: " + ex);
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Aconteceu um erro não identificado. Erro: " + erro);
+            }
+            
         }
         void combobox1()
         {
-            string Query = ("SELECT * FROM organizacao ORDER BY nome ASC;"); /*.. where p.idPais = l.Pais_idPais and p.nome = p.idPais*/
 
-            using (MySqlCommand mysqlcommand = new MySqlCommand(Query, conn))
+            try
             {
-                MySqlDataReader myReader;
-                try
-                {
-                    conn.Open();
-                    myReader = mysqlcommand.ExecuteReader();
-                    DataTable dt = new DataTable();
-                    dt.Load(myReader); // Carrega os dados para o DataTable 
-                                       // Define qual coluna será manipulada via código
-                    cmb_organizacao.DisplayMember = "nome";
-                    // Define a fonte de dados
-                    cmb_organizacao.ValueMember = "idOrganizacao";
-                    cmb_organizacao.DataSource = dt;
-                }
-                catch (Exception erro)
-                {
-                    MessageBox.Show("Erro:" + erro.Message);
-                }
-                finally
-                {
-                    conn.Close();// Fecha a conexão com o BD
-                }
+                string Query = ("SELECT * FROM organizacao ORDER BY nome ASC;"); /*.. where p.idPais = l.Pais_idPais and p.nome = p.idPais*/
 
+                using (MySqlCommand mysqlcommand = new MySqlCommand(Query, conn))
+                {
+                    MySqlDataReader myReader;
+                    try
+                    {
+                        conn.Open();
+                        myReader = mysqlcommand.ExecuteReader();
+                        DataTable dt = new DataTable();
+                        dt.Load(myReader); // Carrega os dados para o DataTable 
+                                           // Define qual coluna será manipulada via código
+                        cmb_organizacao.DisplayMember = "nome";
+                        // Define a fonte de dados
+                        cmb_organizacao.ValueMember = "idOrganizacao";
+                        cmb_organizacao.DataSource = dt;
+                    }
+                    catch (Exception erro)
+                    {
+                        MessageBox.Show("Erro:" + erro.Message);
+                    }
+                    finally
+                    {
+                        conn.Close();// Fecha a conexão com o BD
+                    }
+
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Erro ao executar operação na base de dados. Erro: " + ex);
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Aconteceu um erro não identificado. Erro: " + erro);
             }
         }
         void combobox2()
         {
-            string Query = ("SELECT idExperiencia, tipo_experiencia FROM experiencia ORDER BY tipo_experiencia ASC;"); /*.. where p.idPais = l.Pais_idPais and p.nome = p.idPais*/
-
-            using (MySqlCommand mysqlcommand = new MySqlCommand(Query, conn))
+            try
             {
-                MySqlDataReader myReader;
-                try
-                {
-                    conn.Open();
-                    myReader = mysqlcommand.ExecuteReader();
-                    DataTable dt = new DataTable();
-                    dt.Load(myReader); // Carrega os dados para o DataTable 
-                                       // Define qual coluna será manipulada via código
-                    cmb_Experiencia.DisplayMember = "tipo_experiencia";
-                    // Define a fonte de dados
-                    cmb_Experiencia.ValueMember = "idExperiencia";
-                    cmb_Experiencia.DataSource = dt;
-                }
-                catch (Exception erro)
-                {
-                    MessageBox.Show("Erro:" + erro.Message);
-                }
-                finally
-                {
-                    conn.Close();// Fecha a conexão com o BD
-                }
+                string Query = ("SELECT idExperiencia, tipo_experiencia FROM experiencia ORDER BY tipo_experiencia ASC;"); /*.. where p.idPais = l.Pais_idPais and p.nome = p.idPais*/
 
+                using (MySqlCommand mysqlcommand = new MySqlCommand(Query, conn))
+                {
+                    MySqlDataReader myReader;
+                    try
+                    {
+                        conn.Open();
+                        myReader = mysqlcommand.ExecuteReader();
+                        DataTable dt = new DataTable();
+                        dt.Load(myReader); // Carrega os dados para o DataTable 
+                                           // Define qual coluna será manipulada via código
+                        cmb_Experiencia.DisplayMember = "tipo_experiencia";
+                        // Define a fonte de dados
+                        cmb_Experiencia.ValueMember = "idExperiencia";
+                        cmb_Experiencia.DataSource = dt;
+                    }
+                    catch (Exception erro)
+                    {
+                        MessageBox.Show("Erro:" + erro.Message);
+                    }
+                    finally
+                    {
+                        conn.Close();// Fecha a conexão com o BD
+                    }
+
+                }
             }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Erro ao executar operação na base de dados. Erro: " + ex);
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Aconteceu um erro não identificado. Erro: " + erro);
+            }
+           
         }
         void combobox3()
         {
-            string Query = ("SELECT * FROM pais ORDER BY nome ASC;"); /*.. where p.idPais = l.Pais_idPais and p.nome = p.idPais*/
-
-            using (MySqlCommand mysqlcommand = new MySqlCommand(Query, conn))
+            try
             {
-                MySqlDataReader myReader;
-                try
-                {
+                string Query = ("SELECT * FROM pais ORDER BY nome ASC;"); /*.. where p.idPais = l.Pais_idPais and p.nome = p.idPais*/
 
-                    conn.Open();
-                    myReader = mysqlcommand.ExecuteReader();
-
-                    DataTable dt = new DataTable();
-                    dt.Load(myReader); // Carrega os dados para o DataTable 
-                                       // Define qual coluna será manipulada via código
-                    cmb_pais.DisplayMember = "nome";
-                    // Define a fonte de dados
-                    cmb_pais.ValueMember = "idPais";
-                    cmb_pais.DataSource = dt;
-                }
-                catch (Exception erro)
+                using (MySqlCommand mysqlcommand = new MySqlCommand(Query, conn))
                 {
-                    MessageBox.Show("Erro:" + erro.Message);
-                }
-                finally
-                {
-                    conn.Close();// Fecha a conexão com o BD
-                }
+                    MySqlDataReader myReader;
+                    try
+                    {
 
+                        conn.Open();
+                        myReader = mysqlcommand.ExecuteReader();
+
+                        DataTable dt = new DataTable();
+                        dt.Load(myReader); // Carrega os dados para o DataTable 
+                                           // Define qual coluna será manipulada via código
+                        cmb_pais.DisplayMember = "nome";
+                        // Define a fonte de dados
+                        cmb_pais.ValueMember = "idPais";
+                        cmb_pais.DataSource = dt;
+                    }
+                    catch (Exception erro)
+                    {
+                        MessageBox.Show("Erro:" + erro.Message);
+                    }
+                    finally
+                    {
+                        conn.Close();// Fecha a conexão com o BD
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Erro ao executar operação na base de dados. Erro: " + ex);
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Aconteceu um erro não identificado. Erro: " + erro);
             }
         }
         void eliminar()
@@ -168,49 +230,60 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         }
             void add()
             {
-           
-            string FileName = $"{Guid.NewGuid().ToString()}.jpg";
-
-            //MemoryStream ms = new MemoryStream();
-            bunifuImageButton1.Image.Save($"{ConfigurationManager.AppSettings["filesBasePath"]}{FileName}", System.Drawing.Imaging.ImageFormat.Jpeg);
-            //byte[] arrImage = ms.GetBuffer();
-
-            string sql = "INSERT INTO voluntariado(nome, descricao, imagem, Categorias_id_Categoria, Organizacao_idOrganizacao, Experiencia_idExperiencia, data, duracao, alojamento, alimentacao, transfers, seguro, acompanhamento, adicional, localidade, Idade, Lingua, escolaridade, Pais_idPais) VALUES(@param1, @param2, @param3, @param4, @param5, @param6, @param7, @param8, @param9, @param10, @param11, @param12, @param13, @param14, @param15, @param16, @param17, @param18, @param19)";
-            using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+            try
             {
-                conn.Open();
-                cmd.Parameters.AddWithValue("@param1", textBox1.Text);
-                cmd.Parameters.AddWithValue("@param2", textBox2.Text);
-                cmd.Parameters.AddWithValue("@param3", FileName);
-                cmd.Parameters.AddWithValue("@param4", cmb_categoria.SelectedValue);
-                cmd.Parameters.AddWithValue("@param5", cmb_organizacao.SelectedValue);
-                cmd.Parameters.AddWithValue("@param6", cmb_Experiencia.SelectedValue);
-                cmd.Parameters.AddWithValue("@param7", dateTimePicker1.Value.ToString("yyyy-MM-dd"));
-                cmd.Parameters.AddWithValue("@param8", textBox3.Text);
-                cmd.Parameters.AddWithValue("@param9", textBox4.Text);
-                cmd.Parameters.AddWithValue("@param10", textBox6.Text);
-                cmd.Parameters.AddWithValue("@param11", textBox7.Text);
-                cmd.Parameters.AddWithValue("@param12", textBox8.Text);
-                cmd.Parameters.AddWithValue("@param13", textBox9.Text);
-                cmd.Parameters.AddWithValue("@param14", textBox10.Text);
-                cmd.Parameters.AddWithValue("@param15", textBox5.Text);
-                cmd.Parameters.AddWithValue("@param16", textBox12.Text);
-                cmd.Parameters.AddWithValue("@param17", textBox13.Text);
-                cmd.Parameters.AddWithValue("@param18", textBox14.Text);
-                cmd.Parameters.AddWithValue("@param19", cmb_pais.SelectedValue);
-                cmd.ExecuteNonQuery();
-                conn.Close();
-                pictureBox3.Show();
-                label42.Show();
-                pictureBox5.Hide();
-                label43.Hide();
+                string FileName = $"{Guid.NewGuid().ToString()}.jpg";
+
+                //MemoryStream ms = new MemoryStream();
+                bunifuImageButton1.Image.Save($"{ConfigurationManager.AppSettings["filesBasePath"]}{FileName}", System.Drawing.Imaging.ImageFormat.Jpeg);
+                //byte[] arrImage = ms.GetBuffer();
+
+                string sql = "INSERT INTO voluntariado(nome, descricao, imagem, Categorias_id_Categoria, Organizacao_idOrganizacao, Experiencia_idExperiencia, data, duracao, alojamento, alimentacao, transfers, seguro, acompanhamento, adicional, localidade, Idade, Lingua, escolaridade, Pais_idPais) VALUES(@param1, @param2, @param3, @param4, @param5, @param6, @param7, @param8, @param9, @param10, @param11, @param12, @param13, @param14, @param15, @param16, @param17, @param18, @param19)";
+                using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                {
+                    conn.Open();
+                    cmd.Parameters.AddWithValue("@param1", textBox1.Text);
+                    cmd.Parameters.AddWithValue("@param2", textBox2.Text);
+                    cmd.Parameters.AddWithValue("@param3", FileName);
+                    cmd.Parameters.AddWithValue("@param4", cmb_categoria.SelectedValue);
+                    cmd.Parameters.AddWithValue("@param5", cmb_organizacao.SelectedValue);
+                    cmd.Parameters.AddWithValue("@param6", cmb_Experiencia.SelectedValue);
+                    cmd.Parameters.AddWithValue("@param7", dateTimePicker1.Value.ToString("yyyy-MM-dd"));
+                    cmd.Parameters.AddWithValue("@param8", textBox3.Text);
+                    cmd.Parameters.AddWithValue("@param9", textBox4.Text);
+                    cmd.Parameters.AddWithValue("@param10", textBox6.Text);
+                    cmd.Parameters.AddWithValue("@param11", textBox7.Text);
+                    cmd.Parameters.AddWithValue("@param12", textBox8.Text);
+                    cmd.Parameters.AddWithValue("@param13", textBox9.Text);
+                    cmd.Parameters.AddWithValue("@param14", textBox10.Text);
+                    cmd.Parameters.AddWithValue("@param15", textBox5.Text);
+                    cmd.Parameters.AddWithValue("@param16", textBox12.Text);
+                    cmd.Parameters.AddWithValue("@param17", textBox13.Text);
+                    cmd.Parameters.AddWithValue("@param18", textBox14.Text);
+                    cmd.Parameters.AddWithValue("@param19", cmb_pais.SelectedValue);
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    pictureBox3.Show();
+                    label42.Show();
+                    pictureBox5.Hide();
+                    label43.Hide();
+                }
             }
-            
-         
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Erro ao executar operação na base de dados. Erro: " + ex);
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Aconteceu um erro não identificado. Erro: " + erro);
+            }
+
+     
         }
         public addvoluntariado()
         {
             InitializeComponent();
+            connect();
             pictureBox3.Hide();
             label42.Hide();
             pictureBox5.Hide();
@@ -296,6 +369,16 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         }
 
         private void Cmb_nacionalidade_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TextBox14_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label21_Click(object sender, EventArgs e)
         {
 
         }
