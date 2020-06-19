@@ -382,6 +382,7 @@
             this.pictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox15.TabIndex = 66;
             this.pictureBox15.TabStop = false;
+            this.pictureBox15.Click += new System.EventHandler(this.PictureBox15_Click);
             // 
             // cmb_nacionalidade
             // 

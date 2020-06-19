@@ -16,24 +16,8 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 {
     public partial class Register_Page : Form
     {
-        private static string _connection = "datasource=localhost;port=3306;username=root;password=;database=psi18_afonsosalvador";
-        private static MySqlConnection conn = new MySqlConnection(_connection);
-        public void connect()
-        {
-            try
-            {
-                if (conn.State == ConnectionState.Open)
-                    conn.Open();
-            }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show("Não foi possivel ligar à base de dados. Erro: " + ex);
-            }
-            catch (Exception erro)
-            {
-                MessageBox.Show("Aconteceu um erro não identificado. Erro: " + erro);
-            }
-        }
+
+        MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=psi18_afonsosalvador");
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -94,7 +78,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         public Register_Page()
         {
             InitializeComponent();
-            connect();
             txt_password.UseSystemPasswordChar = false;
             txt_conpass.UseSystemPasswordChar = false;
             pictureBox16.Hide();
@@ -322,6 +305,11 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         }
 
         private void Register_Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PictureBox15_Click(object sender, EventArgs e)
         {
 
         }

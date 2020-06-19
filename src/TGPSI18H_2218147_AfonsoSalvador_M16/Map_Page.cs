@@ -36,7 +36,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             SidePanel.Height = button1.Height;
             SidePanel.Top = button1.Top;
             voluntariadO_CLICK1.Hide();
-            panels1.Hide();
             categoria1.ButtonClick1 += VidaMarinha;
             categoria1.ButtonClick2 += Ensino;
             categoria1.ButtonClick3 += VidaTerrestre;
