@@ -103,6 +103,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1048, 171);
             this.panel2.TabIndex = 2;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel2_Paint);
             // 
             // button2
             // 
@@ -144,6 +145,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.ForeColor = System.Drawing.Color.Black;
             this.Name = "Organizacao";
             this.Size = new System.Drawing.Size(1153, 558);
             this.Load += new System.EventHandler(this.Organizacao_Load);
