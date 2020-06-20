@@ -68,6 +68,11 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                             sqlBase += " o.idOrganizacao = @orgID order by c.nome ";
                             break;
                         }
+                    case 2:
+                        {
+                            sqlBase += " o.idOrganizacao = @orgID order by c.nome ";
+                            break;
+                        }
                     default:
                         {
 
@@ -101,12 +106,22 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                 }
                 switch (paisId)
                 {
-                    case 3:
+                    case 6:
                         {
                             sqlBase += " p.idPais = @paisID order by c.nome ";
                             break;
                         }
-                    case 5:
+                    case 7:
+                        {
+                            sqlBase += " p.idPais = @paisID order by c.nome ";
+                            break;
+                        }
+                    case 8:
+                        {
+                            sqlBase += " p.idPais = @paisID order by c.nome ";
+                            break;
+                        }
+                    case 12:
                         {
                             sqlBase += " p.idPais = @paisID order by c.nome ";
                             break;

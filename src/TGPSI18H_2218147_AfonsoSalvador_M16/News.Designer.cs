@@ -46,10 +46,10 @@
             // titulopnl
             // 
             this.titulopnl.AutoSize = true;
-            this.titulopnl.Font = new System.Drawing.Font("LCD5x8H", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titulopnl.Font = new System.Drawing.Font("Lucida Console", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titulopnl.Location = new System.Drawing.Point(344, 28);
             this.titulopnl.Name = "titulopnl";
-            this.titulopnl.Size = new System.Drawing.Size(0, 22);
+            this.titulopnl.Size = new System.Drawing.Size(0, 27);
             this.titulopnl.TabIndex = 1;
             // 
             // groupBox1

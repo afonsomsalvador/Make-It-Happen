@@ -284,7 +284,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1319, 586);
             this.Controls.Add(this.pais_Click2);
             this.Controls.Add(this.voluntariadO_CLICK1);
@@ -298,7 +298,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Map_Page";
             this.Text = "Make It Happen";
-            this.TransparencyKey = System.Drawing.Color.Black;
+            this.TransparencyKey = System.Drawing.Color.Transparent;
             this.Load += new System.EventHandler(this.Map_Page_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

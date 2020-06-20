@@ -34,7 +34,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pais_Click1 = new TGPSI18H_2218147_AfonsoSalvador_M16.Pais_Click();
             this.button2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -42,6 +41,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pais_Click1 = new TGPSI18H_2218147_AfonsoSalvador_M16.Pais_Click();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -80,11 +80,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("LCD5x8H", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Lucida Console", 20.25F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.label1.Location = new System.Drawing.Point(300, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 25);
+            this.label1.Size = new System.Drawing.Size(0, 27);
             this.label1.TabIndex = 2;
             // 
             // pictureBox1
@@ -111,16 +111,6 @@
             this.panel2.TabIndex = 39;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel2_Paint);
             // 
-            // pais_Click1
-            // 
-            this.pais_Click1.AutoScroll = true;
-            this.pais_Click1.Location = new System.Drawing.Point(-55, -223);
-            this.pais_Click1.Name = "pais_Click1";
-            this.pais_Click1.Size = new System.Drawing.Size(1085, 524);
-            this.pais_Click1.TabIndex = 41;
-            this.pais_Click1.texto = "";
-            this.pais_Click1.Load += new System.EventHandler(this.Pais_Click1_Load_1);
-            // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.Transparent;
@@ -138,11 +128,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("LCD5x8H", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Lucida Console", 20.25F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.label2.Location = new System.Drawing.Point(300, 22);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 25);
+            this.label2.Size = new System.Drawing.Size(0, 27);
             this.label2.TabIndex = 2;
             // 
             // pictureBox2
@@ -185,11 +175,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("LCD5x8H", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Lucida Console", 20.25F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.label3.Location = new System.Drawing.Point(300, 22);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 25);
+            this.label3.Size = new System.Drawing.Size(0, 27);
             this.label3.TabIndex = 2;
             // 
             // pictureBox3
@@ -202,6 +192,16 @@
             this.pictureBox3.TabIndex = 1;
             this.pictureBox3.TabStop = false;
             // 
+            // pais_Click1
+            // 
+            this.pais_Click1.AutoScroll = true;
+            this.pais_Click1.Location = new System.Drawing.Point(-55, -223);
+            this.pais_Click1.Name = "pais_Click1";
+            this.pais_Click1.Size = new System.Drawing.Size(1085, 524);
+            this.pais_Click1.TabIndex = 41;
+            this.pais_Click1.texto = "";
+            this.pais_Click1.Load += new System.EventHandler(this.Pais_Click1_Load_1);
+            // 
             // Categoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -211,7 +211,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "Categoria";
-            this.Size = new System.Drawing.Size(1051, 490);
+            this.Size = new System.Drawing.Size(1017, 456);
             this.Load += new System.EventHandler(this.Categoria_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

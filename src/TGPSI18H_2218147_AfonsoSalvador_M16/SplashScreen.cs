@@ -63,6 +63,14 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                 _Progress = _Progress + 5;
                 label3.Text = _Progress.ToString() + "%";
                 while(_Progress == 100)
+
+
+
+
+
+
+
+
                 {
                     this.Hide();
                     Map_Page mp = new Map_Page();

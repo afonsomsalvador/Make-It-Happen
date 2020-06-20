@@ -60,20 +60,20 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("LCD5x8H", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Lucida Console", 24F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(528, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(243, 30);
+            this.label1.Size = new System.Drawing.Size(215, 32);
             this.label1.TabIndex = 4;
             this.label1.Text = "Volunteer ";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("LCD5x8H", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Lucida Console", 24F, System.Drawing.FontStyle.Bold);
             this.label3.Location = new System.Drawing.Point(575, 44);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(105, 30);
+            this.label3.Size = new System.Drawing.Size(95, 32);
             this.label3.TabIndex = 6;
             this.label3.Text = "News";
             // 

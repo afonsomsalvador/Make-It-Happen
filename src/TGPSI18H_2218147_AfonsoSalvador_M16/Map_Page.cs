@@ -39,7 +39,15 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             categoria1.ButtonClick1 += VidaMarinha;
             categoria1.ButtonClick2 += Ensino;
             categoria1.ButtonClick3 += VidaTerrestre;
-            organizacao1.ButtonClick1 += GlobalVolunteers; 
+            organizacao1.ButtonClick1 += GlobalVolunteers;
+            organizacao1.ButtonClick2 += Volunteering;
+        }
+        private void Volunteering(object sender, EventArgs e)
+        {
+            pais_Click2.texto = "Projecto de voluntariado da Volunteering Solutions";
+            pais_Click2.populateItems(categoriaId: -1, organizacaoId: 2, paisId: -1);
+            pais_Click2.BringToFront();
+            pais_Click2.Visible = true;
         }
         private void GlobalVolunteers(object sender, EventArgs e)
         {
@@ -136,7 +144,12 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         {
             LiveCharts.WinForms.GeoMap geomap = new LiveCharts.WinForms.GeoMap();
             Dictionary<string, double> d = new Dictionary<string, double>();
+            var r = new Random();
             geomap.HeatMap = d;
+            d["ZA"] = r.Next(0,100);
+            d["TH"] = r.Next(0, 100);
+            d["NP"] = r.Next(0, 100);
+            d["VN"] = r.Next(0, 100);
             geomap.Source = $"{Application.StartupPath}\\World.xml";
             this.Controls.Add(geomap);
             geomap.Dock = DockStyle.Fill;
@@ -151,28 +164,45 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         {
 
             Console.WriteLine(arg2.Id);
-           
-            if (arg2.Id == ("PT"))
+
+            if (arg2.Id == ("TH"))
             {
-                pais_Click2.populateItems(categoriaId: -1, organizacaoId: -1, paisId: 5);
+                pais_Click2.populateItems(categoriaId: -1, organizacaoId: -1, paisId: 6);
                 pais_Click2.Show();
                 pais_Click2.BringToFront();
-                pais_Click2.texto = "Projecto de voluntariado de Portugal";
+                pais_Click2.texto = "Projetos de voluntariado da Tailândia";
+
             }
-           
-            if (arg2.Id == ("ES"))
+            if (arg2.Id == ("NP"))
             {
-                pais_Click2.populateItems(categoriaId: -1, organizacaoId: -1, paisId: 3);
+                pais_Click2.populateItems(categoriaId: -1, organizacaoId: -1, paisId: 8);
                 pais_Click2.Show();
                 pais_Click2.BringToFront();
-                pais_Click2.texto = "Projecto de voluntariado de Espanha";
-               
+                pais_Click2.texto = "Projetos de voluntariado do Nepal";
+
+            }
+            if (arg2.Id == ("VN"))
+            {
+                pais_Click2.populateItems(categoriaId: -1, organizacaoId: -1, paisId: 7);
+                pais_Click2.Show();
+                pais_Click2.BringToFront();
+                pais_Click2.texto = "Projetos de voluntariado do Vietname";
+
+            }
+            if (arg2.Id == ("ZA"))
+            {
+                pais_Click2.populateItems(categoriaId: -1, organizacaoId: -1, paisId: 12);
+                pais_Click2.Show();
+                pais_Click2.BringToFront();
+                pais_Click2.texto = "Projetos de voluntariado da África do Sul";
+
             }
         }
+        
 
         private void PictureBox4_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
 
         private void PictureBox1_Click(object sender, EventArgs e)

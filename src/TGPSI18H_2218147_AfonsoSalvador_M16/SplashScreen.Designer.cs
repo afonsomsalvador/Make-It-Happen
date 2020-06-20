@@ -44,23 +44,23 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("LCD5x8H", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Lucida Console", 36F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.label1.Location = new System.Drawing.Point(121, 144);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(335, 44);
+            this.label1.Size = new System.Drawing.Size(290, 48);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Bem-Vindo";
+            this.label1.Text = "Bem-vindo";
             this.label1.Click += new System.EventHandler(this.Label1_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("LCD5x8H", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Lucida Console", 36F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.label2.Location = new System.Drawing.Point(121, 238);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 44);
+            this.label2.Size = new System.Drawing.Size(0, 48);
             this.label2.TabIndex = 3;
             this.label2.Click += new System.EventHandler(this.Label2_Click);
             // 
