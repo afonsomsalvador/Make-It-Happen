@@ -202,7 +202,7 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 
         private void PictureBox4_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void PictureBox1_Click(object sender, EventArgs e)
