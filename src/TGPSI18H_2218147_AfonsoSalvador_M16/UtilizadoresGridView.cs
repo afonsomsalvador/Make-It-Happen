@@ -159,15 +159,25 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         {
             try
             {
-                string deleteQuery = "DELETE FROM login WHERE id_user = " + int.Parse(textBox1.Text);
-                executeMyQuery(deleteQuery);
-                populateDGV();
-                textBox4.Text = "";
-                textBox2.Text = "";
-                textBox6.Text = "";
-                textBox3.Text = "";
-                textBox5.Text = "";
-                textBox1.Text = "";
+                string selected = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                int id = Convert.ToInt32(selected);
+                if (id == 23)
+                {
+                    MessageBox.Show("O admin nao pode ser apagado!");
+                }
+                else
+                {
+                    string deleteQuery = "DELETE FROM login WHERE id_user = " + int.Parse(textBox1.Text);
+                    executeMyQuery(deleteQuery);
+                    populateDGV();
+                    textBox4.Text = "";
+                    textBox2.Text = "";
+                    textBox6.Text = "";
+                    textBox3.Text = "";
+                    textBox5.Text = "";
+                    textBox1.Text = "";
+                }
+            
             }
             catch (MySqlException ex)
             {

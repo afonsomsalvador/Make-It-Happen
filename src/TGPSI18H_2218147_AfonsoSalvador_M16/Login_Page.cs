@@ -17,7 +17,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 {
     public partial class LoginForm : Form
     {
-
         MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=psi18_afonsosalvador");
 
         public string _current = "";
