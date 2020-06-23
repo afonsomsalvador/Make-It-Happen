@@ -35,13 +35,10 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
                 dt = cmd.ExecuteReader();
                 while (dt.Read())
                 {
-
                     News n = new News();
-
                     n.Nome = dt["Titulo"].ToString();
                     n.Descricao = dt["Corpo"].ToString();
                     n.image = $"{ConfigurationManager.AppSettings["filesBasePath"]}{ dt["Imagem"]}";
-                    //p.image = dt["imagem"];
 
                     flowLayoutPanel2.Controls.Add(n);
                 }
@@ -64,8 +61,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
             timer1.Interval = 150;
             timer1.Tick += Timer1_Tick;
             timer1.Start();
-      
-            
         }
 
         private void Timer1_Tick(object sender, EventArgs e)

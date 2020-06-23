@@ -102,7 +102,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
 
                             break;
                         }
-
                 }
                 switch (paisId)
                 {
