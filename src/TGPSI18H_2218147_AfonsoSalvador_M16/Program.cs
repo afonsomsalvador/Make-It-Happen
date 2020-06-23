@@ -16,8 +16,6 @@ namespace TGPSI18H_2218147_AfonsoSalvador_M16
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //criar floging
-            // fez login?
                Application.Run(new LoginForm());
         }
     }
