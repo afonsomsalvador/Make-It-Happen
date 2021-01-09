@@ -9,4 +9,6 @@ sobre os projetos de voluntariado por organização, categoria e/ou pais. Fornec
 também uma área de notícias credíveis e seguras relativas á aplicação e aos
 seus projetos de voluntariado, fazendo com que os utilizadores estejam sempre
 atualizados.
+
+
 ![background](https://user-images.githubusercontent.com/58223413/104092609-eec14d00-527c-11eb-89cb-ee99d7fa85ce.JPG)
