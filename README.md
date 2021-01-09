@@ -9,4 +9,3 @@ sobre os projetos de voluntariado por organização, categoria e/ou pais. Fornec
 também uma área de notícias credíveis e seguras relativas á aplicação e aos
 seus projetos de voluntariado, fazendo com que os utilizadores estejam sempre
 atualizados.
-![alt text](https://github.com/[afonsomac1]/[PSI18H_M16_2219147_AfonsoSalvador]/desktop.ini?raw=true)
