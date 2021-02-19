@@ -1,6 +1,6 @@
 # Make It Happen
 
-A aplicação desktop Make It Happen foi realizada no 2º ano do meu curso, que é relativa ao tema que é sobre o
+A aplicação desktop Make It Happen foi realizada no 2º ano do meu curso profissional, que é relativa ao tema que é sobre o
 voluntariado e insere-se nos objetivos de desenvolvimento sustentável das
 Nações Unidas (1. Erradicar a pobreza; 2. Erradicar a fome; 3. Saúde de
 qualidade; 4. Educação de qualidade; 14. Proteger a vida marinha; 15. Proteger
